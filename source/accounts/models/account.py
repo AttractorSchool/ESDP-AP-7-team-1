@@ -10,7 +10,7 @@ class Account(AbstractUser):
         upload_to='avatars',
         verbose_name='Аватар'
     )
-    phone_number = models.IntegerField(verbose_name='Номер телефона', max_length=20, blank=True)
+    phone_number = models.IntegerField(verbose_name='Номер телефона', blank=True)
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
