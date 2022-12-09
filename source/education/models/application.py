@@ -5,7 +5,8 @@ from education.models import Subject
 class Status(models.Model):
     '''возможные статусы заявок'''
     name = models.CharField(verbose_name='Название', max_length=15, unique=True)
-
+    is_deleted = models.BooleanField(default=False)
+    
     def __str__(self):
         return self.name
 
@@ -24,8 +25,9 @@ class Application(models.Model):
     statuses = models.ManyToManyField(
         to=Status,
         through='education.ApplicationStatus',
-        related_name='applications',
-    )
+        related_name='applications',)
+    is_deleted = models.BooleanField(default=False)    
+
 
     def __str__(self):
         return f'Заявка от: {self.applicant_name}'
