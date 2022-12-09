@@ -1,16 +1,17 @@
 from django.db import models
 from education.models import Subject
 
+
 class Status(models.Model):
     '''возможные статусы заявок'''
     name = models.CharField(verbose_name='Название', max_length=15, unique=True)
-    
+
     def __str__(self):
         return self.name
-    
-    class Meta():
+
+    class Meta:
         verbose_name = 'Доступный статус заявки'
-        verbose_name_plural = 'Доступные статусы заявок'   
+        verbose_name_plural = 'Доступные статусы заявок'
 
 
 class Application(models.Model):
@@ -24,15 +25,15 @@ class Application(models.Model):
         to=Status,
         through='education.ApplicationStatus',
         related_name='applications',
-        )
+    )
 
     def __str__(self):
         return f'Заявка от: {self.applicant_name}'
-    
+
     class Meta():
         verbose_name = 'Заявка'
         verbose_name_plural = 'Заявки'
-        
+
 
 class ApplicationStatus(models.Model):
     application = models.ForeignKey(to=Application, on_delete=models.CASCADE)
@@ -42,7 +43,7 @@ class ApplicationStatus(models.Model):
 
     def __str__(self):
         return f'{self.application} - {self.status}'
-    
-    class Meta():
+
+    class Meta:
         verbose_name = 'Установленный статус заявки'
         verbose_name_plural = 'Установленные статусы заявок'
