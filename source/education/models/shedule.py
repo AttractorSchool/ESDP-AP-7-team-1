@@ -19,6 +19,8 @@ class Shedule(models.Model):
         choices=CATEGORY_CHOICES
         )
     time_start = models.TimeField(verbose_name='Время начала занятия')
+    is_deleted = models.BooleanField(default=False)
+
     
     def __str__(self):
         return f'{self.group} - {self.week_day}'
