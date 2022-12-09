@@ -1,7 +1,6 @@
 from django.db import models
 from education.models import Group
 
-
 CATEGORY_CHOICES = [
     ('monday', 'Дүйсенбі'),
     ('tuesday', 'Сейсенбі'),
@@ -9,22 +8,22 @@ CATEGORY_CHOICES = [
     ('thursday', 'Бейсенбі'),
     ('friday', 'Жұма'),
     ('saturday', 'Сенбі'),
-    ]
+]
 
-class Shedule(models.Model):
-    group = models.ForeignKey(to=Group, related_name='shedules', on_delete=models.CASCADE)
+
+class Schedule(models.Model):
+    group = models.ForeignKey(to=Group, related_name='schedules', on_delete=models.CASCADE)
     week_day = models.CharField(
-        verbose_name='День недели', 
+        verbose_name='День недели',
         max_length=15,
         choices=CATEGORY_CHOICES
-        )
+    )
     time_start = models.TimeField(verbose_name='Время начала занятия')
     is_deleted = models.BooleanField(default=False)
 
-    
     def __str__(self):
         return f'{self.group} - {self.week_day}'
 
-    class Meta():
+    class Meta:
         verbose_name = 'Расписание'
         verbose_name_plural = 'Расписания'
