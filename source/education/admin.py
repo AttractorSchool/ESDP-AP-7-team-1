@@ -1,7 +1,7 @@
 from django.contrib import admin
 from education.models import Subject
 from education.models import ApplicationStatus, Status, Application
-from education.models import Group, StudentGroup
+from education.models import Group, StudentGroup, Shedule
 
 '''Декоратор регистрирует в админ панели модель'''
 @admin.register(Subject)
@@ -29,5 +29,10 @@ class GroupAdmin(admin.ModelAdmin):
 @admin.register(StudentGroup)
 class StudentGroupAdmin(admin.ModelAdmin):
     list_display = [field.name for field in StudentGroup._meta.fields]
+
+    
+@admin.register(Shedule)
+class SheduleAdmin(admin.ModelAdmin):
+    list_display = [field.name for field in Shedule._meta.fields]
 
 
