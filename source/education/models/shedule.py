@@ -1,5 +1,5 @@
 from django.db import models
-from education.models import Group
+from education.models import Class
 
 CATEGORY_CHOICES = [
     ('monday', 'Дүйсенбі'),
@@ -12,7 +12,7 @@ CATEGORY_CHOICES = [
 
 
 class Schedule(models.Model):
-    group = models.ForeignKey(to=Group, related_name='schedules', on_delete=models.CASCADE)
+    group = models.ForeignKey(to=Class, related_name='schedules', on_delete=models.CASCADE)
     week_day = models.CharField(
         verbose_name='День недели',
         max_length=15,

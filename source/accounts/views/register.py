@@ -1,5 +1,6 @@
 from django.contrib.auth import login
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.models import Group
 from django.shortcuts import redirect
 from django.views.generic import CreateView
 
@@ -14,8 +15,7 @@ class RegisterView(LoginRequiredMixin, CreateView):
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST)
         if form.is_valid():
-            user = form.save()
-            login(request, user)
+            form.save()
             return redirect('main')
         context = {}
         context['form'] = form

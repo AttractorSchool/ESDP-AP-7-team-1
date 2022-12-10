@@ -1,5 +1,6 @@
 from django import forms
 from django.contrib.auth import get_user_model
+from django.contrib.auth.models import Group
 from django.core.exceptions import ValidationError
 
 from accounts.models import Account
@@ -14,6 +15,8 @@ class AccountCreationForm(forms.ModelForm):
     first_name = forms.CharField(required=True, label='Имя')
     last_name = forms.CharField(required=True, label='Фамилия')
     phone_number = PhoneNumberField(region='KZ')
+    user_group = forms.ModelChoiceField(label='К какой группе относится пользователь?', queryset=Group.objects.all(),
+                                        required=True, widget=forms.Select(attrs={'class': 'form-control'}))
 
     class Meta:
         model = get_user_model()
@@ -33,7 +36,7 @@ class AccountCreationForm(forms.ModelForm):
     def save(self, commit=True):
         user = super().save(commit=False)
         user.set_password(self.cleaned_data.get('password'))
-
         if commit:
             user.save()
+            user.groups.add(self.cleaned_data.get('user_group'))
         return user

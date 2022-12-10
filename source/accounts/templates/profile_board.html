@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 {% load static %}
+{% load auth_extras %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,35 +10,12 @@
     <link rel="stylesheet" href="{% static 'main.css' %}"/>
 </head>
 <body>
-<nav class="navbar">
-    <div class="logo">
-        <img class="logo_img"
-             src="https://static.tildacdn.com/tild6361-3836-4239-b236-616132326661/25d594f2-f40e-45e9-9.png"></div>
-    <ul class="nav-links">
-        <input type="checkbox" class="burger_input" id="checkbox_toggle"/>
-        <label for="checkbox_toggle" class="hamburger">&#9776;</label>
-        <div class="menu">
-            <li><a href="/">Home</a></li>
-            <li><a href="/">About</a></li>
-            <li class="services">
-                <a href="/">Services</a>
-                <ul class="dropdown">
-                    <li><a href="/">Dropdown 1 </a></li>
-                    <li><a href="/">Dropdown 2</a></li>
-                    <li><a href="/">Dropdown 2</a></li>
-                    <li><a href="/">Dropdown 3</a></li>
-                    <li><a href="/">Dropdown 4</a></li>
-                </ul>
-            </li>
-            <li><a href="/">Pricing</a></li>
-            <li><a href="/">Contact</a></li>
-        </div>
-    </ul>
-</nav>
+{% include 'partial/navbar.html' %}
 <div class="container">
     <div class="row">
         <div class="col-sm-3">
             <ul class="nav nav-pills nav-flush mb-auto text-center row">
+                {% if user|has_group:"admin" %}
                 <li class="nav-item col-sm-7">
                     <a href="#" class="nav-link active py-3 border-bottom" aria-current="page" title=""
                        data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Home"> Заявки
@@ -49,6 +27,14 @@
                         Зарегистрировать пользователя
                     </a>
                 </li>
+                {% else %}
+                <li class="nav-item col-sm-7">
+                    <a href="{% url 'register' %}" class="nav-link active py-3 border-bottom" aria-current="page" title=""
+                       data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Home">
+                        Кнопка для теста
+                    </a>
+                </li>
+                {% endif %}
             </ul>
         </div>
         <div class="col-sm-7">

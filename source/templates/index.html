@@ -7,31 +7,7 @@
     <link rel="stylesheet" href="{% static 'main.css' %}"/>
 </head>
 <body>
-<nav class="navbar">
-    <div class="logo">
-        <img class="logo_img"
-             src="https://static.tildacdn.com/tild6361-3836-4239-b236-616132326661/25d594f2-f40e-45e9-9.png"></div>
-    <ul class="nav-links">
-        <input type="checkbox" class="burger_input" id="checkbox_toggle"/>
-        <label for="checkbox_toggle" class="hamburger">&#9776;</label>
-        <div class="menu">
-            <li><a href="/">Home</a></li>
-            <li><a href="/">About</a></li>
-            <li class="services">
-                <a href="/">Services</a>
-                <ul class="dropdown">
-                    <li><a href="/">Dropdown 1 </a></li>
-                    <li><a href="/">Dropdown 2</a></li>
-                    <li><a href="/">Dropdown 2</a></li>
-                    <li><a href="/">Dropdown 3</a></li>
-                    <li><a href="/">Dropdown 4</a></li>
-                </ul>
-            </li>
-            <li><a href="/">Pricing</a></li>
-            <li><a href="/">Contact</a></li>
-        </div>
-    </ul>
-</nav>
+{% include 'partial/navbar.html' %}
 <div class="bgImgCenter">
     <img src="https://thumb.tildacdn.com/tild3365-6639-4132-b930-326432653138/-/resize/727x/-/format/webp/_-1.png"
          alt=""/>
