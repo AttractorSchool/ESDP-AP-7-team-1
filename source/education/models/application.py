@@ -4,7 +4,7 @@ from education.models import Subject
 
 class Status(models.Model):
     '''возможные статусы заявок'''
-    name = models.CharField(verbose_name='Название', max_length=15, unique=True)
+    name = models.CharField(verbose_name='Название', max_length=30, unique=True)
     is_deleted = models.BooleanField(default=False)
 
     def __str__(self):
@@ -31,7 +31,7 @@ class Application(models.Model):
     def __str__(self):
         return f'Заявка от: {self.applicant_name}'
 
-    class Meta():
+    class Meta:
         verbose_name = 'Заявка'
         verbose_name_plural = 'Заявки'
 

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+{% load bootstrap5 %}
+<head>
+    <meta charset="UTF-8">
+    <title>Quantum Group</title>
+    <link rel="stylesheet" href="{% static 'main.css' %}"/>
+</head>
+<body>
+{% include 'partial/navbar.html' %}
+<div class="container">
+    <h2 class="application_form">Войти</h2>
+    <form action="{% url 'login' %}" method="post">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <input type="submit" value="Войти">
+    </form>
+</div>
+</body>
+</html>
