@@ -1,11 +1,14 @@
 from django.contrib.auth import login
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import redirect
 from django.views.generic import CreateView
 
+from accounts.forms.register_form import AccountCreationForm
 
-class RegisterView(CreateView):
+
+class RegisterView(LoginRequiredMixin, CreateView):
     template_name = 'register.html'
-    # form_class = AccountCreationForm
+    form_class = AccountCreationForm
     success_url = '/'
 
     def post(self, request, *args, **kwargs):
