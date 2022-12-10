@@ -2,6 +2,7 @@ from django.contrib.auth.models import AbstractUser
 from django.db import models
 
 from accounts.managers import AccountManager
+from phonenumber_field.modelfields import PhoneNumberField
 
 
 class Account(AbstractUser):
@@ -12,7 +13,11 @@ class Account(AbstractUser):
         upload_to='avatars',
         verbose_name='Аватар'
     )
-    phone_number = models.IntegerField(verbose_name='Номер телефона',null=True, blank=True)
+    phone_number = PhoneNumberField(
+        unique=True,
+        null=False,
+        blank=False
+    )
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []

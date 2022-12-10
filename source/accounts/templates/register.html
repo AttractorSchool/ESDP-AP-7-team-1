@@ -1,14 +1,10 @@
 {% extends "profile_board.html" %}
+{% load bootstrap5 %}
 {% block content %}
-    <h2 class="application_form">Оставьте Вашу заявку!</h2>
+    <h2 class="application_form">Зарегистрировать пользователя</h2>
     <form action="{% url 'register' %}" method="post">
         {% csrf_token %}
-        {% for field in form %}
-            <div class="fieldWrapper">
-                {{ field.errors }}
-                {{ field.label_tag }} {{ field }}
-            </div>
-        {% endfor %}
-        <input type="submit" value="Оставить заявку">
+        {% bootstrap_form form %}
+        <input type="submit" value="Зарегистрировать">
     </form>
 {% endblock %}
