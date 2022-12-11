@@ -5,11 +5,12 @@ from accounts.models import Account
 
 class Class(models.Model):
     name = models.CharField(verbose_name='Название группы', max_length=20, unique=True)
-    subject = models.ForeignKey(to=Subject, related_name='groups', on_delete=models.CASCADE)
+    subject = models.ForeignKey(to=Subject, related_name='classes', on_delete=models.CASCADE)
 
     students = models.ManyToManyField(
         to=Account,
         through='education.StudentGroup',
+        related_name='classes'
     )
     is_deleted = models.BooleanField(default=False)
 

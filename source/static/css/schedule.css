@@ -1,0 +1,23 @@
+.d_dlex{
+    display: flex;
+    font-weight: 400;
+    font-size: 15px;
+    color: #333;
+    width: 100%;
+    margin: 20px auto;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    text-align: center;
+    border-collapse: collapse;
+    border-spacing: 5px;
+    background: #E1E3E0;
+    border-radius: 20px;
+}
+
+.inline{
+    display: inline-flex;
+}
+
+.margin_bott{
+    margin-right: 18px;
+
+}
