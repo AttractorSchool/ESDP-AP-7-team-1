@@ -1,7 +1,13 @@
 from django.contrib import admin
 from education.models import Subject
-from education.models import ApplicationStatus, Status, Application
-from education.models import Class, StudentGroup, Schedule
+from education.models import (
+    ApplicationStatus,
+    Status,
+    Application,
+    Grouping,
+    StudentGrouping,
+    Schedule
+)
 
 '''Декоратор регистрирует в админ панели модель'''
 
@@ -27,14 +33,14 @@ class ApplicationAdmin(admin.ModelAdmin):
     list_display = [field.name for field in Application._meta.fields]
 
 
-@admin.register(Class)
-class GroupAdmin(admin.ModelAdmin):
-    list_display = [field.name for field in Class._meta.fields]
+@admin.register(Grouping)
+class GroupingAdmin(admin.ModelAdmin):
+    list_display = [field.name for field in Grouping._meta.fields]
 
 
-@admin.register(StudentGroup)
-class StudentGroupAdmin(admin.ModelAdmin):
-    list_display = [field.name for field in StudentGroup._meta.fields]
+@admin.register(StudentGrouping)
+class StudentGroupingAdmin(admin.ModelAdmin):
+    list_display = [field.name for field in StudentGrouping._meta.fields]
 
 
 @admin.register(Schedule)

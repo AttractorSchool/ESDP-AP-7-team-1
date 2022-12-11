@@ -5,4 +5,9 @@ venv
 .DS_Store
 media
 .env
-migrations
+
+/source/accounts/migrations/*
+!/source/accounts/migrations/__init__.py
+
+/source/education/migrations/*
+!/source/education/migrations/__init__.py
