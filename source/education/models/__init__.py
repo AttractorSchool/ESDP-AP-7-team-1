@@ -1,4 +1,4 @@
 from .subject import Subject
 from .application import Application, Status, ApplicationStatus
-from .student_group import Class, StudentGroup
+from .grouping import Grouping, StudentGrouping
 from .shedule import Schedule

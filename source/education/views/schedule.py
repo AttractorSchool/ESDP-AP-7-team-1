@@ -9,15 +9,14 @@ class ScheduleView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         user = self.request.user
-        classes = user.classes.all()
+        groupings = user.groupings.all()
         context['monday'] = []
         context['tuesday'] = []
         context['wednesday'] = []
         context['thursday'] = []
         context['friday'] = []
         context['saturday'] = []
-        for klass in classes:
-            for schedule in klass.schedules.all():
-                context[schedule.week_day].append((klass, schedule.time_start))
-        print(context)
+        for grouping in groupings:
+            for schedule in grouping.schedules.all():
+                context[schedule.week_day].append((grouping, schedule.time_start))
         return context
