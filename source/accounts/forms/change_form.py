@@ -5,7 +5,7 @@ class UserChangeForm(forms.ModelForm):
     class Meta:
         model = get_user_model()
         fields = [
-            'avatar'
+            'avatar',
             'email',
             'phone_number'
         ]

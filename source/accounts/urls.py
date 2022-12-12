@@ -6,7 +6,7 @@ from accounts.views.logout_view import logout_view
 from accounts.views.profile_view import ProfileView
 from accounts.views.student_register_view import StudentRegisterView
 from accounts.views.teacher_register_view import TeacherRegisterView
-from accounts.views.register import RegisterView
+# from accounts.views.register import RegisterView
 from accounts.views.delete_view import UserDeleteView
 from accounts.views.change_view import AccountChangeView
 from accounts.views.student_register_view import StudentRegisterView

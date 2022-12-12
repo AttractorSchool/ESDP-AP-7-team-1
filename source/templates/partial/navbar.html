@@ -8,6 +8,9 @@
         <div class="menu">
             <li><a href="{% url 'main' %}">Home</a></li>
             {% if user.is_authenticated %}
+            <li><a href="{% url  'schedule_student' %}">Расписание студента</a></li>
+            <li><a href="{% url  'schedule_groupings' %}">Расписание групп</a></li>
+
             <li><a href="{% url  'profile' user.pk %}">Мой профиль</a></li>
             <li><a href="{% url  'logout' %}">Выйти</a></li>
             {% else %}
