@@ -27,6 +27,18 @@
                         Зарегистрировать пользователя
                     </a>
                 </li>
+                <li class="nav-item col-sm-7">
+                    <a href="{% url 'delete' user_obj.pk  %}" class="nav-link active py-3 border-bottom" aria-current="page" title=""
+                       data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Home">
+                        Удалить пользователя
+                    </a>
+                </li>
+                <li class="nav-item col-sm-7">
+                    <a href="{% url 'account_change' user_obj.pk %}" class="nav-link active py-3 border-bottom" aria-current="page" title=""
+                       data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Home">
+                        Редактировать пользователя
+                    </a>
+                </li>
                 {% else %}
                 <li class="nav-item col-sm-7">
                     <a href="{% url 'register' %}" class="nav-link active py-3 border-bottom" aria-current="page" title=""
@@ -34,6 +46,7 @@
                         Кнопка для теста
                     </a>
                 </li>
+                
                 {% endif %}
             </ul>
         </div>
