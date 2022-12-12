@@ -1,13 +1,11 @@
 from django import forms
 from django.contrib.auth import get_user_model
-from django.contrib.auth.models import Group
 from django.core.exceptions import ValidationError
-
 from accounts.models import Account
 from phonenumber_field.formfields import PhoneNumberField
 
 
-class AccountCreationForm(forms.ModelForm):
+class SignUpForm(forms.ModelForm):
     password = forms.CharField(label='Пароль', strip=False, required=True, widget=forms.PasswordInput)
     password_confirm = forms.CharField(label='Подтвердите пароль', strip=False, required=True,
                                        widget=forms.PasswordInput)
@@ -15,8 +13,6 @@ class AccountCreationForm(forms.ModelForm):
     first_name = forms.CharField(required=True, label='Имя')
     last_name = forms.CharField(required=True, label='Фамилия')
     phone_number = PhoneNumberField(region='KZ')
-    user_group = forms.ModelChoiceField(label='К какой группе относится пользователь?', queryset=Group.objects.all(),
-                                        required=True, widget=forms.Select(attrs={'class': 'form-control'}))
 
     class Meta:
         model = get_user_model()
@@ -38,5 +34,6 @@ class AccountCreationForm(forms.ModelForm):
         user.set_password(self.cleaned_data.get('password'))
         if commit:
             user.save()
-            user.groups.add(self.cleaned_data.get('user_group'))
         return user
+
+
