@@ -13,6 +13,7 @@ class Account(AbstractUser):
         upload_to='avatars',
         verbose_name='Аватар'
     )
+    username = None
     phone_number = PhoneNumberField(
         unique=True,
         null=False,

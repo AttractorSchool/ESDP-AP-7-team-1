@@ -1,8 +1,8 @@
 {% extends "profile_board.html" %}
 {% load bootstrap5 %}
 {% block content %}
-    <h2 class="application_form">Зарегистрировать пользователя</h2>
-    <form action="{% url 'register' %}" method="post">
+    <h2 class="application_form">Зарегистрировать преподавателя</h2>
+    <form action="{% url 'register_teacher' %}" method="post">
         {% csrf_token %}
         {% bootstrap_form form %}
         <input type="submit" value="Зарегистрировать">

@@ -1,86 +1,250 @@
 [
 {
-  "model": "sessions.session",
-  "pk": "7jfke84v8c4o4g0vfx4eqs2u4ae2ktyt",
+  "model": "auth.group",
+  "pk": 1,
   "fields": {
-    "session_data": ".eJxVjMsOwiAURP-FtSEX5OnSvd9AuFyQqoGktCvjv9smXehqkjln5s1CXJca1pHnMBG7MMFOvx3G9MxtB_SI7d556m2ZJ-S7wg86-K1Tfl0P9--gxlG3NSpdpLRbRKeEEAYKFq_Bk8JkCoA_J0ElKkiWnHbZoqfshNSUDGjLPl_WOzej:1p4HOH:Y8Eb6KLoDo6mvr0b3vjlKk6SEI1up8ck9VRiBts683A",
-    "expire_date": "2022-12-25T08:08:53.524Z"
+    "name": "admin",
+    "permissions": [
+      [
+        "add_account",
+        "accounts",
+        "account"
+      ],
+      [
+        "change_account",
+        "accounts",
+        "account"
+      ],
+      [
+        "delete_account",
+        "accounts",
+        "account"
+      ],
+      [
+        "view_account",
+        "accounts",
+        "account"
+      ],
+      [
+        "add_application",
+        "education",
+        "application"
+      ],
+      [
+        "change_application",
+        "education",
+        "application"
+      ],
+      [
+        "delete_application",
+        "education",
+        "application"
+      ],
+      [
+        "view_application",
+        "education",
+        "application"
+      ],
+      [
+        "add_applicationstatus",
+        "education",
+        "applicationstatus"
+      ],
+      [
+        "change_applicationstatus",
+        "education",
+        "applicationstatus"
+      ],
+      [
+        "delete_applicationstatus",
+        "education",
+        "applicationstatus"
+      ],
+      [
+        "view_applicationstatus",
+        "education",
+        "applicationstatus"
+      ],
+      [
+        "add_grouping",
+        "education",
+        "grouping"
+      ],
+      [
+        "change_grouping",
+        "education",
+        "grouping"
+      ],
+      [
+        "delete_grouping",
+        "education",
+        "grouping"
+      ],
+      [
+        "view_grouping",
+        "education",
+        "grouping"
+      ],
+      [
+        "add_schedule",
+        "education",
+        "schedule"
+      ],
+      [
+        "change_schedule",
+        "education",
+        "schedule"
+      ],
+      [
+        "delete_schedule",
+        "education",
+        "schedule"
+      ],
+      [
+        "view_schedule",
+        "education",
+        "schedule"
+      ],
+      [
+        "add_status",
+        "education",
+        "status"
+      ],
+      [
+        "change_status",
+        "education",
+        "status"
+      ],
+      [
+        "delete_status",
+
+        "education",
+        "status"
+      ],
+      [
+        "view_status",
+        "education",
+        "status"
+      ],
+      [
+        "add_studentgrouping",
+        "education",
+        "studentgrouping"
+      ],
+      [
+        "change_studentgrouping",
+        "education",
+        "studentgrouping"
+      ],
+      [
+        "delete_studentgrouping",
+        "education",
+        "studentgrouping"
+      ],
+      [
+        "view_studentgrouping",
+        "education",
+        "studentgrouping"
+      ],
+      [
+        "add_subject",
+        "education",
+        "subject"
+      ],
+      [
+        "change_subject",
+        "education",
+        "subject"
+      ],
+      [
+        "delete_subject",
+        "education",
+        "subject"
+      ],
+      [
+        "view_subject",
+        "education",
+        "subject"
+      ]
+    ]
   }
 },
 {
-  "model": "accounts.account",
+  "model": "auth.group",
+  "pk": 2,
   "fields": {
-    "password": "pbkdf2_sha256$390000$rnNSqWIF8uWVEEJqqC1Mhs$bfqpAOjya0Fkxtq2RFIxKJDqYVy74EPSisMZ8pMqZvE=",
-    "last_login": "2022-12-11T08:08:53.510Z",
-    "is_superuser": true,
-    "username": "root@root.kz",
-    "first_name": "",
-    "last_name": "",
-    "is_staff": true,
-    "is_active": true,
-    "date_joined": "2022-12-11T08:08:46.179Z",
-    "email": "root@root.kz",
-    "avatar": "",
-    "phone_number": "",
-    "groups": [],
-    "user_permissions": []
+    "name": "student",
+    "permissions": [
+      [
+        "change_account",
+        "accounts",
+        "account"
+      ],
+      [
+        "view_account",
+        "accounts",
+        "account"
+      ],
+      [
+        "view_grouping",
+        "education",
+        "grouping"
+      ],
+      [
+        "view_schedule",
+        "education",
+        "schedule"
+      ],
+      [
+        "view_studentgrouping",
+        "education",
+        "studentgrouping"
+      ],
+      [
+        "view_subject",
+        "education",
+        "subject"
+      ]
+    ]
   }
 },
 {
-  "model": "accounts.account",
+  "model": "auth.group",
+  "pk": 3,
   "fields": {
-    "password": "1",
-    "last_login": "2022-12-11T08:10:26Z",
-    "is_superuser": false,
-    "username": "user1",
-    "first_name": "Степан",
-    "last_name": "Степанов",
-    "is_staff": false,
-    "is_active": true,
-    "date_joined": "2022-12-11T08:10:19Z",
-    "email": "qqq@mail.ru",
-    "avatar": "",
-    "phone_number": "+12125552368",
-    "groups": [],
-    "user_permissions": []
-  }
-},
-{
-  "model": "accounts.account",
-  "fields": {
-    "password": "1",
-    "last_login": null,
-    "is_superuser": false,
-    "username": "user_2",
-    "first_name": "Игорь",
-    "last_name": "Игорев",
-    "is_staff": false,
-    "is_active": true,
-    "date_joined": "2022-12-11T08:11:10Z",
-    "email": "sss@mail.ru",
-    "avatar": "",
-    "phone_number": "+12345678978",
-    "groups": [],
-    "user_permissions": []
-  }
-},
-{
-  "model": "accounts.account",
-  "fields": {
-    "password": "1",
-    "last_login": null,
-    "is_superuser": false,
-    "username": "user_3",
-    "first_name": "Михаил",
-    "last_name": "Михайлов",
-    "is_staff": false,
-    "is_active": true,
-    "date_joined": "2022-12-11T08:11:54Z",
-    "email": "user_1@mail.ru",
-    "avatar": "",
-    "phone_number": "+12345678974",
-    "groups": [],
-    "user_permissions": []
+    "name": "teacher",
+    "permissions": [
+      [
+        "change_account",
+        "accounts",
+        "account"
+      ],
+      [
+        "view_account",
+        "accounts",
+        "account"
+      ],
+      [
+        "view_grouping",
+        "education",
+        "grouping"
+      ],
+      [
+        "view_schedule",
+        "education",
+        "schedule"
+      ],
+      [
+        "view_studentgrouping",
+        "education",
+        "studentgrouping"
+      ],
+      [
+        "view_subject",
+        "education",
+        "subject"
+      ]
+    ]
   }
 },
 {
@@ -312,84 +476,6 @@
   }
 },
 {
-  "model": "education.studentgrouping",
-  "pk": 1,
-  "fields": {
-    "grouping": 1,
-    "student": [
-      "root@root.kz"
-    ],
-    "enrolled_at": null,
-    "expelled_at": null,
-    "is_active": true
-  }
-},
-{
-  "model": "education.studentgrouping",
-  "pk": 2,
-  "fields": {
-    "grouping": 1,
-    "student": [
-      "sss@mail.ru"
-    ],
-    "enrolled_at": null,
-    "expelled_at": null,
-    "is_active": true
-  }
-},
-{
-  "model": "education.studentgrouping",
-  "pk": 3,
-  "fields": {
-    "grouping": 6,
-    "student": [
-      "root@root.kz"
-    ],
-    "enrolled_at": null,
-    "expelled_at": null,
-    "is_active": true
-  }
-},
-{
-  "model": "education.studentgrouping",
-  "pk": 4,
-  "fields": {
-    "grouping": 1,
-    "student": [
-      "sss@mail.ru"
-    ],
-    "enrolled_at": null,
-    "expelled_at": null,
-    "is_active": true
-  }
-},
-{
-  "model": "education.studentgrouping",
-  "pk": 5,
-  "fields": {
-    "grouping": 11,
-    "student": [
-      "sss@mail.ru"
-    ],
-    "enrolled_at": null,
-    "expelled_at": null,
-    "is_active": true
-  }
-},
-{
-  "model": "education.studentgrouping",
-  "pk": 6,
-  "fields": {
-    "grouping": 5,
-    "student": [
-      "sss@mail.ru"
-    ],
-    "enrolled_at": null,
-    "expelled_at": null,
-    "is_active": true
-  }
-},
-{
   "model": "education.schedule",
   "pk": 1,
   "fields": {
@@ -510,867 +596,184 @@
   }
 },
 {
-  "model": "admin.logentry",
+  "model": "accounts.account",
   "pk": 1,
   "fields": {
-    "action_time": "2022-12-11T08:11:10.258Z",
-    "user": [
-      "root@root.kz"
+    "password": "pbkdf2_sha256$390000$rnNSqWIF8uWVEEJqqC1Mhs$bfqpAOjya0Fkxtq2RFIxKJDqYVy74EPSisMZ8pMqZvE=",
+    "last_login": "2022-12-12T03:57:32.267Z",
+    "is_superuser": true,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2022-12-11T08:08:46Z",
+    "email": "root@root.kz",
+    "avatar": "",
+    "phone_number": "+77077777777",
+    "groups": [
+      [
+        "admin"
+      ]
     ],
-    "content_type": [
-      "accounts",
-      "account"
-    ],
-    "object_id": "2",
-    "object_repr": "qqq@mail.ru",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
+    "user_permissions": []
   }
 },
 {
-  "model": "admin.logentry",
+  "model": "accounts.account",
   "pk": 2,
   "fields": {
-    "action_time": "2022-12-11T08:11:46.831Z",
-    "user": [
-      "root@root.kz"
-    ],
-    "content_type": [
-      "accounts",
-      "account"
-    ],
-    "object_id": "3",
-    "object_repr": "sss@mail.ru",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
+    "password": "1",
+    "last_login": "2022-12-11T08:10:26Z",
+    "is_superuser": false,
+    "first_name": "Степан",
+    "last_name": "Степанов",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2022-12-11T08:10:19Z",
+    "email": "qqq@mail.ru",
+    "avatar": "",
+    "phone_number": "+12125552368",
+    "groups": [],
+    "user_permissions": []
   }
 },
 {
-  "model": "admin.logentry",
+  "model": "accounts.account",
   "pk": 3,
   "fields": {
-    "action_time": "2022-12-11T08:11:54.005Z",
-    "user": [
-      "root@root.kz"
-    ],
-    "content_type": [
-      "accounts",
-      "account"
-    ],
-    "object_id": "3",
-    "object_repr": "sss@mail.ru",
-    "action_flag": 2,
-    "change_message": "[]"
+    "password": "1",
+    "last_login": null,
+    "is_superuser": false,
+    "first_name": "Игорь",
+    "last_name": "Игорев",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2022-12-11T08:11:10Z",
+    "email": "sss@mail.ru",
+    "avatar": "",
+    "phone_number": "+12345678978",
+    "groups": [],
+    "user_permissions": []
   }
 },
 {
-  "model": "admin.logentry",
+  "model": "accounts.account",
   "pk": 4,
   "fields": {
-    "action_time": "2022-12-11T08:12:32.168Z",
-    "user": [
-      "root@root.kz"
-    ],
-    "content_type": [
-      "accounts",
-      "account"
-    ],
-    "object_id": "4",
-    "object_repr": "user_1@mail.ru",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
+    "password": "1",
+    "last_login": null,
+    "is_superuser": false,
+    "first_name": "Михаил",
+    "last_name": "Михайлов",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2022-12-11T08:11:54Z",
+    "email": "user_1@mail.ru",
+    "avatar": "",
+    "phone_number": "+12345678974",
+    "groups": [],
+    "user_permissions": []
   }
 },
 {
-  "model": "admin.logentry",
+  "model": "accounts.account",
   "pk": 5,
   "fields": {
-    "action_time": "2022-12-11T08:12:51.673Z",
-    "user": [
-      "root@root.kz"
+    "password": "pbkdf2_sha256$390000$Zg8p2c5NZVO3BldkJAiL1E$cKmjjxeNbnoqWAwlslEjyKn38tWwZGke0F9nVXbNqhU=",
+    "last_login": "2022-12-12T03:59:11.012Z",
+    "is_superuser": false,
+    "first_name": "student",
+    "last_name": "student",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2022-12-12T03:58:31.032Z",
+    "email": "student@student.kz",
+    "avatar": "",
+    "phone_number": "+77085777777",
+    "groups": [
+      [
+        "student"
+      ]
     ],
-    "content_type": [
-      "education",
-      "subject"
-    ],
-    "object_id": "1",
-    "object_repr": "математика",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
+    "user_permissions": []
   }
 },
 {
-  "model": "admin.logentry",
+  "model": "education.studentgrouping",
+  "pk": 1,
+  "fields": {
+    "grouping": 1,
+    "student": [
+      "root@root.kz"
+    ],
+    "enrolled_at": null,
+    "expelled_at": null,
+    "is_active": true
+  }
+},
+{
+  "model": "education.studentgrouping",
+  "pk": 2,
+  "fields": {
+    "grouping": 1,
+    "student": [
+      "sss@mail.ru"
+    ],
+    "enrolled_at": null,
+    "expelled_at": null,
+    "is_active": true
+  }
+},
+{
+  "model": "education.studentgrouping",
+  "pk": 3,
+  "fields": {
+    "grouping": 6,
+    "student": [
+      "root@root.kz"
+    ],
+    "enrolled_at": null,
+    "expelled_at": null,
+    "is_active": true
+  }
+},
+{
+  "model": "education.studentgrouping",
+  "pk": 4,
+  "fields": {
+    "grouping": 1,
+    "student": [
+      "sss@mail.ru"
+    ],
+    "enrolled_at": null,
+    "expelled_at": null,
+    "is_active": true
+  }
+},
+{
+  "model": "education.studentgrouping",
+  "pk": 5,
+  "fields": {
+    "grouping": 11,
+    "student": [
+      "sss@mail.ru"
+    ],
+    "enrolled_at": null,
+    "expelled_at": null,
+    "is_active": true
+  }
+},
+{
+  "model": "education.studentgrouping",
   "pk": 6,
   "fields": {
-    "action_time": "2022-12-11T08:12:53.332Z",
-    "user": [
-      "root@root.kz"
-    ],
-    "content_type": [
-      "education",
-      "subject"
-    ],
-    "object_id": "1",
-    "object_repr": "математика",
-    "action_flag": 2,
-    "change_message": "[]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 7,
-  "fields": {
-    "action_time": "2022-12-11T08:12:56.821Z",
-    "user": [
-      "root@root.kz"
-    ],
-    "content_type": [
-      "education",
-      "subject"
-    ],
-    "object_id": "2",
-    "object_repr": "физика",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 8,
-  "fields": {
-    "action_time": "2022-12-11T08:13:00.559Z",
-    "user": [
-      "root@root.kz"
-    ],
-    "content_type": [
-      "education",
-      "subject"
-    ],
-    "object_id": "3",
-    "object_repr": "информатика",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 9,
-  "fields": {
-    "action_time": "2022-12-11T08:13:04.095Z",
-    "user": [
-      "root@root.kz"
-    ],
-    "content_type": [
-      "education",
-      "subject"
-    ],
-    "object_id": "4",
-    "object_repr": "химия",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 10,
-  "fields": {
-    "action_time": "2022-12-11T08:13:20.090Z",
-    "user": [
-      "root@root.kz"
-    ],
-    "content_type": [
-      "education",
-      "grouping"
-    ],
-    "object_id": "1",
-    "object_repr": "физика-1",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 11,
-  "fields": {
-    "action_time": "2022-12-11T08:13:26.855Z",
-    "user": [
-      "root@root.kz"
-    ],
-    "content_type": [
-      "education",
-      "grouping"
-    ],
-    "object_id": "2",
-    "object_repr": "физика-2",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 12,
-  "fields": {
-    "action_time": "2022-12-11T08:13:41.556Z",
-    "user": [
-      "root@root.kz"
-    ],
-    "content_type": [
-      "education",
-      "grouping"
-    ],
-    "object_id": "3",
-    "object_repr": "математика-1",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 13,
-  "fields": {
-    "action_time": "2022-12-11T08:13:45.480Z",
-    "user": [
-      "root@root.kz"
-    ],
-    "content_type": [
-      "education",
-      "grouping"
-    ],
-    "object_id": "4",
-    "object_repr": "математика-2",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 14,
-  "fields": {
-    "action_time": "2022-12-11T08:13:49.598Z",
-    "user": [
-      "root@root.kz"
-    ],
-    "content_type": [
-      "education",
-      "grouping"
-    ],
-    "object_id": "5",
-    "object_repr": "математика-3",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 15,
-  "fields": {
-    "action_time": "2022-12-11T08:13:57.205Z",
-    "user": [
-      "root@root.kz"
-    ],
-    "content_type": [
-      "education",
-      "grouping"
-    ],
-    "object_id": "6",
-    "object_repr": "химия-1",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 16,
-  "fields": {
-    "action_time": "2022-12-11T08:14:00.893Z",
-    "user": [
-      "root@root.kz"
-    ],
-    "content_type": [
-      "education",
-      "grouping"
-    ],
-    "object_id": "7",
-    "object_repr": "химия-2",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 17,
-  "fields": {
-    "action_time": "2022-12-11T08:14:07.789Z",
-    "user": [
-      "root@root.kz"
-    ],
-    "content_type": [
-      "education",
-      "grouping"
-    ],
-    "object_id": "8",
-    "object_repr": "химия-3",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 18,
-  "fields": {
-    "action_time": "2022-12-11T08:14:15.080Z",
-    "user": [
-      "root@root.kz"
-    ],
-    "content_type": [
-      "education",
-      "grouping"
-    ],
-    "object_id": "9",
-    "object_repr": "информатика-1",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 19,
-  "fields": {
-    "action_time": "2022-12-11T08:14:20.658Z",
-    "user": [
-      "root@root.kz"
-    ],
-    "content_type": [
-      "education",
-      "grouping"
-    ],
-    "object_id": "10",
-    "object_repr": "информатика-2",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 20,
-  "fields": {
-    "action_time": "2022-12-11T08:14:26.519Z",
-    "user": [
-      "root@root.kz"
-    ],
-    "content_type": [
-      "education",
-      "grouping"
-    ],
-    "object_id": "11",
-    "object_repr": "информатика-3",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 21,
-  "fields": {
-    "action_time": "2022-12-11T08:14:33.339Z",
-    "user": [
-      "root@root.kz"
-    ],
-    "content_type": [
-      "education",
-      "schedule"
-    ],
-    "object_id": "1",
-    "object_repr": "физика-1 - monday",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 22,
-  "fields": {
-    "action_time": "2022-12-11T08:14:38.219Z",
-    "user": [
-      "root@root.kz"
-    ],
-    "content_type": [
-      "education",
-      "schedule"
-    ],
-    "object_id": "2",
-    "object_repr": "физика-1 - tuesday",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 23,
-  "fields": {
-    "action_time": "2022-12-11T08:14:45.333Z",
-    "user": [
-      "root@root.kz"
-    ],
-    "content_type": [
-      "education",
-      "schedule"
-    ],
-    "object_id": "3",
-    "object_repr": "физика-1 - wednesday",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 24,
-  "fields": {
-    "action_time": "2022-12-11T08:14:50.109Z",
-    "user": [
-      "root@root.kz"
-    ],
-    "content_type": [
-      "education",
-      "schedule"
-    ],
-    "object_id": "4",
-    "object_repr": "физика-2 - wednesday",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 25,
-  "fields": {
-    "action_time": "2022-12-11T08:14:55.143Z",
-    "user": [
-      "root@root.kz"
-    ],
-    "content_type": [
-      "education",
-      "schedule"
-    ],
-    "object_id": "5",
-    "object_repr": "физика-2 - friday",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 26,
-  "fields": {
-    "action_time": "2022-12-11T08:15:00.367Z",
-    "user": [
-      "root@root.kz"
-    ],
-    "content_type": [
-      "education",
-      "schedule"
-    ],
-    "object_id": "6",
-    "object_repr": "математика-1 - monday",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 27,
-  "fields": {
-    "action_time": "2022-12-11T08:15:04.860Z",
-    "user": [
-      "root@root.kz"
-    ],
-    "content_type": [
-      "education",
-      "schedule"
-    ],
-    "object_id": "7",
-    "object_repr": "математика-1 - wednesday",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 28,
-  "fields": {
-    "action_time": "2022-12-11T08:15:08.610Z",
-    "user": [
-      "root@root.kz"
-    ],
-    "content_type": [
-      "education",
-      "schedule"
-    ],
-    "object_id": "8",
-    "object_repr": "математика-3 - wednesday",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 29,
-  "fields": {
-    "action_time": "2022-12-11T08:15:12.563Z",
-    "user": [
-      "root@root.kz"
-    ],
-    "content_type": [
-      "education",
-      "schedule"
-    ],
-    "object_id": "9",
-    "object_repr": "математика-3 - friday",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 30,
-  "fields": {
-    "action_time": "2022-12-11T08:15:17.356Z",
-    "user": [
-      "root@root.kz"
-    ],
-    "content_type": [
-      "education",
-      "schedule"
-    ],
-    "object_id": "10",
-    "object_repr": "химия-1 - wednesday",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 31,
-  "fields": {
-    "action_time": "2022-12-11T08:15:20.854Z",
-    "user": [
-      "root@root.kz"
-    ],
-    "content_type": [
-      "education",
-      "schedule"
-    ],
-    "object_id": "11",
-    "object_repr": "информатика-1 - thursday",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 32,
-  "fields": {
-    "action_time": "2022-12-11T08:15:25.430Z",
-    "user": [
-      "root@root.kz"
-    ],
-    "content_type": [
-      "education",
-      "schedule"
-    ],
-    "object_id": "12",
-    "object_repr": "информатика-3 - wednesday",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 33,
-  "fields": {
-    "action_time": "2022-12-11T08:15:35.473Z",
-    "user": [
-      "root@root.kz"
-    ],
-    "content_type": [
-      "education",
-      "studentgrouping"
-    ],
-    "object_id": "1",
-    "object_repr": "физика-1 - root@root.kz",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 34,
-  "fields": {
-    "action_time": "2022-12-11T08:15:39.211Z",
-    "user": [
-      "root@root.kz"
-    ],
-    "content_type": [
-      "education",
-      "studentgrouping"
-    ],
-    "object_id": "2",
-    "object_repr": "физика-1 - sss@mail.ru",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 35,
-  "fields": {
-    "action_time": "2022-12-11T08:15:43.967Z",
-    "user": [
-      "root@root.kz"
-    ],
-    "content_type": [
-      "education",
-      "studentgrouping"
-    ],
-    "object_id": "3",
-    "object_repr": "химия-1 - root@root.kz",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 36,
-  "fields": {
-    "action_time": "2022-12-11T08:15:46.933Z",
-    "user": [
-      "root@root.kz"
-    ],
-    "content_type": [
-      "education",
-      "studentgrouping"
-    ],
-    "object_id": "4",
-    "object_repr": "физика-1 - sss@mail.ru",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 37,
-  "fields": {
-    "action_time": "2022-12-11T08:15:49.832Z",
-    "user": [
-      "root@root.kz"
-    ],
-    "content_type": [
-      "education",
-      "studentgrouping"
-    ],
-    "object_id": "5",
-    "object_repr": "информатика-3 - sss@mail.ru",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 38,
-  "fields": {
-    "action_time": "2022-12-11T08:15:52.665Z",
-    "user": [
-      "root@root.kz"
-    ],
-    "content_type": [
-      "education",
-      "studentgrouping"
-    ],
-    "object_id": "6",
-    "object_repr": "математика-3 - sss@mail.ru",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 39,
-  "fields": {
-    "action_time": "2022-12-11T08:16:23.444Z",
-    "user": [
-      "root@root.kz"
-    ],
-    "content_type": [
-      "education",
-      "application"
-    ],
-    "object_id": "1",
-    "object_repr": "Заявка от: Иван",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 40,
-  "fields": {
-    "action_time": "2022-12-11T08:16:25.745Z",
-    "user": [
-      "root@root.kz"
-    ],
-    "content_type": [
-      "education",
-      "application"
-    ],
-    "object_id": "1",
-    "object_repr": "Заявка от: Иван",
-    "action_flag": 2,
-    "change_message": "[]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 41,
-  "fields": {
-    "action_time": "2022-12-11T08:16:40.465Z",
-    "user": [
-      "root@root.kz"
-    ],
-    "content_type": [
-      "education",
-      "application"
-    ],
-    "object_id": "2",
-    "object_repr": "Заявка от: Степан",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 42,
-  "fields": {
-    "action_time": "2022-12-11T08:16:54.949Z",
-    "user": [
-      "root@root.kz"
-    ],
-    "content_type": [
-      "education",
-      "status"
-    ],
-    "object_id": "1",
-    "object_repr": "Создана",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 43,
-  "fields": {
-    "action_time": "2022-12-11T08:17:08.283Z",
-    "user": [
-      "root@root.kz"
-    ],
-    "content_type": [
-      "education",
-      "status"
-    ],
-    "object_id": "2",
-    "object_repr": "Успешно закрыта",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 44,
-  "fields": {
-    "action_time": "2022-12-11T08:17:11.970Z",
-    "user": [
-      "root@root.kz"
-    ],
-    "content_type": [
-      "education",
-      "status"
-    ],
-    "object_id": "3",
-    "object_repr": "Отклонена",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 45,
-  "fields": {
-    "action_time": "2022-12-11T08:17:18.736Z",
-    "user": [
-      "root@root.kz"
-    ],
-    "content_type": [
-      "education",
-      "status"
-    ],
-    "object_id": "4",
-    "object_repr": "Подписание договора",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 46,
-  "fields": {
-    "action_time": "2022-12-11T08:17:30.655Z",
-    "user": [
-      "root@root.kz"
-    ],
-    "content_type": [
-      "education",
-      "applicationstatus"
-    ],
-    "object_id": "1",
-    "object_repr": "Заявка от: Иван - Успешно закрыта",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 47,
-  "fields": {
-    "action_time": "2022-12-11T08:17:33.409Z",
-    "user": [
-      "root@root.kz"
-    ],
-    "content_type": [
-      "education",
-      "applicationstatus"
-    ],
-    "object_id": "2",
-    "object_repr": "Заявка от: Степан - Подписание договора",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 48,
-  "fields": {
-    "action_time": "2022-12-11T08:17:36.667Z",
-    "user": [
-      "root@root.kz"
-    ],
-    "content_type": [
-      "education",
-      "applicationstatus"
-    ],
-    "object_id": "3",
-    "object_repr": "Заявка от: Иван - Отклонена",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
+    "grouping": 5,
+    "student": [
+      "sss@mail.ru"
+    ],
+    "enrolled_at": null,
+    "expelled_at": null,
+    "is_active": true
   }
 }
 ]
