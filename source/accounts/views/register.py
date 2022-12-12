@@ -1,13 +1,10 @@
-from django.contrib.auth import login
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.auth.models import Group
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.shortcuts import redirect
 from django.views.generic import CreateView
-
 from accounts.forms.register_form import AccountCreationForm
 
 
-class RegisterView(LoginRequiredMixin, CreateView):
+class RegisterView(UserPassesTestMixin, LoginRequiredMixin, CreateView):
     template_name = 'register.html'
     form_class = AccountCreationForm
     success_url = '/'
@@ -20,3 +17,6 @@ class RegisterView(LoginRequiredMixin, CreateView):
         context = {}
         context['form'] = form
         return self.render_to_response(context)
+
+    def test_func(self):
+        return self.request.user.groups.filter(name='admin').exists()
