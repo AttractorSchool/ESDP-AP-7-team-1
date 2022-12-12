@@ -16,20 +16,41 @@
         <div class="col-sm-3">
             <ul class="nav nav-pills nav-flush mb-auto text-center row">
                 {% if user|has_group:"admin" %}
-                <li class="nav-item col-sm-7">
-                    <a href="#" class="nav-link active py-3 border-bottom" aria-current="page" title=""
-                       data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Home"> Заявки
-                    </a>
-                </li>
-                <li class="nav-item col-sm-7">
-                    <a href="{% url 'register' %}" class="nav-link active py-3 border-bottom" aria-current="page" title=""
-                       data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Home">
-                        Зарегистрировать пользователя
-                    </a>
-                </li>
+                    <li class="nav-item col-sm-7">
+                        <a href="#" class="nav-link active py-3 border-bottom" aria-current="page" title=""
+                           data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Home"> Заявки
+                        </a>
+                    </li>
+                    <li class="nav-item col-sm-7">
+                        <a href="{% url 'register_student' %}" class="nav-link active py-3 border-bottom"
+                           aria-current="page"
+                           title=""
+                           data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Home">
+                            Добавить студента
+                        </a>
+                    </li>
+                    <li class="nav-item col-sm-7">
+                        <a href="{% url 'register_teacher' %}" class="nav-link active py-3 border-bottom"
+                           aria-current="page"
+                           title=""
+                           data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Home">
+                            Добавить преподавателя
+                        </a>
+                    </li>
+                    {% if user.is_superuser %}
+                    <li class="nav-item col-sm-7">
+                        <a href="{% url 'register_admin' %}" class="nav-link active py-3 border-bottom"
+                           aria-current="page"
+                           title=""
+                           data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Home">
+                            Добавить админа
+                        </a>
+                    </li>
+                    {% endif %}
                 {% else %}
                 <li class="nav-item col-sm-7">
-                    <a href="{% url 'register' %}" class="nav-link active py-3 border-bottom" aria-current="page" title=""
+                    <a href="#" class="nav-link active py-3 border-bottom" aria-current="page"
+                       title=""
                        data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Home">
                         Кнопка для теста
                     </a>
