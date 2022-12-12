@@ -1,0 +1,14 @@
+
+<h1>Account - {{ user.email }}
+
+
+
+    <h1>Вы точно хотите удалить пользователя?</h1>
+      <p>Имя {{ user.name }}</p>
+      <p>Почта {{ user.email }}</p>
+    <form action="{% url 'confirm_user_delete' user.pk %}" method='post'>
+        {% csrf_token %}
+        <input type="submit" value="Удалить">
+        <a href="{% url 'main' %}">Отменить</a>
+    </form>
+    
