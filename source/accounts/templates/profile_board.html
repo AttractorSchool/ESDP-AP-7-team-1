@@ -17,19 +17,19 @@
             <ul class="nav nav-pills nav-flush mb-auto text-center row">
                 {% if user|has_group:"admin" %}
                 <li class="nav-item col-sm-7">
-                    <a href="{% url 'delete' user_obj.pk  %}" class="nav-link active py-3 border-bottom" aria-current="page" title=""
+                    <a href="{% url 'user_delete' user.pk  %}" class="nav-link active py-3 border-bottom" aria-current="page" title=""
                        data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Home">
                         Удалить пользователя
                     </a>
                 </li>
                 <li class="nav-item col-sm-7">
-                    <a href="{% url 'account_change' user_obj.pk %}" class="nav-link active py-3 border-bottom" aria-current="page" title=""
+                    <a href="{% url 'account_change' user.pk %}" class="nav-link active py-3 border-bottom" aria-current="page" title=""
                        data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Home">
                         Редактировать пользователя
                     </a>
                 </li>
                     <li class="nav-item col-sm-7">
-                        <a href="#" class="nav-link active py-3 border-bottom" aria-current="page" title=""
+                        <a href="{% url 'show_applications' %}" class="nav-link active py-3 border-bottom" aria-current="page" title=""
                            data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Home"> Заявки
                         </a>
                     </li>

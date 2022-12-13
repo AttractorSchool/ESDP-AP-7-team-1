@@ -1,5 +1,4 @@
 from django import forms
-
 from education.models import Application, Subject
 
 

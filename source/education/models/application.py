@@ -3,7 +3,7 @@ from education.models import Subject
 
 
 class Status(models.Model):
-    '''возможные статусы заявок'''
+    """Возможные статусы заявок"""
     name = models.CharField(verbose_name='Название', max_length=30, unique=True)
     is_deleted = models.BooleanField(default=False)
 

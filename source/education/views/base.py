@@ -1,5 +1,5 @@
 from django.shortcuts import redirect
-from django.views.generic import TemplateView, ListView
+from django.views.generic import TemplateView
 
 from education.forms.application_form import ApplicationSendForm
 
@@ -17,8 +17,6 @@ class IndexView(TemplateView):
         if form.is_valid():
             form.save()
             return redirect('main')
-        print(form.errors)
         context = {}
         context['form'] = form
-
         return self.render_to_response(context)

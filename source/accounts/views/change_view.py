@@ -5,6 +5,7 @@ from django.views.generic import UpdateView
 from accounts.forms.change_form import UserChangeForm
 from django.urls import reverse
 
+
 class AccountChangeView(UpdateView):
     model = get_user_model()
     form_class = UserChangeForm
