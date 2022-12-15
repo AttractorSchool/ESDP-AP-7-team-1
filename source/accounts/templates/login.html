@@ -1,21 +1,38 @@
-<!DOCTYPE html>
+{% extends 'base_auth.html' %}
 {% load static %}
-<html lang="en">
-{% load bootstrap5 %}
-<head>
-    <meta charset="UTF-8">
-    <title>Quantum Group</title>
-    <link rel="stylesheet" href="{% static 'main.css' %}"/>
-</head>
-<body>
-{% include 'partial/navbar.html' %}
-<div class="container">
-    <h2 class="application_form">Войти</h2>
-    <form action="{% url 'login' %}" method="post">
-        {% csrf_token %}
-        {% bootstrap_form form %}
-        <input type="submit" value="Войти">
-    </form>
-</div>
-</body>
-</html>
+
+{% block title %} Авторизация пользователя {% endblock %}
+
+{% block content %}
+<div class="container-fluid page-body-wrapper full-page-wrapper">
+    <div class="content-wrapper d-flex align-items-center auth px-0">
+      <div class="row w-100 mx-0">
+        <div class="col-lg-4 mx-auto">
+          <div class="auth-form-light text-left py-5 px-4 px-sm-5">
+            <div class="brand-logo text-center">
+              <img src="{% static 'images/logo-g.png' %}" alt="logo">
+            </div>
+            <h6 class="font-weight-light">Введите свой email/номер телефона (в формате "+78912345678") и пароль</h6>
+            <form class="pt-3" action="" method="post">
+                {% csrf_token %}
+                {% for field in form %}
+                <div class="form-group">
+                    {{ field.errors }}
+                    {{ field }}
+                </div>
+                {% endfor %}
+                <div class="mt-3">
+                    <input type="submit" style="background:linear-gradient(90deg, #c352eb, #8adabd)" class="btn btn-block border-0 btn-primary btn-lg font-weight-medium auth-form-btn text-white" value="ВОЙТИ">
+                </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- content-wrapper ends -->
+  </div>
+  <!-- page-body-wrapper ends -->
+  <script>
+    
+  </script>
+  {% endblock %}

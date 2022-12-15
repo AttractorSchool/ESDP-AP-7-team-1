@@ -4,5 +4,5 @@ from accounts.models import Account
 
 
 class ProfileView(LoginRequiredMixin, DetailView):
-    template_name = 'profile_board.html'
+    template_name = 'profile.html'
     model = Account
