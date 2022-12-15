@@ -1,17 +1,17 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %} Главная страница {% endblock %}
+{% block title %} Добавление нового предмета {% endblock %}
 
 {% block nav %}
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
   <ul class="nav">
-    <li class="nav-item active">
+    <li class="nav-item">
       <a class="nav-link" href="{% url 'main' %}">
         <i class="ti-shield menu-icon"></i>
         <span class="menu-title">Доска</span>
       </a>
     </li>
-    <li class="nav-item">
+    <li class="nav-item active">
       <a class="nav-link" href="{% url 'subjects' %}">
         <i class="ti-layers-alt menu-icon"></i>
         <span class="menu-title">Предметы</span>
@@ -65,6 +65,26 @@
 {% endblock %}
 
 {% block content %}
-<p class="card-title">Доска</p>
-
+<p class="card-title">Добавление нового предмета</p>
+<form class="forms-sample" action="{% url 'subject_add' %}" method="POST">
+    {% csrf_token %}
+    <div class="form-group">
+      {{ form.name }}
+    </div>
+    {% for error in form.name.errors %}
+    <div class="ms-2 text-danger">{{ error }}</div>
+    {% endfor %}
+    <div class="form-check form-check-flat form-check-info">
+        <label class="form-check-label">
+            {{ form.is_required }}
+            <!-- <input type="checkbox" class="form-check-input"> -->
+            Обязательный
+        <i class="input-helper"></i></label>
+    </div>
+    {% for error in form.is_required.errors %}
+    <div class="ms-2 text-danger">{{ error }}</div>
+    {% endfor %}
+    <button type="submit" class="btn btn-inverse-primary mr-2 mt-3">Сохранить</button>
+    <a href="{% url 'subjects' %}" class="btn btn-inverse-dark mt-3">Отмена</a>
+  </form>
 {% endblock %}
