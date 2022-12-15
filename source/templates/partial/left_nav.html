@@ -13,11 +13,11 @@
                     <span class="menu-title">Предметы</span>
                 </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="">
-                    <i class="ti-clipboard menu-icon"></i>
-                    <span class="menu-title">Заявки</span>
-                </a>
+            <li class="nav-item {% if page == 'application' %} active {% endif %}">
+                <a class="nav-link" href="{% url 'applications' %}">
+                     <i class="ti-clipboard menu-icon"></i>
+                      <span class="menu-title">Заявки</span>
+               </a>
             </li>
             <li class="nav-item {% if page == 'register' %} active {% endif %}">
                 <a class="nav-link" href="{% url 'register' %}">

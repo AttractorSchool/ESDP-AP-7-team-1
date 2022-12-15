@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Просмотр заявки {% endblock %}
+
+{% block nav %}
+{% include 'partial/left_nav.html' with page='application' %}
+{% endblock %}
+
+{% block content %}
+<p class="card-title">Просмотр заявки</p>
+<p>Имя : {{application.applicant_name}}</p>
+<p>Фамилия : {{application.applicant_surname}}</p>
+<p>Почта : {{application.email}}</p>
+<p>Номер : {{application.phone}}</p>
+<p>Предметы : 
+{% for sub in application.subjects.all %}
+            {{ sub.name }}
+            {% if not forloop.last %}, 
+            {% endif %}
+            {% endfor %}</p>
+<p>Школа : {{application.school|default_if_none:""}}</p>
+<p>Смена : {{application.shift|default_if_none:""}}</p>
+<p>Дата рождения : {{application.birth_date|default_if_none:""}}</p>
+<p>Родитель : {{application.parents_surname|default_if_none:""}} {{application.parents_name|default_if_none:""}}</p>
+<p>Контакты родителя : {{application.parents_phone|default_if_none:""}} {{application.parents_email|default_if_none:""}} </p>
+<p>Адресс : {{application.address|default_if_none:""}}</p>
+<p>Желаемое время : {{application.lesson_time|default_if_none:""}}</p>
+<br>
+<a href="{% url 'application_update' application.pk %}">
+    Редактировать                          
+</a>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+{% endblock %}

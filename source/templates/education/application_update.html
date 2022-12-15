@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Добавление нового предмета {% endblock %}
+
+{% block nav %}
+{% include 'partial/left_nav.html' with page='index' %}
+{% endblock %}
+
+{% block content %}
+<p class="card-title">Редактирование заявки  <strong>{{ application.applicant_name }} {{ application.applicant_surname}}</strong></p>
+<form class="forms-sample" action="{% url 'application_update' application.pk %}" method="POST">
+    {% csrf_token %}
+    {% for field in form%}
+    <div class="form-group">
+    {{field}}
+      {% for error in field.errors %}
+    <div class="ms-2 text-danger">{{ error }}</div>
+    {% endfor %}
+    </div>
+    {% endfor %}
+    <button type="submit" class="btn btn-inverse-primary mr-2 mt-3">Сохранить</button>
+    <a href="{% url 'subjects' %}" class="btn btn-inverse-dark mt-3">Отмена</a>
+  </form>
+{% endblock %}
