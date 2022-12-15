@@ -36,6 +36,8 @@ class Application(models.Model):
         through='education.ApplicationStatus',
         related_name='applications', )
     is_deleted = models.BooleanField(default=False)
+    discounts = models.ManyToManyField(to='education.Discount', related_name='applications')
+
 
     def __str__(self):
         return f'Заявка от: {self.applicant_name}'
