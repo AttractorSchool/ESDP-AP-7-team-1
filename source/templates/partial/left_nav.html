@@ -1,65 +1,99 @@
 ﻿<nav class="sidebar sidebar-offcanvas" id="sidebar">
     <ul class="nav">
-      <li class="nav-item {% if page == 'index' %} active {% endif %}">
-        <a class="nav-link" href="{% url 'main' %}">
-          <i class="ti-shield menu-icon"></i>
-          <span class="menu-title">Доска</span>
-        </a>
-      </li>
-      <li class="nav-item {% if page == 'subject' %} active {% endif %}">
-        <a class="nav-link" href="{% url 'subjects' %}">
-          <i class="ti-book menu-icon"></i>
-          <span class="menu-title">Предметы</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="">
-          <i class="ti-clipboard menu-icon"></i>
-          <span class="menu-title">Заявки</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="">
-          <i class="ti-layers-alt menu-icon"></i>
-          <span class="menu-title">Группы</span>
-        </a>
-      </li>
-      <!-- <li class="nav-item">
-        <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-          <i class="ti-layers-alt menu-icon"></i>
-          <span class="menu-title">Предметы</span>
-          <i class="menu-arrow"></i>
-        </a>
-        <div class="collapse" id="ui-basic">
-          <ul class="nav flex-column sub-menu">
-            <li class="nav-item"> <a class="nav-link" href="">Все предметы</a></li>
-            <li class="nav-item"> <a class="nav-link" href="">+ Предмет</a></li>
-          </ul>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="">
-          <i class="ti-user menu-icon"></i>
-          <span class="menu-title">Ученики</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="">
-          <i class="ti-ruler-pencil menu-icon"></i>
-          <span class="menu-title">Преподаватели</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="">
-          <i class="ti-home menu-icon"></i>
-          <span class="menu-title">Родители</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="">
-          <i class="ti-agenda menu-icon"></i>
-          <span class="menu-title">Расписание</span>
-        </a>
-      </li> -->
+        {% if user.is_authenticated %}
+            <li class="nav-item {% if page == 'index' %} active {% endif %}">
+                <a class="nav-link" href="{% url 'main' %}">
+                    <i class="ti-shield menu-icon"></i>
+                    <span class="menu-title">Доска</span>
+                </a>
+            </li>
+            <li class="nav-item {% if page == 'subject' %} active {% endif %}">
+                <a class="nav-link" href="{% url 'subjects' %}">
+                    <i class="ti-book menu-icon"></i>
+                    <span class="menu-title">Предметы</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="">
+                    <i class="ti-clipboard menu-icon"></i>
+                    <span class="menu-title">Заявки</span>
+                </a>
+            </li>
+            <li class="nav-item {% if page == 'register' %} active {% endif %}">
+                <a class="nav-link" href="{% url 'register' %}">
+                    <i class="ti-plus menu-icon"></i>
+                    <span class="menu-title">Добавить студента</span>
+                </a>
+            </li>
+            <li class="nav-item {% if page == 'register' %} active {% endif %}">
+                <a class="nav-link" href="{% url 'register' %}">
+                    <i class="ti-plus menu-icon"></i>
+                    <span class="menu-title">Добавить преподавателя</span>
+                </a>
+            </li>
+            {% if user.is_superuser %}
+            <li class="nav-item {% if page == 'register' %} active {% endif %}">
+                <a class="nav-link" href="{% url 'register' %}">
+                    <i class="ti-plus menu-icon"></i>
+                    <span class="menu-title">Добавить админа</span>
+                </a>
+            </li>
+            {% endif %}
+            <li class="nav-item">
+                <a class="nav-link" href="">
+                    <i class="ti-layers-alt menu-icon"></i>
+                    <span class="menu-title">Группы</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url  'schedule_student' %}">
+                    <i class="ti-layers-alt menu-icon"></i>
+                    <span class="menu-title">Расписание студента</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url  'schedule_groupings' %}">
+                    <i class="ti-layers-alt menu-icon"></i>
+                    <span class="menu-title">Расписание групп</span>
+                </a>
+            </li>
+            <!-- <li class="nav-item">
+              <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+                <i class="ti-layers-alt menu-icon"></i>
+                <span class="menu-title">Предметы</span>
+                <i class="menu-arrow"></i>
+              </a>
+              <div class="collapse" id="ui-basic">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item"> <a class="nav-link" href="">Все предметы</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="">+ Предмет</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="">
+                <i class="ti-user menu-icon"></i>
+                <span class="menu-title">Ученики</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="">
+                <i class="ti-ruler-pencil menu-icon"></i>
+                <span class="menu-title">Преподаватели</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="">
+                <i class="ti-home menu-icon"></i>
+                <span class="menu-title">Родители</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="">
+                <i class="ti-agenda menu-icon"></i>
+                <span class="menu-title">Расписание</span>
+              </a>
+            </li> -->
+        {% endif %}
     </ul>
-  </nav>
+</nav>

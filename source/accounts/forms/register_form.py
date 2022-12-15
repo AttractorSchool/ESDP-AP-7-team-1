@@ -12,7 +12,7 @@ class SignUpForm(forms.ModelForm):
     email = forms.CharField(required=True, label='Email')
     first_name = forms.CharField(required=True, label='Имя')
     last_name = forms.CharField(required=True, label='Фамилия')
-    phone_number = PhoneNumberField(region='KZ')
+    phone_number = PhoneNumberField(region='KZ', label='Телефон')
 
     class Meta:
         model = get_user_model()
