@@ -6,8 +6,10 @@ from education.models import (
     Application,
     Grouping,
     StudentGrouping,
-    Schedule
+    Schedule,
+    Discount,
 )
+
 
 '''Декоратор регистрирует в админ панели модель'''
 
@@ -46,3 +48,7 @@ class StudentGroupingAdmin(admin.ModelAdmin):
 @admin.register(Schedule)
 class ScheduleAdmin(admin.ModelAdmin):
     list_display = [field.name for field in Schedule._meta.fields]
+
+@admin.register(Discount)
+class DiscountAdmin(admin.ModelAdmin):
+    list_display = [field.name for field in Discount._meta.fields]
