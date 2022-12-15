@@ -20,15 +20,19 @@ class Application(models.Model):
     applicant_surname = models.CharField(verbose_name='Фамилия заявителя', max_length=30)
     email = models.EmailField(verbose_name='Электронная почта', blank=True)
     phone = models.CharField(verbose_name='Номер телефона', max_length=13)
-    school = models.IntegerField(verbose_name='Номер школы', max_length=5, null=True, blank=True, help_text="Вводить только цифры")
-    shift = models.IntegerField(verbose_name='Номер смены', max_length=2, null=True, blank=True, help_text="Вводить только цифры")
-    birth_date = models.DateField(verbose_name='Дата рождения', max_length=10, null=True, blank=True, help_text="Заполнить в формате дд.мм.гггг")
-    parents_surname = models.CharField(verbose_name='Фамилие родителя', null=True, blank=True, max_length=30)
+    school = models.IntegerField(verbose_name='Номер школы', null=True, blank=True,
+                                 help_text="Вводить только цифры")
+    shift = models.IntegerField(verbose_name='Номер смены', null=True, blank=True,
+                                help_text="Вводить только цифры")
+    birth_date = models.DateField(verbose_name='Дата рождения', max_length=10, null=True, blank=True,
+                                  help_text="Заполнить в формате дд.мм.гггг")
+    parents_surname = models.CharField(verbose_name='Фамилия родителя', null=True, blank=True, max_length=30)
     parents_name = models.CharField(verbose_name='Имя родителя', max_length=30, null=True, blank=True)
     parents_phone = models.CharField(verbose_name='Номер телефона родителя', max_length=13, null=True, blank=True)
     parents_email = models.EmailField(verbose_name='Электронная почта', null=True, blank=True)
-    address = models.CharField(verbose_name='Номер телефона родителя', max_length=13, null=True, blank=True, help_text="Вводить через запятую: населеный пункт, улица, номер дома, номер квартиры")
-    lesson_time = models.CharField(verbose_name="Жедательное время обучения", null=True, blank=True, max_length=250)
+    address = models.CharField(verbose_name='Номер телефона родителя', max_length=13, null=True, blank=True,
+                               help_text="Вводить через запятую: населенный пункт, улица, номер дома, номер квартиры")
+    lesson_time = models.CharField(verbose_name="Желательное время обучения", null=True, blank=True, max_length=250)
     subjects = models.ManyToManyField(to=Subject, related_name='applications', blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     statuses = models.ManyToManyField(
@@ -37,7 +41,6 @@ class Application(models.Model):
         related_name='applications', )
     is_deleted = models.BooleanField(default=False)
     discounts = models.ManyToManyField(to='education.Discount', related_name='applications')
-
 
     def __str__(self):
         return f'Заявка от: {self.applicant_name}'

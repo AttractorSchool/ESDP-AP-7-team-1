@@ -2,17 +2,16 @@
 from education.models import Subject
 from education.forms.subject_form import SubjectForm
 from django.urls import reverse
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import redirect, get_object_or_404
 
 
 class SubjectListView(ListView):
     template_name = 'education/subjects.html'
     model = Subject
-    context_object_name = 'subjects' 
+    context_object_name = 'subjects'
 
     def get_queryset(self, *args, **kwargs):
         return Subject.objects.filter(is_deleted=False).order_by('name')
-
 
 
 class SubjectAddView(CreateView):
@@ -40,6 +39,3 @@ class DelSubjectView(View):
         subject.is_deleted = True
         subject.save()
         return redirect('subjects')
-
-
-   
