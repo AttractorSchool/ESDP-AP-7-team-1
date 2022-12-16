@@ -8,6 +8,6 @@ class SubjectForm(forms.ModelForm):
         model = Subject
         fields = ('name', 'is_required')
         widgets = {
-            'name': TextInput(attrs={'class': 'form-control'}),
+            'name': TextInput(attrs={'class': 'form-control', 'placeholder': 'Название предмета'}),
             'is_required': CheckboxInput(attrs={'class': 'form-check-input'})
         }

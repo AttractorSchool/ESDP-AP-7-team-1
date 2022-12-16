@@ -1,4 +1,4 @@
-﻿from django.views.generic import View, ListView, CreateView, DeleteView, UpdateView
+﻿from django.views.generic import View, ListView, CreateView, UpdateView
 from education.models import Subject
 from education.forms.subject_form import SubjectForm
 from django.urls import reverse
