@@ -12,3 +12,6 @@ class Subject(models.Model):
     class Meta:
         verbose_name = 'Предмет'
         verbose_name_plural = 'Предметы'
+
+
+

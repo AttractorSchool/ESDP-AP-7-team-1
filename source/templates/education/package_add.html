@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Добавление нового пакета {% endblock %}
+
+{% block nav %}
+{% include 'partial/left_nav.html' with page='package' %}
+{% endblock %}
+
+{% block content %}
+<p class="card-title">Добавление нового пакета</p>
+<form class="forms-sample" action="{% url 'package_add' %}" method="POST">
+    {% csrf_token %}
+    <div class="form-group">
+      {{ form.name }}
+    </div>
+    {% for error in form.name.errors %}
+    <div class="ms-2 text-danger">{{ error }}</div>
+    {% endfor %}
+    <div class="form-group">
+        {{ form.qty }}
+      </div>
+    {% for error in form.qty.errors %}
+    <div class="ms-2 text-danger">{{ error }}</div>
+    {% endfor %}
+    <div class="form-group">
+        {{ form.sum }}
+    </div>
+    {% for error in form.sum.errors %}
+    <div class="ms-2 text-danger">{{ error }}</div>
+    {% endfor %}
+    <button type="submit" class="btn btn-inverse-primary mr-2 mt-3">Сохранить</button>
+    <a href="{% url 'packages' %}" class="btn btn-inverse-dark mt-3">Отмена</a>
+  </form>
+{% endblock %}

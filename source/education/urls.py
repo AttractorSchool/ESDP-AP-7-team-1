@@ -4,6 +4,7 @@ from education.views.change_application_status_view import ChangeStatusView
 from education.views.schedule import StudentScheduleView, GroupingsScheduleView
 from education.views.subjects import SubjectListView, SubjectAddView, SubjectEditView, DelSubjectView
 from education.views.applications import ApplicationListView, ApplicationEditView, DeleteApplicationView, ApplicationDetailView
+from education.views.packages import PackageListView, PackageAddView, PackageEditView, DelPackageView
 
 urlpatterns = [
     path('', IndexView.as_view(), name='main'),
@@ -18,4 +19,8 @@ urlpatterns = [
     path('application_delete/<int:pk>', DeleteApplicationView.as_view(), name='application_delete'),
     path('applications/', ApplicationListView.as_view(), name='applications'),
     path('applications/<int:pk>/detail', ApplicationDetailView.as_view(), name='application_detail'),
+    path('packages/', PackageListView.as_view(), name='packages'),
+    path('package_add/', PackageAddView.as_view(), name='package_add'),
+    path('package_update/<int:pk>', PackageEditView.as_view(), name='package_update'),
+    path('package_del/<int:pk>', DelPackageView.as_view(), name='package_del'),
 ]
