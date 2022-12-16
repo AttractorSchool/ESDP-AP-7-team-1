@@ -1,6 +1,7 @@
 from django.views.generic import View, ListView, UpdateView
+
+from education.forms.change_application_status_form import ApplicationStatusChangeForm
 from education.models import Application
-from education.forms.application_form import ApplicationSendForm
 from education.forms.application_edit_form import ApplicationEditForm
 from django.urls import reverse
 from django.shortcuts import render, redirect, get_object_or_404
@@ -10,11 +11,10 @@ from django.views.generic import DetailView
 class ApplicationListView(ListView):
     template_name = 'education/applications.html'
     model = Application
-    context_object_name = 'applications' 
+    context_object_name = 'applications'
 
     def get_queryset(self, *args, **kwargs):
         return self.model.objects.filter(is_deleted=False).order_by('created_at')
-
 
 
 class ApplicationEditView(UpdateView):
@@ -22,6 +22,11 @@ class ApplicationEditView(UpdateView):
     model = Application
     form_class = ApplicationEditForm
     context_object_name = 'application'
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(ApplicationEditView, self).get_context_data(**kwargs)
+        context['status_form'] = ApplicationStatusChangeForm
+        return context
 
     def get_success_url(self):
         return reverse('applications')

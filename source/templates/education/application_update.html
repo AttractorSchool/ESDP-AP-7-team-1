@@ -1,24 +1,25 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load bootstrap5 %}
 {% block title %} Добавление нового предмета {% endblock %}
 
 {% block nav %}
-{% include 'partial/left_nav.html' with page='index' %}
+    {% include 'partial/left_nav.html' with page='index' %}
 {% endblock %}
 
 {% block content %}
-<p class="card-title">Редактирование заявки  <strong>{{ application.applicant_name }} {{ application.applicant_surname}}</strong></p>
-<form class="forms-sample" action="{% url 'application_update' application.pk %}" method="POST">
-    {% csrf_token %}
-    {% for field in form%}
-    <div class="form-group">
-    {{field}}
-      {% for error in field.errors %}
-    <div class="ms-2 text-danger">{{ error }}</div>
-    {% endfor %}
-    </div>
-    {% endfor %}
-    <button type="submit" class="btn btn-inverse-primary mr-2 mt-3">Сохранить</button>
-    <a href="{% url 'subjects' %}" class="btn btn-inverse-dark mt-3">Отмена</a>
-  </form>
+    <p class="card-title">Редактирование заявки
+        <strong>{{ application.applicant_name }} {{ application.applicant_surname }}</strong></p>
+    <form class="forms-sample" action="" method="post">
+            {% csrf_token %}
+                <div class="form-group">
+                    {% csrf_token %}
+                    {% bootstrap_form form %}
+                </div>
+            <div class="mt-3">
+                <input type="submit" style="background:linear-gradient(90deg, #c352eb, #8adabd)"
+                       class="btn btn-block border-0 btn-primary btn-lg font-weight-medium auth-form-btn"
+                       value="Зарегистрировать">
+            </div>
+        </form>
 {% endblock %}

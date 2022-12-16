@@ -3,97 +3,117 @@
 {% block title %} Заявки {% endblock %}
 
 {% block nav %}
-{% include 'partial/left_nav.html' with page='application' %}
+    {% include 'partial/left_nav.html' with page='application' %}
 {% endblock %}
 
 {% block content %}
-<p class="card-title">Заявки</p>
-  <div class="table-responsive pt-3">
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>
-            #
-          </th>
-          <th>
-            Имя
-          </th>
-          <th>
-            Фамилия
-          </th>
-          <th>
-            Номер телефона
-          </th>
-          <th>
-            email
-          </th>
-          <th>
-            Дата
-          </th>
-          <th>
-            статус
-          </th>
-        </tr>
-      </thead>
-      <tbody>
+    <p class="card-title">Заявки</p>
+    <div class="table-responsive pt-3">
+        <table id='application_table' class="table table-striped">
+            <thead>
+            <tr>
+                <th>
+                    #
+                </th>
+                <th>
+                    Имя
+                </th>
+                <th>
+                    Фамилия
+                </th>
+                <th>
+                    Номер телефона
+                </th>
+                <th>
+                    email
+                </th>
+                <th>
+                    Дата
+                </th>
+                <th>
+                    статус
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for app in applications %}
+                <tr>
+                    <td class="py-1">
+                        {{ forloop.counter }}
+                    </td>
+                    <td>
+                        {{ app.applicant_name }}
+                    </td>
+                    <td>
+                        {{ app.applicant_surname }}
+                    </td>
+                    <td>
+                        {{ app.phone }}
+                    </td>
+                    <td>
+                        {{ app.email }}
+                    </td>
+                    <td>
+                        {{ app.created_at }}
+                    </td>
+                    <td class="application_status_{{ app.pk }}" class="check_status">
+                        {{ app.statuses.all.first }}
+                    </td>
+                    <td style="text-align:right;">
+                        <a href="{% url 'application_detail' app.pk %}" style="margin-right:5px">
+                            Подробнее..
+                        </a>
+                        <a href="{% url 'application_update' app.pk %}" class="btn btn-inverse-dark btn-sm text-center">
+                            <i class="ti-pencil-alt"></i>
+                        </a>
+                        <button style="margin-left:10px;" type="button" class="btn btn-inverse-danger btn-sm"
+                                data-bs-toggle="modal" data-bs-target="#exampleModal{{ forloop.counter }}">
+                            <i class="ti-trash"></i>
+                        </button>
+                        <!-- Modal 1-->
+                        <div class="modal fade" id="exampleModal{{ forloop.counter }}" tabindex="-1"
+                             aria-labelledby="exampleModalLabel{{ forloop.counter }}" aria-hidden="true">
+                            <div class="modal-dialog modal-lg modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <p class="display-4">Подтверждение удаления заявки</p>
+                                    </div>
+                                    <div class="modal-body text-center">
+                                        <h5>Вы точно хотите удалить заявку {{ sub.email }}?</h5>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <form action="{% url 'application_delete' app.pk %}" method="POST">
+                                            {% csrf_token %}
+                                            <button type="submit" class="btn btn-inverse-danger"
+                                                    data-bs-dismiss="modal">Да, хочу
+                                            </button>
+                                            <a href="" type="button" class="btn btn-inverse-dark">Отмена</a>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+            crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
         {% for app in applications %}
-        <tr>
-          <td class="py-1">
-            {{ forloop.counter }}
-          </td>
-          <td>
-            {{ app.applicant_name }}
-          </td>
-          <td>
-            {{ app.applicant_surname }}
-          </td>
-          <td>
-            {{ app.phone }}
-          </td>
-          <td>
-            {{ app.email }}
-          </td>
-          <td>
-            {{ app.created_at }}
-          </td>
-          <td>
-            {{ app.statuses.all.first}}
-          </td>
-          <td style="text-align:right;">
-            <a href="{% url 'application_detail' app.pk %}" style="margin-right:5px">
-                Подробнее..                          
-            </a>
-            <a href="{% url 'application_update' app.pk %}" class="btn btn-inverse-dark btn-sm text-center">
-              <i class="ti-pencil-alt"></i>                          
-            </a>
-            <button style="margin-left:10px;" type="button" class="btn btn-inverse-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal{{ forloop.counter }}">                                                  
-              <i class="ti-trash"></i>
-            </button>
-             <!-- Modal 1-->
-            <div class="modal fade" id="exampleModal{{ forloop.counter }}" tabindex="-1" aria-labelledby="exampleModalLabel{{ forloop.counter }}" aria-hidden="true">
-              <div class="modal-dialog modal-lg modal-dialog-centered">
-                  <div class="modal-content">
-                      <div class="modal-header">
-                          <p class="display-4">Подтверждение удаления заявки</p>          
-                      </div>
-                      <div class="modal-body text-center">
-                       <h5>Вы точно хотите удалить заявку {{ sub.email }}?</h5>
-                      </div>
-                      <div class="modal-footer"> 
-                          <form action="{% url 'application_delete' app.pk %}" method="POST">
-                              {% csrf_token %}
-                              <button type="submit" class="btn btn-inverse-danger" data-bs-dismiss="modal">Да, хочу</button>
-                              <a href="" type="button" class="btn btn-inverse-dark">Отмена</a>
-                          </form>
-                      </div>
-                  </div>
-              </div>
-            </div>
-          </td>
-        </tr>
+            $('#application_table').each(function () {
+                let addButtonByStatus_{{ app.pk }} = $(this).find(".application_status_{{ app.pk }}").html();
+                console.log(addButtonByStatus_{{ app.pk }})
+                if (addButtonByStatus_{{ app.pk }} === 'Согласование договора') {
+                    console.log('{{ app.statuses.all.first }}');
+                } else {
+                    console.log('bad');
+                }
+            });
         {% endfor %}
-      </tbody>
-    </table>
-  </div>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    </script>
 {% endblock %}

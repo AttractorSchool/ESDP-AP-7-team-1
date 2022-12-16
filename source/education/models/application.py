@@ -38,7 +38,7 @@ class Application(models.Model):
     statuses = models.ManyToManyField(
         to=Status,
         through='education.ApplicationStatus',
-        related_name='applications', )
+        related_name='applications')
     is_deleted = models.BooleanField(default=False)
     discounts = models.ManyToManyField(to='education.Discount', related_name='applications')
 
