@@ -1,4 +1,5 @@
 ﻿{% load static %}
+{% load bootstrap5 %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -80,7 +81,7 @@
                 <div class="row">
                     <div class="col-md-12 grid-margin stretch-card">
                         <div class="card position-relative">
-                            <div class="card-body">
+                            <div id="content" class="card-body">
                                 {% block content %}
                                 {% endblock %}
                             </div>
@@ -120,6 +121,8 @@
 <!-- Custom js for this page-->
 <script src="{% static 'js/dashboard.js' %}"></script>
 <!-- End custom js for this page-->
+
+
 </body>
 
 </html>
