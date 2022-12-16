@@ -3,12 +3,12 @@
 {% block title %} Регистрация {% endblock %}
 {% load bootstrap5 %}
 {% block nav %}
-    {% include 'partial/left_nav.html' with page='register' %}
+    {% include 'partial/left_nav.html' with page='register_student' %}
 {% endblock %}
 {% block content %}
     <p class="card-title text-center">Зарегистрировать пользователя</p>
     <div class="card-body">
-        <form class="forms-sample" action="{% url 'register' %}" method="post">
+        <form class="forms-sample" action="" method="post">
             {% csrf_token %}
                 <div class="form-group">
                     {% csrf_token %}

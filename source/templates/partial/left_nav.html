@@ -19,21 +19,21 @@
                       <span class="menu-title">Заявки</span>
                </a>
             </li>
-            <li class="nav-item {% if page == 'register' %} active {% endif %}">
-                <a class="nav-link" href="{% url 'register' %}">
+            <li  class="nav-item {% if page == 'register_student' %} active {% endif %}">
+                <a id="student" class="nav-link" href="{%url 'register' 'student'%}">
                     <i class="ti-plus menu-icon"></i>
                     <span class="menu-title">Добавить студента</span>
                 </a>
             </li>
-            <li class="nav-item {% if page == 'register' %} active {% endif %}">
-                <a class="nav-link" href="{% url 'register' %}">
+            <li id="teacher" class="nav-item {% if page == 'register_teacher' %} active {% endif %}">
+                <a class="nav-link" href="{%url 'register' 'teacher'%}">
                     <i class="ti-plus menu-icon"></i>
                     <span class="menu-title">Добавить преподавателя</span>
                 </a>
             </li>
             {% if user.is_superuser %}
-            <li class="nav-item {% if page == 'register' %} active {% endif %}">
-                <a class="nav-link" href="{% url 'register' %}">
+            <li id="admin" class="nav-item {% if page == 'register_admin' %} active {% endif %}">
+                <a class="nav-link" href="{%url 'register' 'admin'%}">
                     <i class="ti-plus menu-icon"></i>
                     <span class="menu-title">Добавить админа</span>
                 </a>
