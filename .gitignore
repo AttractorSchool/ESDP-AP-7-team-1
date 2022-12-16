@@ -5,6 +5,7 @@ venv
 .DS_Store
 media
 .env
+.vscode
 
 /source/accounts/migrations/*
 !/source/accounts/migrations/__init__.py
