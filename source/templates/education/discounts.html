@@ -1,4 +1,4 @@
-﻿{% extends 'base.html' %}
+{% extends 'base.html' %}
 {% load static %}
 {% block title %} Льготы {% endblock %}
 
@@ -13,7 +13,7 @@
     
     <div style="text-align:left;">
         <p style="margin-top:5px; margin-right:20px; margin-bottom:5px;">
-            <a href="{% url 'package_add' %}" class="btn btn-inverse-success btn-icon-text">
+            <a href="{% url 'discount_add' %}" class="btn btn-inverse-success btn-icon-text">
                 Добавить новую льготу
                 <i class="ti-plus btn-icon-append"></i>
             </a>
@@ -39,7 +39,7 @@
             </tr>
             </thead>
             <tbody>
-            {% for disc in discount %}
+            {% for disc in discounts %}
                 <tr>
                     <td class="py-1">
                         {{ forloop.counter }}
@@ -70,7 +70,7 @@
                                         <h5>Вы точно хотите удалить льготу {{ disc.name }}?</h5>
                                     </div>
                                     <div class="modal-footer">
-                                        <form action="{% url 'package_del' pack.pk %}" method="POST">
+                                        <form action="{% url 'discount_del' disc.pk %}" method="POST">
                                             {% csrf_token %}
                                             <button type="submit" class="btn btn-inverse-danger"
                                                     data-bs-dismiss="modal">Да, хочу

@@ -16,9 +16,28 @@ class DiscountListView(ListView):
 
 
 class DiscountAddView(CreateView):
-    template_name = 'education/package_add.html'
+    template_name = 'education/discount_add.html'
     form_class = DiscountForm
     model = Discount
 
     def get_success_url(self):
         return reverse('discounts')
+
+
+
+class DiscountEditView(UpdateView):
+    template_name = 'education/discount_update.html'
+    model = Discount
+    form_class = DiscountForm
+    context_object_name = 'discount'
+
+    def get_success_url(self):
+        return reverse('discounts')
+
+
+class DelDiscountView(View):
+    def post(self, *args, **kwargs):
+        package = get_object_or_404(Discount, pk=kwargs['pk'])
+        package.is_deleted = True
+        package.save()
+        return redirect('discounts')

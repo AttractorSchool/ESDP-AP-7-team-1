@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %} Добавление новой льготы {% endblock %}
+{% block title %} Редактирование льготы {% endblock %}
 
 {% block nav %}
 {% include 'partial/left_nav.html' with page='discount' %}
@@ -8,8 +8,8 @@
 
 
 {% block content %}
-<p class="card-title">Добавление новой льготы</p>
-<form class="forms-sample" action="{% url 'discount_add' %}" method="POST">
+<p class="card-title">Редактирование льготы "{{discount.name}}"</p>
+<form class="forms-sample" action="{% url 'discount_update' discount.pk %}" method="POST">
     {% csrf_token %}
     <div class="form-group">
       {{ form.name }}
