@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Редактирование льготы {% endblock %}
+
+{% block nav %}
+{% include 'partial/left_nav.html' with page='discount' %}
+{% endblock %}
+
+
+{% block content %}
+<p class="card-title">Редактирование льготы "{{discount.name}}"</p>
+<form class="forms-sample" action="{% url 'discount_update' discount.pk %}" method="POST">
+    {% csrf_token %}
+    <div class="form-group">
+      {{ form.name }}
+    </div>
+    {% for error in form.name.errors %}
+    <div class="ms-2 text-danger">{{ error }}</div>
+    {% endfor %}
+    <div class="form-group">
+        {{ form.discount_amount }}
+      </div>
+    {% for error in form.discount_amount.errors %}
+    <div class="ms-2 text-danger">{{ error }}</div>
+    {% endfor %}
+    <button type="submit" class="btn btn-inverse-primary mr-2 mt-3">Сохранить</button>
+    <a href="{% url 'discounts' %}" class="btn btn-inverse-dark mt-3">Отмена</a>
+  </form>
+{% endblock %}
