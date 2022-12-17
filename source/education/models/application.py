@@ -46,7 +46,9 @@ class Application(models.Model):
     lesson_time = models.CharField(verbose_name="Желательное время обучения", null=True, blank=True, max_length=250)
     subjects = models.ManyToManyField(to=Subject, related_name='applications', blank=True)
     discount_type = models.ManyToManyField(to=Discount, related_name='applications', blank=True)
-    package = models.ManyToManyField(to=Packet, related_name='applications', blank=True)
+    sum = models.IntegerField(verbose_name='Cумма пакета', max_length=12, null=True, blank=True)
+    contract = models.FieldFile(verbose_name="Подписанный договор", null=True, blank=True, help_text="Загружать pdf подписанного договора", upload_to='contracts/')
+    payed = models.BooleanField(verbose_name="Оплачено", null=True, blank=True, default=False)
     
     
     created_at = models.DateTimeField(auto_now_add=True)
