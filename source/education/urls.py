@@ -5,6 +5,7 @@ from education.views.schedule import StudentScheduleView, GroupingsScheduleView
 from education.views.subjects import SubjectListView, SubjectAddView, SubjectEditView, DelSubjectView
 from education.views.applications import ApplicationListView, ApplicationEditView, DeleteApplicationView, ApplicationDetailView
 from education.views.packages import PackageListView, PackageAddView, PackageEditView, DelPackageView
+from education.views.discounts import DiscountListView
 
 urlpatterns = [
     path('', IndexView.as_view(), name='main'),
@@ -23,4 +24,5 @@ urlpatterns = [
     path('package_add/', PackageAddView.as_view(), name='package_add'),
     path('package_update/<int:pk>', PackageEditView.as_view(), name='package_update'),
     path('package_del/<int:pk>', DelPackageView.as_view(), name='package_del'),
+    path('discounts/', DiscountListView.as_view(), name='discounts'),
 ]

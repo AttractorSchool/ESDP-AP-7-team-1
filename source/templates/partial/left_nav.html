@@ -13,11 +13,29 @@
                     <span class="menu-title">Предметы</span>
                 </a>
             </li>
+            <li class="nav-item {% if page == 'package' %} active {% endif %}">
+              <a class="nav-link" href="{% url 'packages' %}">
+                  <i class="ti-files menu-icon"></i>
+                  <span class="menu-title">Пакеты</span>
+              </a>
+            </li>
+            <li class="nav-item {% if page == 'discount' %} active {% endif %}">
+              <a class="nav-link" href="{% url 'packages' %}">
+                  <i class="ti-face-smile menu-icon"></i>
+                  <span class="menu-title">Льготы</span>
+              </a>
+            </li>
             <li class="nav-item {% if page == 'application' %} active {% endif %}">
                 <a class="nav-link" href="{% url 'applications' %}">
                      <i class="ti-clipboard menu-icon"></i>
                       <span class="menu-title">Заявки</span>
                </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="">
+                  <i class="ti-layers-alt menu-icon"></i>
+                  <span class="menu-title">Группы</span>
+              </a>
             </li>
             <li  class="nav-item {% if page == 'register_student' %} active {% endif %}">
                 <a id="student" class="nav-link" href="{%url 'register' 'student'%}">
@@ -40,12 +58,6 @@
             </li>
             {% endif %}
             <li class="nav-item">
-                <a class="nav-link" href="">
-                    <i class="ti-layers-alt menu-icon"></i>
-                    <span class="menu-title">Группы</span>
-                </a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link" href="{% url  'schedule_student' %}">
                     <i class="ti-layers-alt menu-icon"></i>
                     <span class="menu-title">Расписание студента</span>
@@ -57,12 +69,8 @@
                     <span class="menu-title">Расписание групп</span>
                 </a>
             </li>
-            <li class="nav-item {% if page == 'package' %} active {% endif %}">
-              <a class="nav-link" href="{% url 'packages' %}">
-                  <i class="ti-files menu-icon"></i>
-                  <span class="menu-title">Пакеты</span>
-              </a>
-          </li>
+           
+           
             <!-- <li class="nav-item">
               <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
                 <i class="ti-layers-alt menu-icon"></i>
