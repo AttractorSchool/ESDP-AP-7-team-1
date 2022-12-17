@@ -1,5 +1,4 @@
 from django.db import models
-from education.models import Subject, Discount, Packet
 from django.db.models import TextChoices
 
 
@@ -14,7 +13,7 @@ class Status(models.Model):
     class Meta:
         verbose_name = 'Доступный статус заявки'
         verbose_name_plural = 'Доступные статусы заявок'
-        
+
 
 class StudentSex(TextChoices):
     MALE = 'MALE', 'Er bala'
@@ -34,23 +33,21 @@ class Application(models.Model):
     birth_date = models.DateField(verbose_name='Дата рождения', max_length=10, null=True, blank=True,
                                   help_text="Заполнить в формате дд.мм.гггг")
     sex = models.CharField(verbose_name='Пол студента', choices=StudentSex.choices, max_length=100, default='Undefined')
-    
+
     parents_surname = models.CharField(verbose_name='Фамилия родителя', null=True, blank=True, max_length=30)
     parents_name = models.CharField(verbose_name='Имя родителя', max_length=30, null=True, blank=True)
     parents_inn = models.IntegerField(verbose_name='ИНН родителя', max_length=12, null=True, blank=True,
-                                help_text="Вводить только цифры")
+                                      help_text="Вводить только цифры")
     parents_phone = models.CharField(verbose_name='Номер телефона родителя', max_length=13, null=True, blank=True)
     parents_email = models.EmailField(verbose_name='Электронная почта', null=True, blank=True)
     address = models.CharField(verbose_name='Номер телефона родителя', max_length=13, null=True, blank=True,
                                help_text="Вводить через запятую: населенный пункт, улица, номер дома, номер квартиры")
     lesson_time = models.CharField(verbose_name="Желательное время обучения", null=True, blank=True, max_length=250)
-    subjects = models.ManyToManyField(to=Subject, related_name='applications', blank=True)
-    discount_type = models.ManyToManyField(to=Discount, related_name='applications', blank=True)
+    subjects = models.ManyToManyField(to='education.Subject', related_name='applications', blank=True)
     sum = models.IntegerField(verbose_name='Cумма пакета', max_length=12, null=True, blank=True)
-    contract = models.FieldFile(verbose_name="Подписанный договор", null=True, blank=True, help_text="Загружать pdf подписанного договора", upload_to='contracts/')
+    contract = models.FileField(verbose_name="Подписанный договор", null=True, blank=True,
+                                help_text="Загружать pdf подписанного договора", upload_to='contracts/')
     payed = models.BooleanField(verbose_name="Оплачено", null=True, blank=True, default=False)
-    
-    
     created_at = models.DateTimeField(auto_now_add=True)
     statuses = models.ManyToManyField(
         to=Status,
