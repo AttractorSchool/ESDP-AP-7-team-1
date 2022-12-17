@@ -1,8 +1,9 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 
-from accounts.managers import AccountManager
 from phonenumber_field.modelfields import PhoneNumberField
+
+from accounts.managers import AccountManager
 
 
 class Account(AbstractUser):
@@ -11,13 +12,13 @@ class Account(AbstractUser):
         null=True,
         blank=True,
         upload_to='avatars',
-        verbose_name='Аватар'
+        verbose_name='Аватар',
     )
     username = None
     phone_number = PhoneNumberField(
         unique=True,
         null=False,
-        blank=False
+        blank=False,
     )
 
     USERNAME_FIELD = 'email'
@@ -29,5 +30,5 @@ class Account(AbstractUser):
         verbose_name = 'Профиль'
         verbose_name_plural = 'Профили'
 
-    def str(self):
+    def __str__(self):
         return f'{self.email} {self.username}'
