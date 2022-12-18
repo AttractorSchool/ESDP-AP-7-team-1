@@ -20573,6 +20573,51 @@ dl li {
 .auth form .auth-link:hover {
   color: initial;
 }
+.auth-form-btn{
+  display: inline-block;
+}
+.register-btn-wrap{
+  text-align: center;
+}
+.form-select { 
+  display: block; 
+  font-size: 0.875rem;  
+  font-weight: 400; 
+  height: 2.875rem;
+  color: #495057;
+  padding: .6em 1.4em .5em .8em; width: 100%; 
+  max-width: 100%; 
+  line-height: 1;
+  box-sizing: border-box; 
+  margin: 0; 
+  border-radius: 2px;
+  border: 1px solid #c9ccd7; 
+   -moz-appearance: none;
+   -webkit-appearance: none;
+   appearance: none;
+   background-color: #ffffff; 
+  background-repeat: no-repeat, repeat;
+  background-position: right .7em top 50%, 0 0;
+  background-size: .65em auto, 100%; 
+  } 
+  
+.form-select:focus { border-color: #68afff; 
+  outline: none; 
+} 
+
+input[type="file"]::file-selector-button {
+  border: 1px solid #c9ccd7;
+  border-radius: 0.2em;
+  background-color: white;
+  transition: 1s;
+  width: 10em;
+  height: 1.5em;
+}
+
+input[type="file"]::file-selector-button:hover {
+  background-color: #68afff;
+  border: 2px solid #00cec9;
+}
 
 .page-body-wrapper {
   min-height: calc(100vh - 70px);

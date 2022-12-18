@@ -10,15 +10,15 @@
 {% block content %}
     <p class="card-title">Редактирование заявки
         <strong>{{ application.applicant_name }} {{ application.applicant_surname }}</strong></p>
-    <form class="forms-sample" action="" method="post">
+    <form class="forms-sample" action="" method="post" enctype="multipart/form-data">
             {% csrf_token %}
                 <div class="form-group">
                     {% csrf_token %}
                     {% bootstrap_form form %}
                 </div>
-            <div class="mt-3">
+            <div class="register-btn-wrap">
                 <input type="submit" style="background:linear-gradient(90deg, #c352eb, #8adabd)"
-                       class="btn btn-block border-0 btn-primary btn-lg font-weight-medium auth-form-btn"
+                       class="btn  border-0 btn-primary btn-lg font-weight-medium auth-form-btn"
                        value="Зарегистрировать">
             </div>
         </form>
