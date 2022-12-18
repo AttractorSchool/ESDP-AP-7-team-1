@@ -40,7 +40,7 @@ class Application(models.Model):
                                       help_text="Вводить только цифры")
     parents_phone = models.CharField(verbose_name='Номер телефона родителя', max_length=13, null=True, blank=True)
     parents_email = models.EmailField(verbose_name='Электронная почта', null=True, blank=True)
-    address = models.CharField(verbose_name='Номер телефона родителя', max_length=13, null=True, blank=True,
+    address = models.CharField(verbose_name='Адрес', max_length=13, null=True, blank=True,
                                help_text="Вводить через запятую: населенный пункт, улица, номер дома, номер квартиры")
     lesson_time = models.CharField(verbose_name="Желательное время обучения", null=True, blank=True, max_length=250)
     subjects = models.ManyToManyField(to='education.Subject', related_name='applications', blank=True)
@@ -51,10 +51,11 @@ class Application(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     statuses = models.ManyToManyField(
         to=Status,
+        verbose_name='Статус заявки',
         through='education.ApplicationStatus',
         related_name='applications')
     is_deleted = models.BooleanField(default=False)
-    discounts = models.ManyToManyField(to='education.Discount', related_name='applications')
+    discounts = models.ManyToManyField(to='education.Discount', verbose_name="Льготы" ,related_name='applications')
 
     def __str__(self):
         return f'Заявка от: {self.applicant_name}'
