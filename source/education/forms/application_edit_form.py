@@ -10,6 +10,16 @@ class ApplicationEditForm(forms.ModelForm):
                                               required=True, queryset=Subject.objects.all())
     sex = forms.ChoiceField(label='Пол',choices=StudentSex.choices)
     # statuses = forms.ChoiceField(label='Статус', choices=STATUS_CHOICES)
+    phone = forms.CharField(required=True, label='Телефон', widget=forms.TextInput(
+        attrs={
+            'class': 'phone-mask',
+            'placeholder': 'Телефон',
+        }))
+    parents_phone = forms.CharField(required=True, label='Телефон', widget=forms.TextInput(
+        attrs={
+            'class': 'phone-mask',
+            'placeholder': 'Телефон',
+        }))
 
     class Meta:
         model = Application
@@ -39,4 +49,4 @@ class ApplicationEditForm(forms.ModelForm):
             'discounts': forms.SelectMultiple(),
             'statuses': forms.SelectMultiple(),
         }
-
+        
