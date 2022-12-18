@@ -8,7 +8,7 @@ from education.models import Application, Subject, Status, Discount, StudentSex
 class ApplicationEditForm(forms.ModelForm):
     subjects = forms.ModelMultipleChoiceField(widget=forms.CheckboxSelectMultiple, label='Желаемые предметы',
                                               required=True, queryset=Subject.objects.all())
-    sex = forms.ChoiceField(label='Пол',choices=StudentSex.choices)
+    sex = forms.ChoiceField(label='Пол', choices=StudentSex.choices)
     # statuses = forms.ChoiceField(label='Статус', choices=STATUS_CHOICES)
     phone = forms.CharField(required=True, label='Телефон', widget=forms.TextInput(
         attrs={
@@ -46,7 +46,5 @@ class ApplicationEditForm(forms.ModelForm):
                   'discount',
                   ]
         widgets = {
-            'discount': forms.SelectMultiple(),
             'statuses': forms.SelectMultiple(),
         }
-        
