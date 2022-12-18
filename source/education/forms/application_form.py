@@ -1,5 +1,4 @@
 from django import forms
-
 from education.models import Application, Subject
 
 
@@ -32,8 +31,7 @@ class ApplicationSendForm(forms.ModelForm):
         fields = ('applicant_name', 'applicant_surname', 'email', 'phone', 'subjects')
 
     def save(self, commit=True):
-        application = super().save(commit=False)
-        if commit:
-            application.save()
-            application.statuses.add('1')
+        application = super().save(commit=True)
+        application.save()
+        application.statuses.add('1')
         return application
