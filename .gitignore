@@ -6,6 +6,7 @@ venv
 media
 .env
 .vscode
+uploads
 
 /source/accounts/migrations/*
 !/source/accounts/migrations/__init__.py
