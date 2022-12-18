@@ -11,15 +11,39 @@
     <p class="card-title">Редактирование заявки
         <strong>{{ application.applicant_name }} {{ application.applicant_surname }}</strong></p>
     <form class="forms-sample" action="" method="post" enctype="multipart/form-data">
+        <div class="form-group">
             {% csrf_token %}
-                <div class="form-group">
-                    {% csrf_token %}
-                    {% bootstrap_form form %}
-                </div>
-            <div class="register-btn-wrap">
-                <input type="submit" style="background:linear-gradient(90deg, #c352eb, #8adabd)"
-                       class="btn  border-0 btn-primary btn-lg font-weight-medium auth-form-btn"
-                       value="Зарегистрировать">
-            </div>
-        </form>
+            {% bootstrap_form form %}
+        </div>
+        <div class="register-btn-wrap">
+            <input type="submit" style="background:linear-gradient(90deg, #c352eb, #8adabd)"
+                   class="btn  border-0 btn-primary btn-lg font-weight-medium auth-form-btn"
+                   value="Зарегистрировать">
+        </div>
+    </form>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+        $('input[type=checkbox]').on('change', function (e) {
+            if ($('input[type=checkbox]:checked').length > 4) {
+                $(this).prop('checked', false);
+                alert("Можно выбрать только 4 предмета");
+            }
+            let checked = $('input[type=checkbox]:checked').length
+            console.log(checked)
+            $.ajax({
+                url: `/api/get_sum`,
+                type: "POST",
+                data: JSON.stringify({
+                    'package': checked
+                }),
+                success: function (data) {
+                    console.log(data)
+                    $('#id_sum').val(data.sum)
+                },
+                error: function (data) {
+                    console.log('error')
+                }
+            });
+        });
+    </script>
 {% endblock %}

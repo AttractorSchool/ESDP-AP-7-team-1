@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'accounts',
     'education',
+    'api',
     'bootstrap5',
     "phonenumber_field",
 ]
