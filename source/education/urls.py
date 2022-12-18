@@ -1,14 +1,18 @@
 from django.urls import path
+
 from education.views.base import IndexView
 from education.views.change_application_status_view import ChangeStatusView
+from education.views.crm_view import CrmView
 from education.views.schedule import StudentScheduleView, GroupingsScheduleView
 from education.views.subjects import SubjectListView, SubjectAddView, SubjectEditView, DelSubjectView
-from education.views.applications import ApplicationListView, ApplicationEditView, DeleteApplicationView, ApplicationDetailView
+from education.views.applications import ApplicationListView, ApplicationEditView, DeleteApplicationView, \
+    ApplicationDetailView
 from education.views.packages import PackageListView, PackageAddView, PackageEditView, DelPackageView
 from education.views.discounts import DiscountListView, DiscountAddView, DiscountEditView, DelDiscountView
 
 urlpatterns = [
     path('', IndexView.as_view(), name='main'),
+    path('crm/', CrmView.as_view(), name='crm'),
     path('schedule/', StudentScheduleView.as_view(), name='schedule_student'),
     path('schedule-groupings/', GroupingsScheduleView.as_view(), name='schedule_groupings'),
     path('change/status/<int:pk>', ChangeStatusView.as_view(), name='change_status'),

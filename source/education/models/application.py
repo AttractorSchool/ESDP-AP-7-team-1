@@ -36,7 +36,7 @@ class Application(models.Model):
 
     parents_surname = models.CharField(verbose_name='Фамилия родителя', null=True, blank=True, max_length=30)
     parents_name = models.CharField(verbose_name='Имя родителя', max_length=30, null=True, blank=True)
-    parents_inn = models.IntegerField(verbose_name='ИНН родителя', max_length=12, null=True, blank=True,
+    parents_inn = models.IntegerField(verbose_name='ИНН родителя', null=True, blank=True,
                                       help_text="Вводить только цифры")
     parents_phone = models.CharField(verbose_name='Номер телефона родителя', max_length=13, null=True, blank=True)
     parents_email = models.EmailField(verbose_name='Электронная почта', null=True, blank=True)
@@ -44,7 +44,7 @@ class Application(models.Model):
                                help_text="Вводить через запятую: населенный пункт, улица, номер дома, номер квартиры")
     lesson_time = models.CharField(verbose_name="Желательное время обучения", null=True, blank=True, max_length=250)
     subjects = models.ManyToManyField(to='education.Subject', related_name='applications', blank=True)
-    sum = models.IntegerField(verbose_name='Cумма пакета', max_length=12, null=True, blank=True)
+    sum = models.IntegerField(verbose_name='Cумма пакета', null=True, blank=True)
     contract = models.FileField(verbose_name="Подписанный договор", null=True, blank=True,
                                 help_text="Загружать pdf подписанного договора", upload_to='contracts/')
     payed = models.BooleanField(verbose_name="Оплачено", null=True, blank=True, default=False)

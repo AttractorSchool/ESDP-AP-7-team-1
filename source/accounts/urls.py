@@ -16,6 +16,7 @@ urlpatterns = [
     path("account/<int:pk>/delete/", UserDeleteView.as_view(), name="user_delete"),
     path("account/<int:pk>/confirm_delete/", UserDeleteView.as_view(), name="confirm_user_delete"),
     path('account/<int:pk>/change/', AccountChangeView.as_view(), name='account_change'),
-    path('password-change/', PasswordChangeView.as_view(template_name="password_change_form.html"), name='password_change'),
+    path('password-change/', PasswordChangeView.as_view(template_name="password_change_form.html"),
+         name='password_change'),
     path('password-change/done/', logout_view, name='password_change_done'),
 ]
