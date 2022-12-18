@@ -30,10 +30,10 @@ class LoginView(TemplateView):
             if not user:
                 return redirect('login')
             login(request, user)
-            return redirect('main')
+            return redirect('crm')
         email = form.cleaned_data.get('email')
         user = authenticate(request, email=email, password=password)
         if not user:
             return redirect('login')
         login(request, user)
-        return redirect('main')
+        return redirect('crm')
