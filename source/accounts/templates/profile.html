@@ -1,7 +1,7 @@
-{% extends 'index.html' %}
+{% extends 'crm.html' %}
 {% load static %}
 {% block title %} Главная страница {% endblock %}
 
 {% block content %}
-<p class="card-title">Профайл {{ user }}</p>
+<p class="card-title">Профайл {{ user.email }}</p>
 {% endblock %}
