@@ -24,7 +24,7 @@ class Application(models.Model):
     applicant_name = models.CharField(verbose_name='Имя заявителя', max_length=30)
     applicant_surname = models.CharField(verbose_name='Фамилия заявителя', max_length=30)
     email = models.EmailField(verbose_name='Электронная почта', blank=True)
-    phone = models.CharField(verbose_name='Номер телефона', max_length=13)
+    phone = models.CharField(verbose_name='Номер телефона', max_length=18)
     school = models.IntegerField(verbose_name='Номер школы', null=True, blank=True,
                                  help_text="Вводить только цифры")
     class_number = models.CharField(verbose_name='Номер класса', max_length=3, null=True, blank=True)

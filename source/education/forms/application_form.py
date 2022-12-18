@@ -1,4 +1,5 @@
 from django import forms
+
 from education.models import Application, Subject
 
 
@@ -8,22 +9,22 @@ class ApplicationSendForm(forms.ModelForm):
     email = forms.CharField(required=True, label='Email', widget=forms.TextInput(
         attrs={
             'class': 'form-control form-control-lg',
-            'placeholder': 'Email'
+            'placeholder': 'Email',
         }))
     applicant_name = forms.CharField(required=True, label='Имя', widget=forms.TextInput(
         attrs={
             'class': 'form-control form-control-lg',
-            'placeholder': 'Имя'
+            'placeholder': 'Имя',
         }))
     applicant_surname = forms.CharField(required=True, label='Фамилия', widget=forms.TextInput(
         attrs={
             'class': 'form-control form-control-lg',
-            'placeholder': 'Фамилия'
+            'placeholder': 'Фамилия',
         }))
     phone = forms.CharField(required=True, label='Телефон', widget=forms.TextInput(
         attrs={
-            'class': 'form-control form-control-lg',
-            'placeholder': 'Телефон'
+            'class': 'form-control form-control-lg phone-mask',
+            'placeholder': 'Телефон',
         }))
 
     class Meta:
