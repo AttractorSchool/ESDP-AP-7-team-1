@@ -43,10 +43,10 @@ class ApplicationEditForm(forms.ModelForm):
                   'sum',
                   'contract',
                   'statuses',
-                  'discounts',
+                  'discount',
                   ]
         widgets = {
-            'discounts': forms.SelectMultiple(),
+            'discount': forms.SelectMultiple(),
             'statuses': forms.SelectMultiple(),
         }
         

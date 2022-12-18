@@ -21,6 +21,7 @@ class StudentSex(TextChoices):
 
 
 class Application(models.Model):
+    """Созданные заявки пользователями"""
     applicant_name = models.CharField(verbose_name='Имя заявителя', max_length=30)
     applicant_surname = models.CharField(verbose_name='Фамилия заявителя', max_length=30)
     email = models.EmailField(verbose_name='Электронная почта', blank=True)
@@ -56,7 +57,12 @@ class Application(models.Model):
         related_name='applications',
         )
     is_deleted = models.BooleanField(default=False)
-    discounts = models.ManyToManyField(to='education.Discount', verbose_name="Льготы", related_name='applications')
+    discount = models.ForeignKey(
+        to='education.Discount',
+        related_name='applications',
+        on_delete=models.SET_NULL,
+        null=True,
+        )
 
     def __str__(self):
         return f'Заявка от: {self.applicant_name}'
@@ -64,13 +70,16 @@ class Application(models.Model):
     class Meta:
         verbose_name = 'Заявка'
         verbose_name_plural = 'Заявки'
+        ordering = ['-created_at']
 
 
 class ApplicationStatus(models.Model):
+    """Установленные статусы заявок"""
     application = models.ForeignKey(to=Application, on_delete=models.CASCADE)
     status = models.ForeignKey(to=Status, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     note = models.CharField(verbose_name='Примечание', max_length=150, blank=True)
+    author = models.ForeignKey(to='accounts.Account', on_delete=models.RESTRICT, null=True)
 
     def __str__(self):
         return f'{self.application} - {self.status}'
