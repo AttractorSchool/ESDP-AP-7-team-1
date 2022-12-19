@@ -16,7 +16,11 @@ class IndexView(TemplateView):
         form = self.form(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('main')
+            return redirect('notification')
         context = {}
         context['form'] = form
         return self.render_to_response(context)
+
+
+class NotificationView(TemplateView):
+    template_name = 'education/notification.html'

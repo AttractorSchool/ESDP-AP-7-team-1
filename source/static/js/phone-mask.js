@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
     var phoneInputs = document.getElementsByClassName('phone-mask');
-    console.log(phoneInputs)
 
     var getInputNumbersValue = function (input) {
         // Return stripped input value — just numbers

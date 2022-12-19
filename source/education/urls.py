@@ -1,6 +1,6 @@
 from django.urls import path
 
-from education.views.base import IndexView
+from education.views.base import IndexView, NotificationView
 from education.views.change_application_status_view import ChangeStatusView
 from education.views.crm_view import CrmView
 from education.views.schedule import StudentScheduleView, GroupingsScheduleView
@@ -12,6 +12,7 @@ from education.views.discounts import DiscountListView, DiscountAddView, Discoun
 
 urlpatterns = [
     path('', IndexView.as_view(), name='main'),
+    path('notification/', NotificationView.as_view(), name='notification'),
     path('crm/', CrmView.as_view(), name='crm'),
     path('schedule/', StudentScheduleView.as_view(), name='schedule_student'),
     path('schedule-groupings/', GroupingsScheduleView.as_view(), name='schedule_groupings'),
