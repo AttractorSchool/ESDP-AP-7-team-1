@@ -19,6 +19,17 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_HOST = 'smtp.yandex.kz'
+EMAIL_HOST_USER = 'testeruly@yandex.kz'
+EMAIL_HOST_PASSWORD = 'jhpcfkjqxfiqzbjb'
+DEFAULT_FROM_EMAIL = 'testeruly@yandex.kz'
+
+EMAIL_PORT = 465
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = True
+
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -138,9 +149,3 @@ AUTH_USER_MODEL = 'accounts.Account'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #sending email
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'your_account@gmail.com'
-EMAIL_HOST_PASSWORD = 'your_password'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
