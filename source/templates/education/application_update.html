@@ -1,7 +1,8 @@
 {% extends 'crm.html' %}
 {% load static %}
 {% load bootstrap5 %}
-{% block title %} Добавление нового предмета {% endblock %}
+{% bootstrap_messages %}
+{% block title %} Редактирование заявки {% endblock %}
 
 {% block nav %}
     {% include 'partial/left_nav.html' with page='index' %}
@@ -23,6 +24,7 @@
 
             {% bootstrap_form form %}
         </div>
+
         <div class="d-flex justify-content-between">
             <div>
                 <input type="submit" style="background:linear-gradient(90deg, #c352eb, #8adabd)"
@@ -42,6 +44,7 @@
                     value="Создать родителя" disabled>
             </div>
             <input type="submit" value="Отклонить заявку" disabled>
+
         </div>
     </form>
 
