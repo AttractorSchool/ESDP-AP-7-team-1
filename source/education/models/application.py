@@ -21,10 +21,11 @@ class StudentSex(TextChoices):
 
 
 class Application(models.Model):
+    """Созданные заявки пользователями"""
     applicant_name = models.CharField(verbose_name='Имя заявителя', max_length=30)
     applicant_surname = models.CharField(verbose_name='Фамилия заявителя', max_length=30)
     email = models.EmailField(verbose_name='Электронная почта', blank=True)
-    phone = models.CharField(verbose_name='Номер телефона', max_length=13)
+    phone = models.CharField(verbose_name='Номер телефона', max_length=18)
     school = models.IntegerField(verbose_name='Номер школы', null=True, blank=True,
                                  help_text="Вводить только цифры")
     class_number = models.CharField(verbose_name='Номер класса', max_length=3, null=True, blank=True)
@@ -36,25 +37,32 @@ class Application(models.Model):
 
     parents_surname = models.CharField(verbose_name='Фамилия родителя', null=True, blank=True, max_length=30)
     parents_name = models.CharField(verbose_name='Имя родителя', max_length=30, null=True, blank=True)
-    parents_inn = models.IntegerField(verbose_name='ИНН родителя', max_length=12, null=True, blank=True,
+    parents_inn = models.IntegerField(verbose_name='ИНН родителя', null=True, blank=True,
                                       help_text="Вводить только цифры")
-    parents_phone = models.CharField(verbose_name='Номер телефона родителя', max_length=13, null=True, blank=True)
+    parents_phone = models.CharField(verbose_name='Номер телефона родителя', max_length=18, null=True, blank=True)
     parents_email = models.EmailField(verbose_name='Электронная почта', null=True, blank=True)
-    address = models.CharField(verbose_name='Номер телефона родителя', max_length=13, null=True, blank=True,
+    address = models.CharField(verbose_name='Адрес', max_length=13, null=True, blank=True,
                                help_text="Вводить через запятую: населенный пункт, улица, номер дома, номер квартиры")
     lesson_time = models.CharField(verbose_name="Желательное время обучения", null=True, blank=True, max_length=250)
     subjects = models.ManyToManyField(to='education.Subject', related_name='applications', blank=True)
-    sum = models.IntegerField(verbose_name='Cумма пакета', max_length=12, null=True, blank=True)
+    sum = models.IntegerField(verbose_name='Cумма пакета', null=True, blank=True)
     contract = models.FileField(verbose_name="Подписанный договор", null=True, blank=True,
                                 help_text="Загружать pdf подписанного договора", upload_to='contracts/')
     payed = models.BooleanField(verbose_name="Оплачено", null=True, blank=True, default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     statuses = models.ManyToManyField(
         to=Status,
+        verbose_name='Статус заявки',
         through='education.ApplicationStatus',
-        related_name='applications')
+        related_name='applications',
+        )
     is_deleted = models.BooleanField(default=False)
-    discounts = models.ManyToManyField(to='education.Discount', related_name='applications')
+    discount = models.ForeignKey(
+        to='education.Discount',
+        related_name='applications',
+        on_delete=models.SET_NULL,
+        null=True,
+        )
 
     def __str__(self):
         return f'Заявка от: {self.applicant_name}'
@@ -62,13 +70,16 @@ class Application(models.Model):
     class Meta:
         verbose_name = 'Заявка'
         verbose_name_plural = 'Заявки'
+        ordering = ['-created_at']
 
 
 class ApplicationStatus(models.Model):
+    """Установленные статусы заявок"""
     application = models.ForeignKey(to=Application, on_delete=models.CASCADE)
     status = models.ForeignKey(to=Status, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     note = models.CharField(verbose_name='Примечание', max_length=150, blank=True)
+    author = models.ForeignKey(to='accounts.Account', on_delete=models.RESTRICT, null=True)
 
     def __str__(self):
         return f'{self.application} - {self.status}'

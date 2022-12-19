@@ -7,6 +7,9 @@ class Packet(models.Model):
     is_deleted = models.BooleanField(default=False)
     sum = models.PositiveIntegerField(verbose_name='Сумма', blank=True, null=True)
 
-
     def __str__(self):
         return self.name
+
+    class Meta:
+        verbose_name = 'Пакет предметов'
+        verbose_name_plural = 'Пакеты предметов'

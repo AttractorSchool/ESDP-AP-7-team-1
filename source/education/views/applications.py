@@ -1,11 +1,10 @@
-from django.views.generic import View, ListView, UpdateView
+from django.shortcuts import get_object_or_404, redirect
+from django.urls import reverse
+from django.views.generic import DetailView, ListView, UpdateView, View
 
+from education.forms.application_edit_form import ApplicationEditForm
 from education.forms.change_application_status_form import ApplicationStatusChangeForm
 from education.models import Application
-from education.forms.application_edit_form import ApplicationEditForm
-from django.urls import reverse
-from django.shortcuts import render, redirect, get_object_or_404
-from django.views.generic import DetailView
 
 
 class ApplicationListView(ListView):
@@ -14,7 +13,7 @@ class ApplicationListView(ListView):
     context_object_name = 'applications'
 
     def get_queryset(self, *args, **kwargs):
-        return self.model.objects.filter(is_deleted=False).order_by('created_at')
+        return self.model.objects.filter(is_deleted=False)
 
 
 class ApplicationEditView(UpdateView):

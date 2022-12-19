@@ -2,7 +2,7 @@
     <ul class="nav">
         {% if user.is_authenticated %}
             <li class="nav-item {% if page == 'index' %} active {% endif %}">
-                <a class="nav-link" href="{% url 'main' %}">
+                <a class="nav-link" href="{% url 'crm' %}">
                     <i class="ti-shield menu-icon"></i>
                     <span class="menu-title">Доска</span>
                 </a>

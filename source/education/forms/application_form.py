@@ -8,22 +8,22 @@ class ApplicationSendForm(forms.ModelForm):
     email = forms.CharField(required=True, label='Email', widget=forms.TextInput(
         attrs={
             'class': 'form-control form-control-lg',
-            'placeholder': 'Email'
+            'placeholder': 'Email',
         }))
     applicant_name = forms.CharField(required=True, label='Имя', widget=forms.TextInput(
         attrs={
             'class': 'form-control form-control-lg',
-            'placeholder': 'Имя'
+            'placeholder': 'Имя',
         }))
     applicant_surname = forms.CharField(required=True, label='Фамилия', widget=forms.TextInput(
         attrs={
             'class': 'form-control form-control-lg',
-            'placeholder': 'Фамилия'
+            'placeholder': 'Фамилия',
         }))
     phone = forms.CharField(required=True, label='Телефон', widget=forms.TextInput(
         attrs={
-            'class': 'form-control form-control-lg',
-            'placeholder': 'Телефон'
+            'class': 'form-control form-control-lg phone-mask',
+            'placeholder': 'Телефон',
         }))
 
     class Meta:
@@ -31,8 +31,7 @@ class ApplicationSendForm(forms.ModelForm):
         fields = ('applicant_name', 'applicant_surname', 'email', 'phone', 'subjects')
 
     def save(self, commit=True):
-        application = super().save(commit=False)
-        if commit:
-            application.save()
-            application.statuses.add('1')
+        application = super().save(commit=True)
+        application.save()
+        application.statuses.add('1')
         return application
