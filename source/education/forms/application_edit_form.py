@@ -1,13 +1,23 @@
 from django import forms
-from education.models import Application, Subject, Status, Discount, StudentSex
+from django.utils.datastructures import MultiValueDict
+
+from education.models import Application, StudentSex, Subject, Discount
 
 # all_statuses = Status.objects.values()
 # STATUS_CHOICES = [(d['id'], d['name']) for d in all_statuses]
 
 
+class M2MSelect(forms.Select):
+    def value_from_datadict(self, data, files, name):
+        if isinstance(data, MultiValueDict):
+            return data.getlist(name)
+        return data.get(name, None)
+
+
 class ApplicationEditForm(forms.ModelForm):
     subjects = forms.ModelMultipleChoiceField(widget=forms.CheckboxSelectMultiple, label='Желаемые предметы',
                                               required=True, queryset=Subject.objects.all())
+    discount = forms.ModelChoiceField(queryset=Discount.objects.all(), required=False)
     sex = forms.ChoiceField(label='Пол', choices=StudentSex.choices)
     # statuses = forms.ChoiceField(label='Статус', choices=STATUS_CHOICES)
     phone = forms.CharField(required=True, label='Телефон', widget=forms.TextInput(
@@ -46,5 +56,5 @@ class ApplicationEditForm(forms.ModelForm):
                   'discount',
                   ]
         widgets = {
-            'statuses': forms.SelectMultiple(),
+            'statuses': M2MSelect(),
         }

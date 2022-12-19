@@ -1,7 +1,8 @@
 {% extends 'crm.html' %}
 {% load static %}
 {% load bootstrap5 %}
-{% block title %} Добавление нового предмета {% endblock %}
+{% bootstrap_messages %}
+{% block title %} Редактирование заявки {% endblock %}
 
 {% block nav %}
     {% include 'partial/left_nav.html' with page='index' %}
@@ -18,7 +19,7 @@
         </div>
         <div class="register-btn-wrap">
             <input type="submit" style="background:linear-gradient(90deg, #c352eb, #8adabd)"
-                   class="btn  border-0 btn-primary btn-lg font-weight-medium auth-form-btn"
+                   class="btn  border-0 btn-primary btn-md font-weight-medium auth-form-btn"
                    value="Зарегистрировать">
         </div>
     </form>
