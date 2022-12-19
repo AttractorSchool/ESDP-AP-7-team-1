@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load bootstrap5 %}
+
+{% load static %}
+{% block title %} Уведомление {% endblock %}
+
+{% block nav %}
+{% include 'partial/left_nav.html' with page='application' %}
+{% endblock %}
+
+{% block content %}
+
+<div id="container">
+    <style type="text/css">
+        h1 { 
+            font-size: 18px; 
+            color: #495057;
+            margin-bottom: 38px;
+        }
+        .page{
+            min-width: 269px;
+            max-width: fit-content;
+        }
+        .page_2{
+            padding-top:150px;
+            padding-left:150px;
+        }
+    </style>
+    <center><h1>Ваша заявка принята. Наш менеджер свяжется с Вами в скором времени!</h1>
+    <a href="{% url 'main' %}"<input type="submit" 
+        style="background:linear-gradient(90deg, #c352eb, #8adabd); width: auto; height: 28px; padding-bottom: 28px" 
+        class="btn  btn-primary">
+        OK
+    </a>
+
+</div>
+ 
+{% endblock %}
