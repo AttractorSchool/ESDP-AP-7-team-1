@@ -9,29 +9,55 @@
 {% endblock %}
 
 {% block content %}
-    <p class="card-title">Редактирование заявки
-        <strong>{{ application.applicant_name }} {{ application.applicant_surname }}</strong></p>
+    <div class="d-flex justify-content-between mb-3">
+        <div>
+            <h4>Редактирование заявки
+            <strong>{{ application.applicant_name }} {{ application.applicant_surname }}</strong></h4>
+        </div>
+        <div>
+            <p>Текущий статус заявки: <strong>{{ application.statuses.all.last }}</strong></p>
+        </div>
+    </div>
     <form class="forms-sample" action="" method="post" enctype="multipart/form-data">
         <div class="form-group">
             {% csrf_token %}
 
             {% bootstrap_form form %}
         </div>
-        <div class="register-btn-wrap">
-            <input type="submit" style="background:linear-gradient(90deg, #c352eb, #8adabd)"
-                   class="btn  border-0 btn-primary btn-md font-weight-medium auth-form-btn"
-                   value="Зарегистрировать">
+
+        <div class="d-flex justify-content-between">
+            <div>
+                <input type="submit" style="background:linear-gradient(90deg, #c352eb, #8adabd)"
+                    class="left btn  border-0 btn-primary font-weight-medium auth-form-btn"
+                    value="Сохранить">
+                <input type="submit" style="background:linear-gradient(90deg, #c352eb, #8adabd)"
+                    class="left btn  border-0 btn-primary font-weight-medium auth-form-btn"
+                    value="Сохранить и Закрыть" disabled>
+            </div>
+            <div>
+                <input type="submit" style="background:linear-gradient(90deg, #c352eb, #8adabd)"
+                    class="left btn  border-0 btn-primary font-weight-medium auth-form-btn"
+                    value="Создать ученика" disabled>
+
+                <input type="submit" style="background:linear-gradient(90deg, #c352eb, #8adabd)"
+                    class="left btn  border-0 btn-primary font-weight-medium auth-form-btn"
+                    value="Создать родителя" disabled>
+            </div>
+            <input type="submit" value="Отклонить заявку" disabled>
+
         </div>
     </form>
+
+
     <script src="{% static 'js/phone-mask.js' %}"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script>
         $('input[type=checkbox]').on('change', function (e) {
-            if ($('input[type=checkbox]:checked').length > 4) {
+            if ($('input[class=subject-check]:checked').length > 4) {
                 $(this).prop('checked', false);
-                alert("Можно выбрать только 4 предмета");
+                alert("Выберите не более 4-х предметов");
             }
-            let checked = $('input[type=checkbox]:checked').length
+            let checked = $('input[class=subject-check]:checked').length
             console.log(checked)
             $.ajax({
                 url: `/api/get_sum`,
