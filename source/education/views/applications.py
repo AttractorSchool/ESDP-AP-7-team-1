@@ -1,5 +1,5 @@
 from django.shortcuts import get_object_or_404, redirect
-from django.urls import reverse
+from django.urls import reverse_lazy
 from django.views.generic import DetailView, ListView, UpdateView, View
 
 from education.forms.application_edit_form import ApplicationEditForm
@@ -28,7 +28,7 @@ class ApplicationEditView(UpdateView):
         return context
 
     def get_success_url(self):
-        return reverse('applications')
+        return reverse_lazy('application_update', kwargs={'pk': self.kwargs['pk']})
 
 
 class DeleteApplicationView(View):

@@ -1,7 +1,7 @@
 from django import forms
 from django.utils.datastructures import MultiValueDict
 
-from education.models import Application, StudentSex, Subject, Discount
+from education.models import Application, StudentSex, Subject
 
 
 class M2MSelect(forms.Select):
@@ -12,8 +12,7 @@ class M2MSelect(forms.Select):
 
 
 class ApplicationEditForm(forms.ModelForm):
-    subjects = forms.ModelMultipleChoiceField(label='Предметы к обучению', 
-        queryset=Subject.objects.all(),
+    subjects = forms.ModelMultipleChoiceField(label='Предметы к обучению', queryset=Subject.objects.all(),
         widget=forms.CheckboxSelectMultiple(
         attrs={
             'class': 'subject-check',
@@ -30,7 +29,7 @@ class ApplicationEditForm(forms.ModelForm):
             'class': 'phone-mask',
             'placeholder': 'Телефон',
         }))
-    payed = forms.BooleanField(label='Оплачено', widget=forms.CheckboxInput(
+    payed = forms.BooleanField(label='Оплачено', required=False, widget=forms.CheckboxInput(
         attrs={
             'class': 'mx-2',
         }))
