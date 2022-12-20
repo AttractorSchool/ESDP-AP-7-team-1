@@ -117,7 +117,6 @@
       ],
       [
         "delete_status",
-
         "education",
         "status"
       ],
@@ -251,7 +250,7 @@
   "model": "education.subject",
   "pk": 1,
   "fields": {
-    "name": "математика",
+    "name": "Информатика",
     "is_deleted": false,
     "is_required": false
   }
@@ -260,7 +259,7 @@
   "model": "education.subject",
   "pk": 2,
   "fields": {
-    "name": "физика",
+    "name": "Физика",
     "is_deleted": false,
     "is_required": false
   }
@@ -269,7 +268,7 @@
   "model": "education.subject",
   "pk": 3,
   "fields": {
-    "name": "информатика",
+    "name": "Математика",
     "is_deleted": false,
     "is_required": false
   }
@@ -278,7 +277,61 @@
   "model": "education.subject",
   "pk": 4,
   "fields": {
-    "name": "химия",
+    "name": "Қазақстан тарихы",
+    "is_deleted": false,
+    "is_required": false
+  }
+},
+{
+  "model": "education.subject",
+  "pk": 5,
+  "fields": {
+    "name": "Матсауат",
+    "is_deleted": false,
+    "is_required": false
+  }
+},
+{
+  "model": "education.subject",
+  "pk": 7,
+  "fields": {
+    "name": "ДЖТ",
+    "is_deleted": false,
+    "is_required": false
+  }
+},
+{
+  "model": "education.subject",
+  "pk": 8,
+  "fields": {
+    "name": "Химия",
+    "is_deleted": false,
+    "is_required": false
+  }
+},
+{
+  "model": "education.subject",
+  "pk": 9,
+  "fields": {
+    "name": "Биология",
+    "is_deleted": false,
+    "is_required": false
+  }
+},
+{
+  "model": "education.subject",
+  "pk": 10,
+  "fields": {
+    "name": "География",
+    "is_deleted": false,
+    "is_required": false
+  }
+},
+{
+  "model": "education.subject",
+  "pk": 11,
+  "fields": {
+    "name": "Ағылшын",
     "is_deleted": false,
     "is_required": false
   }
@@ -295,7 +348,7 @@
   "model": "education.status",
   "pk": 2,
   "fields": {
-    "name": "Успешно закрыта",
+    "name": "Ожидание оплаты",
     "is_deleted": false
   }
 },
@@ -311,7 +364,23 @@
   "model": "education.status",
   "pk": 4,
   "fields": {
+    "name": "В работе",
+    "is_deleted": false
+  }
+},
+{
+  "model": "education.status",
+  "pk": 5,
+  "fields": {
     "name": "Подписание договора",
+    "is_deleted": false
+  }
+},
+{
+  "model": "education.status",
+  "pk": 6,
+  "fields": {
+    "name": "Завершена",
     "is_deleted": false
   }
 },
@@ -322,9 +391,25 @@
     "applicant_name": "Иван",
     "applicant_surname": "Иванов",
     "email": "",
-    "phone": "+7(777)556-74",
+    "phone": "+7 (777) 556-74-66",
+    "school": null,
+    "class_number": null,
+    "shift": null,
+    "birth_date": null,
+    "sex": "MALE",
+    "parents_surname": null,
+    "parents_name": null,
+    "parents_inn": null,
+    "parents_phone": "",
+    "parents_email": null,
+    "address": null,
+    "lesson_time": null,
+    "sum": null,
+    "contract": "",
+    "payed": false,
     "created_at": "2022-12-11T08:16:23.438Z",
     "is_deleted": false,
+    "discount": null,
     "subjects": [
       2
     ]
@@ -337,9 +422,25 @@
     "applicant_name": "Степан",
     "applicant_surname": "Степанов",
     "email": "",
-    "phone": "+7(775)567-41",
+    "phone": "8 (885) 554-66-62",
+    "school": null,
+    "class_number": null,
+    "shift": null,
+    "birth_date": null,
+    "sex": "MALE",
+    "parents_surname": null,
+    "parents_name": null,
+    "parents_inn": null,
+    "parents_phone": "",
+    "parents_email": null,
+    "address": null,
+    "lesson_time": null,
+    "sum": null,
+    "contract": "",
+    "payed": false,
     "created_at": "2022-12-11T08:16:40.461Z",
     "is_deleted": false,
+    "discount": null,
     "subjects": [
       2,
       4
@@ -347,33 +448,523 @@
   }
 },
 {
-  "model": "education.applicationstatus",
-  "pk": 1,
-  "fields": {
-    "application": 1,
-    "status": 2,
-    "created_at": "2022-12-11T08:17:30.653Z",
-    "note": ""
-  }
-},
-{
-  "model": "education.applicationstatus",
-  "pk": 2,
-  "fields": {
-    "application": 2,
-    "status": 4,
-    "created_at": "2022-12-11T08:17:33.404Z",
-    "note": ""
-  }
-},
-{
-  "model": "education.applicationstatus",
+  "model": "education.application",
   "pk": 3,
   "fields": {
-    "application": 1,
-    "status": 3,
-    "created_at": "2022-12-11T08:17:36.666Z",
-    "note": ""
+    "applicant_name": "Дмитрий",
+    "applicant_surname": "Петров",
+    "email": "qqq@mail.ru",
+    "phone": "+77772585445",
+    "school": null,
+    "class_number": null,
+    "shift": null,
+    "birth_date": null,
+    "sex": "Undefined",
+    "parents_surname": null,
+    "parents_name": null,
+    "parents_inn": null,
+    "parents_phone": null,
+    "parents_email": null,
+    "address": null,
+    "lesson_time": null,
+    "sum": null,
+    "contract": "",
+    "payed": false,
+    "created_at": "2022-12-18T04:26:20.860Z",
+    "is_deleted": true,
+    "discount": null,
+    "subjects": []
+  }
+},
+{
+  "model": "education.application",
+  "pk": 4,
+  "fields": {
+    "applicant_name": "Рахат",
+    "applicant_surname": "Кабдосов",
+    "email": "qqq@mail.ru",
+    "phone": "+77772585445",
+    "school": null,
+    "class_number": null,
+    "shift": null,
+    "birth_date": null,
+    "sex": "Undefined",
+    "parents_surname": null,
+    "parents_name": null,
+    "parents_inn": null,
+    "parents_phone": null,
+    "parents_email": null,
+    "address": null,
+    "lesson_time": null,
+    "sum": null,
+    "contract": "",
+    "payed": false,
+    "created_at": "2022-12-18T04:27:52.097Z",
+    "is_deleted": true,
+    "discount": null,
+    "subjects": []
+  }
+},
+{
+  "model": "education.application",
+  "pk": 58,
+  "fields": {
+    "applicant_name": "ww",
+    "applicant_surname": "ww",
+    "email": "sss@mail.ru",
+    "phone": "+42343",
+    "school": null,
+    "class_number": null,
+    "shift": null,
+    "birth_date": null,
+    "sex": "Undefined",
+    "parents_surname": null,
+    "parents_name": null,
+    "parents_inn": null,
+    "parents_phone": null,
+    "parents_email": null,
+    "address": null,
+    "lesson_time": null,
+    "sum": null,
+    "contract": "",
+    "payed": false,
+    "created_at": "2022-12-19T01:39:25.837Z",
+    "is_deleted": true,
+    "discount": null,
+    "subjects": []
+  }
+},
+{
+  "model": "education.application",
+  "pk": 59,
+  "fields": {
+    "applicant_name": "ddd",
+    "applicant_surname": "ddd",
+    "email": "sss@mail.ru",
+    "phone": "+435",
+    "school": null,
+    "class_number": null,
+    "shift": null,
+    "birth_date": null,
+    "sex": "Undefined",
+    "parents_surname": null,
+    "parents_name": null,
+    "parents_inn": null,
+    "parents_phone": null,
+    "parents_email": null,
+    "address": null,
+    "lesson_time": null,
+    "sum": null,
+    "contract": "",
+    "payed": false,
+    "created_at": "2022-12-19T01:40:51.665Z",
+    "is_deleted": true,
+    "discount": null,
+    "subjects": []
+  }
+},
+{
+  "model": "education.application",
+  "pk": 60,
+  "fields": {
+    "applicant_name": "dd",
+    "applicant_surname": "s",
+    "email": "sss@mail.ru",
+    "phone": "+324",
+    "school": null,
+    "class_number": null,
+    "shift": null,
+    "birth_date": null,
+    "sex": "Undefined",
+    "parents_surname": null,
+    "parents_name": null,
+    "parents_inn": null,
+    "parents_phone": null,
+    "parents_email": null,
+    "address": null,
+    "lesson_time": null,
+    "sum": null,
+    "contract": "",
+    "payed": false,
+    "created_at": "2022-12-19T01:42:29.018Z",
+    "is_deleted": true,
+    "discount": null,
+    "subjects": []
+  }
+},
+{
+  "model": "education.application",
+  "pk": 61,
+  "fields": {
+    "applicant_name": "sS",
+    "applicant_surname": "s",
+    "email": "sss@mail.ru",
+    "phone": "+3242423",
+    "school": null,
+    "class_number": null,
+    "shift": null,
+    "birth_date": null,
+    "sex": "Undefined",
+    "parents_surname": null,
+    "parents_name": null,
+    "parents_inn": null,
+    "parents_phone": null,
+    "parents_email": null,
+    "address": null,
+    "lesson_time": null,
+    "sum": null,
+    "contract": "",
+    "payed": false,
+    "created_at": "2022-12-19T01:44:41.909Z",
+    "is_deleted": true,
+    "discount": null,
+    "subjects": []
+  }
+},
+{
+  "model": "education.application",
+  "pk": 62,
+  "fields": {
+    "applicant_name": "ss",
+    "applicant_surname": "ss",
+    "email": "sss@mail.ru",
+    "phone": "+3223",
+    "school": null,
+    "class_number": null,
+    "shift": null,
+    "birth_date": null,
+    "sex": "Undefined",
+    "parents_surname": null,
+    "parents_name": null,
+    "parents_inn": null,
+    "parents_phone": null,
+    "parents_email": null,
+    "address": null,
+    "lesson_time": null,
+    "sum": null,
+    "contract": "",
+    "payed": false,
+    "created_at": "2022-12-19T01:45:49.531Z",
+    "is_deleted": true,
+    "discount": null,
+    "subjects": []
+  }
+},
+{
+  "model": "education.application",
+  "pk": 63,
+  "fields": {
+    "applicant_name": "ss",
+    "applicant_surname": "ss",
+    "email": "sss@mail.ru",
+    "phone": "+42424",
+    "school": null,
+    "class_number": null,
+    "shift": null,
+    "birth_date": null,
+    "sex": "Undefined",
+    "parents_surname": null,
+    "parents_name": null,
+    "parents_inn": null,
+    "parents_phone": null,
+    "parents_email": null,
+    "address": null,
+    "lesson_time": null,
+    "sum": null,
+    "contract": "",
+    "payed": false,
+    "created_at": "2022-12-19T01:46:13.849Z",
+    "is_deleted": true,
+    "discount": null,
+    "subjects": []
+  }
+},
+{
+  "model": "education.application",
+  "pk": 64,
+  "fields": {
+    "applicant_name": "ss",
+    "applicant_surname": "ss",
+    "email": "sss@mail.ru",
+    "phone": "+42424",
+    "school": null,
+    "class_number": null,
+    "shift": null,
+    "birth_date": null,
+    "sex": "Undefined",
+    "parents_surname": null,
+    "parents_name": null,
+    "parents_inn": null,
+    "parents_phone": null,
+    "parents_email": null,
+    "address": null,
+    "lesson_time": null,
+    "sum": null,
+    "contract": "",
+    "payed": false,
+    "created_at": "2022-12-19T01:46:23.139Z",
+    "is_deleted": true,
+    "discount": null,
+    "subjects": []
+  }
+},
+{
+  "model": "education.application",
+  "pk": 65,
+  "fields": {
+    "applicant_name": "xsxs",
+    "applicant_surname": "sxx",
+    "email": "hope8787@mail.ru",
+    "phone": "8 (888) 888-88-88",
+    "school": null,
+    "class_number": null,
+    "shift": null,
+    "birth_date": null,
+    "sex": "Undefined",
+    "parents_surname": null,
+    "parents_name": null,
+    "parents_inn": null,
+    "parents_phone": null,
+    "parents_email": null,
+    "address": null,
+    "lesson_time": null,
+    "sum": null,
+    "contract": "",
+    "payed": false,
+    "created_at": "2022-12-19T09:44:10.251Z",
+    "is_deleted": true,
+    "discount": null,
+    "subjects": []
+  }
+},
+{
+  "model": "education.application",
+  "pk": 66,
+  "fields": {
+    "applicant_name": "66yy`",
+    "applicant_surname": "rrtrtr",
+    "email": "sss@mail.ru",
+    "phone": "+7 (777) 556-74-18",
+    "school": null,
+    "class_number": null,
+    "shift": null,
+    "birth_date": null,
+    "sex": "Undefined",
+    "parents_surname": null,
+    "parents_name": null,
+    "parents_inn": null,
+    "parents_phone": null,
+    "parents_email": null,
+    "address": null,
+    "lesson_time": null,
+    "sum": null,
+    "contract": "",
+    "payed": false,
+    "created_at": "2022-12-19T12:52:48.428Z",
+    "is_deleted": true,
+    "discount": null,
+    "subjects": []
+  }
+},
+{
+  "model": "education.application",
+  "pk": 67,
+  "fields": {
+    "applicant_name": "Надежда",
+    "applicant_surname": "Фамилия",
+    "email": "hope8787@mail.ru",
+    "phone": "+7 (777) 777-77-77",
+    "school": null,
+    "class_number": null,
+    "shift": null,
+    "birth_date": null,
+    "sex": "Undefined",
+    "parents_surname": null,
+    "parents_name": null,
+    "parents_inn": null,
+    "parents_phone": null,
+    "parents_email": null,
+    "address": null,
+    "lesson_time": null,
+    "sum": null,
+    "contract": "",
+    "payed": false,
+    "created_at": "2022-12-19T14:39:54.067Z",
+    "is_deleted": true,
+    "discount": null,
+    "subjects": [
+      2,
+      3,
+      4,
+      5
+    ]
+  }
+},
+{
+  "model": "education.application",
+  "pk": 68,
+  "fields": {
+    "applicant_name": "Надежда",
+    "applicant_surname": "aaa",
+    "email": "sss@mail.ru",
+    "phone": "8 (888) 888-88-88",
+    "school": null,
+    "class_number": null,
+    "shift": null,
+    "birth_date": null,
+    "sex": "MALE",
+    "parents_surname": null,
+    "parents_name": null,
+    "parents_inn": null,
+    "parents_phone": "",
+    "parents_email": null,
+    "address": null,
+    "lesson_time": null,
+    "sum": 32000,
+    "contract": "",
+    "payed": true,
+    "created_at": "2022-12-19T15:00:42.188Z",
+    "is_deleted": true,
+    "discount": null,
+    "subjects": [
+      4,
+      5,
+      10,
+      11
+    ]
+  }
+},
+{
+  "model": "education.application",
+  "pk": 69,
+  "fields": {
+    "applicant_name": "Надежда",
+    "applicant_surname": "Фамилия",
+    "email": "hope8787@mail.ru",
+    "phone": "8 (777) 555-44-45",
+    "school": null,
+    "class_number": null,
+    "shift": null,
+    "birth_date": null,
+    "sex": "MALE",
+    "parents_surname": null,
+    "parents_name": null,
+    "parents_inn": null,
+    "parents_phone": "",
+    "parents_email": null,
+    "address": null,
+    "lesson_time": null,
+    "sum": 32000,
+    "contract": "",
+    "payed": true,
+    "created_at": "2022-12-19T18:23:29.660Z",
+    "is_deleted": false,
+    "discount": null,
+    "subjects": [
+      5,
+      8,
+      1,
+      2
+    ]
+  }
+},
+{
+  "model": "education.application",
+  "pk": 70,
+  "fields": {
+    "applicant_name": "Надежда",
+    "applicant_surname": "s",
+    "email": "root@root.kz",
+    "phone": "+7 (555) 555-55-55",
+    "school": 6,
+    "class_number": "5",
+    "shift": 1,
+    "birth_date": "2003-11-25",
+    "sex": "FEMALE",
+    "parents_surname": null,
+    "parents_name": null,
+    "parents_inn": null,
+    "parents_phone": "",
+    "parents_email": null,
+    "address": null,
+    "lesson_time": null,
+    "sum": 27000,
+    "contract": "",
+    "payed": false,
+    "created_at": "2022-12-20T05:18:46.659Z",
+    "is_deleted": true,
+    "discount": null,
+    "subjects": [
+      1,
+      2,
+      7
+    ]
+  }
+},
+{
+  "model": "education.application",
+  "pk": 71,
+  "fields": {
+    "applicant_name": "Надежда",
+    "applicant_surname": "Фамилия",
+    "email": "hope8787@mail.ru",
+    "phone": "+7 (555) 555-55-55",
+    "school": 1,
+    "class_number": null,
+    "shift": null,
+    "birth_date": null,
+    "sex": "MALE",
+    "parents_surname": null,
+    "parents_name": null,
+    "parents_inn": null,
+    "parents_phone": "",
+    "parents_email": null,
+    "address": null,
+    "lesson_time": null,
+    "sum": null,
+    "contract": "",
+    "payed": false,
+    "created_at": "2022-12-20T07:05:18.476Z",
+    "is_deleted": true,
+    "discount": null,
+    "subjects": [
+      1,
+      2,
+      3,
+      4
+    ]
+  }
+},
+{
+  "model": "education.application",
+  "pk": 72,
+  "fields": {
+    "applicant_name": "Надежда",
+    "applicant_surname": "Иванова",
+    "email": "sss@mail.ru",
+    "phone": "+7 (775) 567-41-80",
+    "school": 45,
+    "class_number": "4",
+    "shift": 1,
+    "birth_date": "2003-11-25",
+    "sex": "FEMALE",
+    "parents_surname": null,
+    "parents_name": null,
+    "parents_inn": null,
+    "parents_phone": "",
+    "parents_email": null,
+    "address": null,
+    "lesson_time": null,
+    "sum": 20000,
+    "contract": "",
+    "payed": false,
+    "created_at": "2022-12-20T07:41:06.353Z",
+    "is_deleted": false,
+    "discount": null,
+    "subjects": [
+      4,
+      5
+    ]
   }
 },
 {
@@ -596,11 +1187,87 @@
   }
 },
 {
+  "model": "education.discount",
+  "pk": 1,
+  "fields": {
+    "name": "Екінші бала",
+    "discount_amount": 20,
+    "is_deleted": false
+  }
+},
+{
+  "model": "education.discount",
+  "pk": 2,
+  "fields": {
+    "name": "Жетім",
+    "discount_amount": 50,
+    "is_deleted": false
+  }
+},
+{
+  "model": "education.discount",
+  "pk": 3,
+  "fields": {
+    "name": "Көпбалалы",
+    "discount_amount": 20,
+    "is_deleted": false
+  }
+},
+{
+  "model": "education.discount",
+  "pk": 4,
+  "fields": {
+    "name": "Олимпиада",
+    "discount_amount": 50,
+    "is_deleted": false
+  }
+},
+{
+  "model": "education.packet",
+  "pk": 1,
+  "fields": {
+    "name": "1 пән",
+    "qty": 1,
+    "is_deleted": false,
+    "sum": 12000
+  }
+},
+{
+  "model": "education.packet",
+  "pk": 2,
+  "fields": {
+    "name": "2 пән",
+    "qty": 2,
+    "is_deleted": false,
+    "sum": 20000
+  }
+},
+{
+  "model": "education.packet",
+  "pk": 3,
+  "fields": {
+    "name": "3 пән",
+    "qty": 3,
+    "is_deleted": false,
+    "sum": 27000
+  }
+},
+{
+  "model": "education.packet",
+  "pk": 4,
+  "fields": {
+    "name": "4 пән",
+    "qty": 4,
+    "is_deleted": false,
+    "sum": 32000
+  }
+},
+{
   "model": "accounts.account",
   "pk": 1,
   "fields": {
     "password": "pbkdf2_sha256$390000$rnNSqWIF8uWVEEJqqC1Mhs$bfqpAOjya0Fkxtq2RFIxKJDqYVy74EPSisMZ8pMqZvE=",
-    "last_login": "2022-12-12T03:57:32.267Z",
+    "last_login": "2022-12-20T12:26:36.622Z",
     "is_superuser": true,
     "first_name": "",
     "last_name": "",
@@ -696,6 +1363,226 @@
       ]
     ],
     "user_permissions": []
+  }
+},
+{
+  "model": "education.applicationstatus",
+  "pk": 5,
+  "fields": {
+    "application": 2,
+    "status": 1,
+    "created_at": "2022-12-16T18:46:55.835Z",
+    "note": "",
+    "author": null
+  }
+},
+{
+  "model": "education.applicationstatus",
+  "pk": 7,
+  "fields": {
+    "application": 3,
+    "status": 1,
+    "created_at": "2022-12-18T04:26:20.877Z",
+    "note": "",
+    "author": null
+  }
+},
+{
+  "model": "education.applicationstatus",
+  "pk": 8,
+  "fields": {
+    "application": 4,
+    "status": 1,
+    "created_at": "2022-12-18T04:27:52.105Z",
+    "note": "",
+    "author": null
+  }
+},
+{
+  "model": "education.applicationstatus",
+  "pk": 11,
+  "fields": {
+    "application": 1,
+    "status": 4,
+    "created_at": "2022-12-18T12:00:36.279Z",
+    "note": "",
+    "author": null
+  }
+},
+{
+  "model": "education.applicationstatus",
+  "pk": 63,
+  "fields": {
+    "application": 58,
+    "status": 1,
+    "created_at": "2022-12-19T01:39:25.845Z",
+    "note": "",
+    "author": null
+  }
+},
+{
+  "model": "education.applicationstatus",
+  "pk": 64,
+  "fields": {
+    "application": 59,
+    "status": 1,
+    "created_at": "2022-12-19T01:40:51.673Z",
+    "note": "",
+    "author": null
+  }
+},
+{
+  "model": "education.applicationstatus",
+  "pk": 65,
+  "fields": {
+    "application": 60,
+    "status": 1,
+    "created_at": "2022-12-19T01:42:29.018Z",
+    "note": "",
+    "author": null
+  }
+},
+{
+  "model": "education.applicationstatus",
+  "pk": 66,
+  "fields": {
+    "application": 61,
+    "status": 1,
+    "created_at": "2022-12-19T01:44:41.909Z",
+    "note": "",
+    "author": null
+  }
+},
+{
+  "model": "education.applicationstatus",
+  "pk": 67,
+  "fields": {
+    "application": 62,
+    "status": 1,
+    "created_at": "2022-12-19T01:45:49.531Z",
+    "note": "",
+    "author": null
+  }
+},
+{
+  "model": "education.applicationstatus",
+  "pk": 68,
+  "fields": {
+    "application": 63,
+    "status": 1,
+    "created_at": "2022-12-19T01:46:13.849Z",
+    "note": "",
+    "author": null
+  }
+},
+{
+  "model": "education.applicationstatus",
+  "pk": 69,
+  "fields": {
+    "application": 64,
+    "status": 1,
+    "created_at": "2022-12-19T01:46:23.155Z",
+    "note": "",
+    "author": null
+  }
+},
+{
+  "model": "education.applicationstatus",
+  "pk": 70,
+  "fields": {
+    "application": 65,
+    "status": 1,
+    "created_at": "2022-12-19T09:44:10.373Z",
+    "note": "",
+    "author": null
+  }
+},
+{
+  "model": "education.applicationstatus",
+  "pk": 71,
+  "fields": {
+    "application": 66,
+    "status": 1,
+    "created_at": "2022-12-19T12:52:48.433Z",
+    "note": "",
+    "author": null
+  }
+},
+{
+  "model": "education.applicationstatus",
+  "pk": 72,
+  "fields": {
+    "application": 67,
+    "status": 1,
+    "created_at": "2022-12-19T14:39:54.104Z",
+    "note": "",
+    "author": null
+  }
+},
+{
+  "model": "education.applicationstatus",
+  "pk": 73,
+  "fields": {
+    "application": 68,
+    "status": 1,
+    "created_at": "2022-12-19T15:00:42.201Z",
+    "note": "",
+    "author": null
+  }
+},
+{
+  "model": "education.applicationstatus",
+  "pk": 74,
+  "fields": {
+    "application": 68,
+    "status": 2,
+    "created_at": "2022-12-19T16:49:55.057Z",
+    "note": "",
+    "author": null
+  }
+},
+{
+  "model": "education.applicationstatus",
+  "pk": 75,
+  "fields": {
+    "application": 69,
+    "status": 1,
+    "created_at": "2022-12-19T18:23:29.710Z",
+    "note": "",
+    "author": null
+  }
+},
+{
+  "model": "education.applicationstatus",
+  "pk": 76,
+  "fields": {
+    "application": 70,
+    "status": 1,
+    "created_at": "2022-12-20T05:18:46.689Z",
+    "note": "",
+    "author": null
+  }
+},
+{
+  "model": "education.applicationstatus",
+  "pk": 77,
+  "fields": {
+    "application": 71,
+    "status": 1,
+    "created_at": "2022-12-20T07:05:18.488Z",
+    "note": "",
+    "author": null
+  }
+},
+{
+  "model": "education.applicationstatus",
+  "pk": 78,
+  "fields": {
+    "application": 72,
+    "status": 1,
+    "created_at": "2022-12-20T07:41:06.384Z",
+    "note": "",
+    "author": null
   }
 },
 {
