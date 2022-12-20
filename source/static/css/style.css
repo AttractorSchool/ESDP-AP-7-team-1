@@ -10458,6 +10458,7 @@ textarea.form-control {
 
 .form-check-label {
   margin-bottom: 0;
+  width: 67px;
 }
 
 .form-check-inline {
