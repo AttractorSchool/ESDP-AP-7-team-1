@@ -26,15 +26,25 @@
             min-width: 269px;
             max-width: fit-content;
         }
+        .div-modal{
+            height: 141px;
+            padding: 16px;
+            {% comment %} border: 1px solid #000; {% endcomment %}
+            border: 4px double black; /* Параметры границы */
+            background: #edede9; /* Цвет фона */
+            padding: 10px;
+        }
 
     </style>
-    <div>
-        <center><h1>Ваша заявка принята. Наш менеджер свяжется с Вами в скором времени!</h1>
-        <a href="{% url 'main' %}"<input type="submit" 
-            style="background:linear-gradient(90deg, #c352eb, #8adabd); width: auto; height: 28px; padding-bottom: 28px" 
-            class="btn  btn-primary">
-            OK
-        </a>
+    <div class="d-flex">
+        <div class="div-modal">
+            <center><h1>Ваша заявка принята. Наш менеджер свяжется с Вами в скором времени!</h1>
+            <a href="{% url 'main' %}"<input type="submit" 
+                style="background:linear-gradient(90deg, #c352eb, #8adabd); width: auto; height: 28px; padding-bottom: 28px" 
+                class="btn  btn-primary">
+                OK
+            </a>
+        </div>
         </center>
     </div>
 
