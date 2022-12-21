@@ -3,8 +3,6 @@ from django.utils.translation import gettext_lazy as _
 from django.db import models
 from django.db.models import TextChoices
 
-from phonenumber_field.modelfields import PhoneNumberField
-
 
 class Status(models.Model):
     """Возможные статусы заявок"""
@@ -36,7 +34,7 @@ class Application(models.Model):
     applicant_name = models.CharField(verbose_name='Имя ученика', max_length=30)
     applicant_surname = models.CharField(verbose_name='Фамилия ученика', max_length=30)
     email = models.EmailField(verbose_name='Электронная почта ученика', blank=True)
-    phone = PhoneNumberField(unique=False, null=True, blank=True, verbose_name='Номер ученика')
+    phone = models.CharField(verbose_name='Номер телефона ученика', max_length=18)
     school = models.IntegerField(verbose_name='Номер школы', null=True, blank=True, help_text="Вводить только цифры")
     class_number = models.CharField(verbose_name='Номер класса', max_length=3, null=True, blank=True)
     shift = models.IntegerField(verbose_name='Номер смены', null=True, blank=True,
@@ -48,9 +46,9 @@ class Application(models.Model):
     parents_name = models.CharField(verbose_name='Имя родителя', max_length=30, null=True, blank=True)
     parents_inn = models.PositiveBigIntegerField(verbose_name='ИНН родителя', null=True, blank=True,
                                                  help_text="Вводить только цифры", validators=[validate_length])
-    parents_phone = PhoneNumberField(unique=False, null=True, blank=True, verbose_name='Номер родителя')
+    parents_phone = models.CharField(verbose_name='Номер телефона родителя', max_length=18, null=True, blank=True)
     parents_email = models.EmailField(verbose_name='Электронная почта родителя', null=True, blank=True)
-    address = models.CharField(verbose_name='Адрес проживания', max_length=13, null=True, blank=True,
+    address = models.CharField(verbose_name='Адрес проживания', max_length=200, null=True, blank=True,
                                help_text="Вводить через запятую: населенный пункт, улица, номер дома, номер квартиры")
     lesson_time = models.CharField(verbose_name="Желательное время обучения", null=True, blank=True, max_length=250)
     subjects = models.ManyToManyField(to='education.Subject', related_name='applications', blank=True)
