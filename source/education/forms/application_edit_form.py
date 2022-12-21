@@ -55,7 +55,7 @@ class ApplicationEditForm(forms.ModelForm):
                   'subjects',
                   'discount',
                   'sum',
-                #   'statuses',
+                  'statuses',
                   'contract',
                   'payed',
                   ]
