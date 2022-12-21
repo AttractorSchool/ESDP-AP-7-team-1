@@ -1,0 +1,94 @@
+{% extends 'crm.html' %}
+{% load static %}
+{% block title %} Группы {% endblock %}
+
+{% block nav %}
+    {% include 'partial/left_nav.html' with page='group' %}
+{% endblock %}
+
+{% block content %}
+
+    <p class="card-title">Группы</p>
+    
+    <div style="text-align:left;">
+        <p style="margin-top:5px; margin-right:20px; margin-bottom:5px;">
+            <a href="{% url 'grouping_add' %}" class="btn btn-inverse-success btn-icon-text">
+                Добавить новую группу
+                <i class="ti-plus btn-icon-append"></i>
+            </a>
+        </p>
+    </div>
+    {% if groupings %}
+    <div class="table-responsive pt-3">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>
+                    #
+                </th>
+                <th>
+                    Название группы
+                </th>
+                <th>
+                    Предмет
+                </th>
+                <th>
+
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for group in groupings %}
+                <tr>
+                    <td class="py-1">
+                        {{ forloop.counter }}
+                    </td>
+                    <td>
+                        {{ group.name }}
+                    </td>
+                    <td>
+                        {{ group.subject }}
+                    <td style="text-align:right;">
+                        <a href="{% url 'grouping_update' group.pk %}" class="btn btn-inverse-dark btn-sm text-center">
+                            <i class="ti-pencil-alt"></i>
+                        </a>
+                        <button style="margin-left:10px;" type="button" class="btn btn-inverse-danger btn-sm"
+                                data-bs-toggle="modal" data-bs-target="#exampleModal{{ forloop.counter }}">
+                            <i class="ti-trash"></i>
+                        </button>
+                        <!-- Modal 1-->
+                        <div class="modal fade" id="exampleModal{{ forloop.counter }}" tabindex="-1"
+                             aria-labelledby="exampleModalLabel{{ forloop.counter }}" aria-hidden="true">
+                            <div class="modal-dialog modal-lg modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <p class="display-4">Подтверждение удаления группы</p>
+                                    </div>
+                                    <div class="modal-body text-center">
+                                        <h5>Вы точно хотите удалить группу {{ group.name }}?</h5>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <form action="{% url 'grouping_del' group.pk %}" method="POST">
+                                            {% csrf_token %}
+                                            <button type="submit" class="btn btn-inverse-danger"
+                                                    data-bs-dismiss="modal">Да, хочу
+                                            </button>
+                                            <a href="" type="button" class="btn btn-inverse-dark">Отмена</a>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+    <h3>Вы не создали еще ни одной группы!</h3>
+    {% endif %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+            crossorigin="anonymous"></script>
+{% endblock %}

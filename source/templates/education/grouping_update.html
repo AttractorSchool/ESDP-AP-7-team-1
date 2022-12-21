@@ -1,0 +1,29 @@
+﻿{% extends 'crm.html' %}
+{% load static %}
+{% block title %} Редактирование группы {% endblock %}
+
+{% block nav %}
+{% include 'partial/left_nav.html' with page='group' %}
+{% endblock %}
+
+
+{% block content %}
+<p class="card-title">Редактирование группы "{{grouping.name}}"</p>
+<form class="forms-sample" action="{% url 'grouping_update' grouping.pk %}" method="POST">
+    {% csrf_token %}
+    <div class="form-group">
+      {{ form.name }}
+    </div>
+    {% for error in form.name.errors %}
+    <div class="ms-2 text-danger">{{ error }}</div>
+    {% endfor %}
+    <div class="form-group">
+        {{ form.subject }}
+      </div>
+    {% for error in form.subject.errors %}
+    <div class="ms-2 text-danger">{{ error }}</div>
+    {% endfor %}
+    <button type="submit" class="btn btn-inverse-primary mr-2 mt-3">Сохранить</button>
+    <a href="{% url 'groupings' %}" class="btn btn-inverse-dark mt-3">Отмена</a>
+  </form>
+{% endblock %}
