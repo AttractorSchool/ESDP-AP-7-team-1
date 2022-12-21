@@ -3,6 +3,8 @@ from django.utils.translation import gettext_lazy as _
 from django.db import models
 from django.db.models import TextChoices
 
+from phonenumber_field.modelfields import PhoneNumberField
+
 
 class Status(models.Model):
     """Возможные статусы заявок"""
