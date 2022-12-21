@@ -57,7 +57,7 @@
                         {{ app.created_at }}
                     </td>
                     <td class="application_status_{{ app.pk }}" class="check_status">
-                        {{ app.statuses.all.first }}
+                        {{ app.statuses.all.last }}
                     </td>
                     <td style="text-align:right;">
                         <a href="{% url 'application_detail' app.pk %}" style="margin-right:5px">

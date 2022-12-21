@@ -15,7 +15,7 @@
             <strong>{{ application.applicant_name }} {{ application.applicant_surname }}</strong></h4>
         </div>
         <div>
-            <p>Текущий статус заявки: <strong>{{ application.statuses.all.last }}</strong></p>
+            <p>Текущий статус заявки: <strong>{{ application.statuses.last }}</strong></p>
         </div>
     </div>
     <form class="forms-sample" action="" method="post" enctype="multipart/form-data">

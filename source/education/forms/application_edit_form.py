@@ -1,14 +1,14 @@
 from django import forms
-from django.utils.datastructures import MultiValueDict
+# from django.utils.datastructures import MultiValueDict
 
 from education.models import Application, StudentSex, Subject
 
 
-class M2MSelect(forms.Select):
-    def value_from_datadict(self, data, files, name):
-        if isinstance(data, MultiValueDict):
-            return data.getlist(name)
-        return data.get(name, None)
+# class M2MSelect(forms.Select):
+#     def value_from_datadict(self, data, files, name):
+#         if isinstance(data, MultiValueDict):
+#             return data.getlist(name)
+#         return data.get(name, None)
 
 
 class ApplicationEditForm(forms.ModelForm):
@@ -55,10 +55,10 @@ class ApplicationEditForm(forms.ModelForm):
                   'subjects',
                   'discount',
                   'sum',
-                  'statuses',
+                #   'statuses',
                   'contract',
                   'payed',
                   ]
-        widgets = {
-            'statuses': M2MSelect(),
-        }
+        # widgets = {
+        #     'statuses': M2MSelect(),
+        # }

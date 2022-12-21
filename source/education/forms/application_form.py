@@ -33,5 +33,5 @@ class ApplicationSendForm(forms.ModelForm):
     def save(self, commit=True):
         application = super().save(commit=True)
         application.save()
-        application.statuses.add('1')
+        # application.statuses.add('1')
         return application
