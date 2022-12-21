@@ -70,6 +70,7 @@
                     $('#id_sum').val(data.sum)
                 },
                 error: function (data) {
+                    $('#id_sum').val(0)
                     console.log('error')
                 }
             });
