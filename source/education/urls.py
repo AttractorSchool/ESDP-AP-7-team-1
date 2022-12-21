@@ -9,6 +9,7 @@ from education.views.applications import ApplicationListView, ApplicationEditVie
     ApplicationDetailView
 from education.views.packages import PackageListView, PackageAddView, PackageEditView, DelPackageView
 from education.views.discounts import DiscountListView, DiscountAddView, DiscountEditView, DelDiscountView
+from education.views.groupings import GroupingListView, GroupingAddView, GroupingEditView, DelGroupingView
 
 urlpatterns = [
     path('', IndexView.as_view(), name='main'),
@@ -33,4 +34,8 @@ urlpatterns = [
     path('discount_add/', DiscountAddView.as_view(), name='discount_add'),
     path('discount_update/<int:pk>', DiscountEditView.as_view(), name='discount_update'),
     path('discount_del/<int:pk>', DelDiscountView.as_view(), name='discount_del'),
+    path('groupings/', GroupingListView.as_view(), name='groupings'),
+    path('grouping_add/', GroupingAddView.as_view(), name='grouping_add'),
+    path('grouping_update/<int:pk>', GroupingEditView.as_view(), name='grouping_update'),
+    path('grouping_del/<int:pk>', DelGroupingView.as_view(), name='grouping_del'),
 ]
