@@ -30,14 +30,16 @@ class ApplicationEditView(UpdateView):
 
         # print(self.get_object().__dict__)
         # print('*' * 50)
-        status_name = 'В работе'
-        set_application_status(application=application, status_name=status_name, author=self.request.user)
 
         required_fields = list(application.__dict__.values())[2:19]
         print(required_fields)
+        
         if None not in required_fields:
             status_name = 'Подписание договора'
             print(status_name)
+            set_application_status(application=application, status_name=status_name, author=self.request.user)
+        else:
+            status_name = 'В работе'
             set_application_status(application=application, status_name=status_name, author=self.request.user)
 
         if application.contract is True:

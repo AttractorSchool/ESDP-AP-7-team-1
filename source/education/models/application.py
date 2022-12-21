@@ -90,7 +90,7 @@ class Application(models.Model):
 
 class ApplicationStatus(models.Model):
     """Установленные статусы заявок"""
-    application = models.ForeignKey(to=Application, on_delete=models.CASCADE)
+    application = models.ForeignKey(to=Application, on_delete=models.CASCADE, related_name='application_statuses')
     status = models.ForeignKey(to=Status, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     note = models.CharField(verbose_name='Примечание', max_length=150, blank=True)
@@ -102,4 +102,4 @@ class ApplicationStatus(models.Model):
     class Meta:
         verbose_name = 'Установленный статус заявки'
         verbose_name_plural = 'Установленные статусы заявок'
-        ordering = ['-pk']
+        get_latest_by = 'created_at'
