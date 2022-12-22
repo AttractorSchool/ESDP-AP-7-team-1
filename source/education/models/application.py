@@ -96,7 +96,7 @@ class ApplicationStatus(models.Model):
     application = models.ForeignKey(to=Application, on_delete=models.CASCADE, related_name='application_statuses')
     status = models.ForeignKey(to=Status, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
-    note = models.CharField(verbose_name='Примечание', max_length=150, blank=True)
+    note = models.TextField(verbose_name='Примечание', max_length=150, blank=True)
     author = models.ForeignKey(to='accounts.Account', on_delete=models.RESTRICT, null=True, blank=True)
 
     def __str__(self):
