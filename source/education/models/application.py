@@ -27,7 +27,9 @@ def validate_length(value):
     an_integer = value
     a_string = str(an_integer)
     if len(a_string) > 12:
-        raise ValidationError(_('%(value) инн более 12 символов'))
+        raise ValidationError(_('инн более 12 символов'))
+    elif len(a_string) < 12:
+        raise ValidationError(_('инн менее 12 символов'))
 
 
 class Application(models.Model):

@@ -57,8 +57,8 @@
                 $(this).prop('checked', false);
                 alert("Выберите не более 4-х предметов");
             }
-            let checked = $('input[class=subject-check]:checked').length
-            console.log(checked)
+            let checked = $('input[class=subject-check]:checked').length;
+            console.log(checked);
             $.ajax({
                 url: `/api/get_sum`,
                 type: "POST",
@@ -66,12 +66,12 @@
                     'package': checked
                 }),
                 success: function (data) {
-                    console.log(data)
-                    $('#id_sum').val(data.sum)
+                    console.log(data);
+                    $('#id_sum').val(data.sum);
                 },
                 error: function (data) {
-                    $('#id_sum').val(0)
-                    console.log('error')
+                    $('#id_sum').val(0);
+                    console.log('error');
                 }
             });
         });
