@@ -12,7 +12,7 @@
     <div class="d-flex justify-content-between mb-3">
         <div>
             <h4>Редактирование заявки
-            <strong>{{ application.applicant_name }} {{ application.applicant_surname }}</strong></h4>
+                <strong>{{ application.applicant_name }} {{ application.applicant_surname }}</strong></h4>
         </div>
         <div>
             <p>Текущий статус заявки: <strong>{{ application.application_statuses.last.status.name }}</strong></p>
@@ -28,20 +28,20 @@
         <div class="d-flex justify-content-between">
             <div>
                 <input type="submit" style="background:linear-gradient(90deg, #c352eb, #8adabd)"
-                    class="left btn  border-0 btn-primary font-weight-medium auth-form-btn"
-                    value="Сохранить">
+                       class="left btn  border-0 btn-primary font-weight-medium auth-form-btn"
+                       value="Сохранить">
                 <input type="submit" style="background:linear-gradient(90deg, #c352eb, #8adabd)"
-                    class="left btn  border-0 btn-primary font-weight-medium auth-form-btn"
-                    value="Сохранить и Закрыть" disabled>
+                       class="left btn  border-0 btn-primary font-weight-medium auth-form-btn"
+                       value="Сохранить и Закрыть" disabled>
             </div>
             <div>
                 <input type="submit" style="background:linear-gradient(90deg, #c352eb, #8adabd)"
-                    class="left btn  border-0 btn-primary font-weight-medium auth-form-btn"
-                    value="Создать ученика" disabled>
+                       class="left btn  border-0 btn-primary font-weight-medium auth-form-btn"
+                       value="Создать ученика" disabled>
 
                 <input type="submit" style="background:linear-gradient(90deg, #c352eb, #8adabd)"
-                    class="left btn  border-0 btn-primary font-weight-medium auth-form-btn"
-                    value="Создать родителя" disabled>
+                       class="left btn  border-0 btn-primary font-weight-medium auth-form-btn"
+                       value="Создать родителя" disabled>
             </div>
             <input type="submit" value="Отклонить заявку" disabled>
 
@@ -57,8 +57,8 @@
                 $(this).prop('checked', false);
                 alert("Выберите не более 4-х предметов");
             }
-            let checked = $('input[class=subject-check]:checked').length
-            console.log(checked)
+            let checked = $('input[class=subject-check]:checked').length;
+            console.log(checked);
             $.ajax({
                 url: `/api/get_sum`,
                 type: "POST",
@@ -66,14 +66,25 @@
                     'package': checked
                 }),
                 success: function (data) {
-                    console.log(data)
-                    $('#id_sum').val(data.sum)
+                    console.log(data);
+                    $('#id_sum').val(data.sum);
                 },
                 error: function (data) {
-                    $('#id_sum').val(0)
-                    console.log('error')
+                    $('#id_sum').val(0);
+                    console.log('error');
                 }
             });
+        });
+    </script>
+    <script>
+        $('#id_parents_inn').unbind('keyup change input paste').bind('keyup change input paste', function (e) {
+            var $this = $(this);
+            var val = $this.val();
+            var valLenght = val.length;
+            var maxCount = 12;
+            if (valLenght > maxCount) {
+                $this.val($this.val().substring(0, maxCount));
+            }
         });
     </script>
 
