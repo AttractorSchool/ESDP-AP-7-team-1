@@ -5,16 +5,13 @@ from django.shortcuts import redirect, get_object_or_404
 from education.forms.grouping_form import GroupingForm
 
 
-
 class GroupingListView(ListView):
     template_name = 'education/groupings.html'
     model = Grouping
     context_object_name = 'groupings'
 
-
     def get_queryset(self, *args, **kwargs):
-        return Grouping.objects.filter(is_deleted = False).order_by('-pk')
-
+        return Grouping.objects.filter(is_deleted=False).order_by('-pk')
 
 
 class GroupingAddView(CreateView):
@@ -22,10 +19,8 @@ class GroupingAddView(CreateView):
     model = Grouping
     form_class = GroupingForm
 
-
     def get_success_url(self):
         return reverse('groupings')
-
 
 
 class GroupingEditView(UpdateView):
@@ -36,7 +31,6 @@ class GroupingEditView(UpdateView):
 
     def get_success_url(self):
         return reverse('groupings')
-
 
 
 class DelGroupingView(View):

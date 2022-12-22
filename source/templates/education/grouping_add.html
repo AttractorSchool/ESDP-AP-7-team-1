@@ -1,5 +1,6 @@
 {% extends 'crm.html' %}
 {% load static %}
+{% load bootstrap5 %}
 {% block title %} Добавление новой группы {% endblock %}
 
 {% block nav %}
@@ -10,30 +11,7 @@
 <p class="card-title">Добавление новой группы</p>
 <form class="forms-sample" action="{% url 'grouping_add' %}" method="POST">
     {% csrf_token %}
-    <div class="form-group">
-      {{ form.name }}
-    </div>
-    {% for error in form.name.errors %}
-    <div class="ms-2 text-danger">{{ error }}</div>
-    {% endfor %}
-    <div class="form-group">
-        {{ form.subject }}
-      </div>
-    {% for error in form.subject.errors %}
-    <div class="ms-2 text-danger">{{ error }}</div>
-    {% endfor %}
-    <div class="form-group">
-        {{ form.classroom }}
-      </div>
-    {% for error in form.classroom.errors %}
-    <div class="ms-2 text-danger">{{ error }}</div>
-    {% endfor %}
-    <div class="form-group">
-        {{ form.students }}
-      </div>
-    {% for error in form.students.errors %}
-    <div class="ms-2 text-danger">{{ error }}</div>
-    {% endfor %}
+    {% bootstrap_form form %}
     <button type="submit" class="btn btn-inverse-primary mr-2 mt-3">Сохранить</button>
     <a href="" class="btn btn-inverse-dark mt-3">Отмена</a>
   </form>
