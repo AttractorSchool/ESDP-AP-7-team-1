@@ -18,35 +18,127 @@
             <p>Текущий статус заявки: <strong>{{ application.application_statuses.last.status.name }}</strong></p>
         </div>
     </div>
-    <form class="forms-sample" action="" method="post" enctype="multipart/form-data">
+
+    <!-- форма редактирования общих сведений заявки -->
+    <div>
+        <form class="forms-sample" action="{% url 'application_custom_update' application.pk %}" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                {% csrf_token %}
+
+                {% bootstrap_form application_custom_form %}
+            </div>
+
+            <div class="d-flex justify-content-between">
+                <div>
+                    <input type="submit" style="background:linear-gradient(90deg, #c352eb, #8adabd)"
+                        class="left btn  border-0 btn-primary font-weight-medium auth-form-btn"
+                        value="Сохранить">
+                </div>
+            </div>
+        </form>
+    </div>
+    <hr width="100%" color="black" height="5%" />
+    <!-- форма просмотра и отправки договора -->
+    <div>
+        <form class="forms-sample" action="" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                {% csrf_token %}
+                <div>
+
+                    <input type="submit" style="background:linear-gradient(90deg, #c352eb, #8adabd)"
+                        class="left btn  border-0 btn-primary font-weight-medium auth-form-btn"
+                        value="Открыть договор" {{button_contract}}>
+
+                    <input type="submit" style="background:linear-gradient(90deg, #c352eb, #8adabd)"
+                        class="left btn  border-0 btn-primary font-weight-medium auth-form-btn"
+                        value="Отправить договор на email" {{button_contract}}>
+                </div>
+            </div>
+        </form>
+
+        <!-- форма прикрепления договора -->
+        <form class="forms-sample" action="{% url 'application_contract_update' application.pk %}" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                {% csrf_token %}
+                
+
+                {% bootstrap_form application_contract_form %}
+            </div>
+            <div>
+                <input type="submit" style="background:linear-gradient(90deg, #c352eb, #8adabd)"
+                    class="left btn  border-0 btn-primary font-weight-medium auth-form-btn"
+                    value="Сохранить" {{button_contract}}>
+            </div>
+        </form>
+    </div>
+
+    <hr width="100%" color="black" height="5%" />
+
+
+    <!-- форма оплаты -->
+    <form class="forms-sample" action="{% url 'application_payed_update' application.pk %}" method="post" enctype="multipart/form-data">
         <div class="form-group">
             {% csrf_token %}
+            
 
-            {% bootstrap_form form %}
-        </div>
-
-        <div class="d-flex justify-content-between">
-            <div>
-                <input type="submit" style="background:linear-gradient(90deg, #c352eb, #8adabd)"
-                       class="left btn  border-0 btn-primary font-weight-medium auth-form-btn"
-                       value="Сохранить">
-                <input type="submit" style="background:linear-gradient(90deg, #c352eb, #8adabd)"
-                       class="left btn  border-0 btn-primary font-weight-medium auth-form-btn"
-                       value="Сохранить и Закрыть" disabled>
-            </div>
-            <div>
-                <input type="submit" style="background:linear-gradient(90deg, #c352eb, #8adabd)"
-                       class="left btn  border-0 btn-primary font-weight-medium auth-form-btn"
-                       value="Создать ученика" disabled>
-
-                <input type="submit" style="background:linear-gradient(90deg, #c352eb, #8adabd)"
-                       class="left btn  border-0 btn-primary font-weight-medium auth-form-btn"
-                       value="Создать родителя" disabled>
-            </div>
-            <input type="submit" value="Отклонить заявку" disabled>
-
+            {% bootstrap_form application_payed_form %}
+        </div> 
+        <div>
+            <input type="submit" style="background:linear-gradient(90deg, #c352eb, #8adabd)"
+                class="left btn  border-0 btn-primary font-weight-medium auth-form-btn"
+                value="Сохранить" {{button_payed}}>
         </div>
     </form>
+    <hr width="100%" color="black" height="5%" />
+
+
+    <div class="d-flex justify-content-between">
+
+
+        <div>
+            <input type="submit" style="background:linear-gradient(90deg, #c352eb, #8adabd)"
+                class="left btn  border-0 btn-primary font-weight-medium auth-form-btn"
+                value="Создать ученика" {{button_user}}>
+
+            <input type="submit" style="background:linear-gradient(90deg, #c352eb, #8adabd)"
+                class="left btn  border-0 btn-primary font-weight-medium auth-form-btn"
+                value="Создать родителя" {{button_user}}>
+        </div>
+
+        <!-- Button trigger modal -->
+        <input type="submit" class="left btn  border-0 btn-primary font-weight-medium auth-form-btn" value="Отклонить заявку" data-bs-toggle="modal" data-bs-target="#exampleModal">
+
+    </div>
+
+        
+    
+    <!-- модальное окно отклонить заявку -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Отклонить заявку</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form class="forms-sample" action="{% url 'application_reject' application.pk %}" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        {% csrf_token %}
+                        
+            
+                        {% bootstrap_form application_reject_form %}
+                    </div> 
+                    <div class="modal-footer">
+                        <button type="button" class="left btn  border-0 btn-primary font-weight-medium auth-form-btn" data-bs-dismiss="modal">Закрыть</button>
+                        <button type="submit" class="left btn  border-0 btn-primary font-weight-medium auth-form-btn">Сохранить</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+        </div>
+    </div>
+
 
 
     <script src="{% static 'js/phone-mask.js' %}"></script>
@@ -89,4 +181,8 @@
     </script>
 
 
+{% endblock %}
+
+{% block js %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 {% endblock %}
