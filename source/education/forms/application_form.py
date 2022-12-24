@@ -3,8 +3,11 @@ from education.models import Application, Subject
 
 
 class ApplicationSendForm(forms.ModelForm):
-    subjects = forms.ModelMultipleChoiceField(widget=forms.CheckboxSelectMultiple, label='Желаемые предметы',
-                                              required=True, queryset=Subject.objects.all())
+    subjects = forms.ModelMultipleChoiceField(label='Желаемые предметы', queryset=Subject.objects.all(),
+                                              widget=forms.CheckboxSelectMultiple(
+                                                  attrs={
+                                                      'class': 'subject-check',
+                                                  }))
     email = forms.CharField(required=True, label='Email', widget=forms.TextInput(
         attrs={
             'class': 'form-control form-control-lg',
