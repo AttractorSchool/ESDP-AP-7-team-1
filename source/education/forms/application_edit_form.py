@@ -1,5 +1,7 @@
 from django import forms
 
+from phonenumber_field.formfields import PhoneNumberField
+
 from education.models import Application, StudentSex, Subject, ApplicationStatus
 
 
@@ -20,11 +22,7 @@ class ApplicationCustomEditForm(forms.ModelForm):
                                                   }))
 
     sex = forms.ChoiceField(label='Пол', choices=StudentSex.choices)
-    phone = forms.CharField(label='Телефон ученика', required=False, widget=forms.TextInput(
-        attrs={
-            'class': 'phone-mask',
-            'placeholder': 'Телефон',
-        }))
+    phone = PhoneNumberField(region='KZ', label='Телефон', required=True)
     parents_phone = forms.CharField(label='Телефон родителя', required=False, widget=forms.TextInput(
         attrs={
             'class': 'phone-mask',

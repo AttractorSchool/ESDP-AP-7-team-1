@@ -4,6 +4,8 @@ from django.utils.translation import gettext_lazy as _
 from django.db import models
 from django.db.models import TextChoices
 
+from phonenumber_field.modelfields import PhoneNumberField
+
 
 class Status(models.Model):
     """Возможные статусы заявок"""
@@ -37,7 +39,11 @@ class Application(models.Model):
     applicant_name = models.CharField(verbose_name='Имя ученика', max_length=30)
     applicant_surname = models.CharField(verbose_name='Фамилия ученика', max_length=30)
     email = models.EmailField(verbose_name='Электронная почта ученика', blank=True)
-    phone = models.CharField(verbose_name='Номер телефона ученика', max_length=18)
+    phone = PhoneNumberField(
+        unique=False,
+        null=False,
+        blank=False,
+    )
     school = models.IntegerField(verbose_name='Номер школы', null=True, blank=True, validators=[MinValueValidator(0)],
                                  help_text="Вводить только цифры")
     class_number = models.CharField(verbose_name='Номер класса', max_length=3, null=True, blank=True)

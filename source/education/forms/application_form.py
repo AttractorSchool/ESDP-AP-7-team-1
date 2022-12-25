@@ -1,6 +1,8 @@
 from django import forms
 from education.models import Application, Subject
 
+from phonenumber_field.formfields import PhoneNumberField
+
 
 class ApplicationSendForm(forms.ModelForm):
     subjects = forms.ModelMultipleChoiceField(label='Желаемые предметы', queryset=Subject.objects.all(),
@@ -23,11 +25,7 @@ class ApplicationSendForm(forms.ModelForm):
             'class': 'form-control form-control-lg',
             'placeholder': 'Фамилия',
         }))
-    phone = forms.CharField(required=True, label='Телефон', widget=forms.TextInput(
-        attrs={
-            'class': 'form-control form-control-lg phone-mask',
-            'placeholder': 'Телефон',
-        }))
+    phone = PhoneNumberField(region='KZ', label='Телефон', required=True)
 
     class Meta:
         model = Application
