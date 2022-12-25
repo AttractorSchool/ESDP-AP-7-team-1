@@ -16,10 +16,27 @@
                     #
                 </th>
                 <th>
-                    Имя
+                    {% if sorted_by == 'applicant_name' %}
+                        <a href="{% url 'applications'  %}?sorted=-applicant_name" style="margin-right:5px">
+                            Имя
+                        </a>
+                    {% else %}
+                        <a href="{% url 'applications'  %}?sorted=applicant_name" style="margin-right:5px">
+                            Имя
+                        </a>
+                    {% endif %}
+                    
                 </th>
                 <th>
-                    Фамилия
+                    {% if sorted_by == 'applicant_surname' %}
+                    <a href="{% url 'applications'  %}?sorted=-applicant_surname" style="margin-right:5px">
+                        Фамилия
+                    </a>
+                    {% else %}
+                    <a href="{% url 'applications'  %}?sorted=applicant_surname" style="margin-right:5px">
+                        Фамилия
+                    </a>
+                    {% endif %}
                 </th>
                 <th>
                     Номер телефона
@@ -28,10 +45,26 @@
                     email
                 </th>
                 <th>
-                    Дата
+                    {% if sorted_by == 'created_at' %}
+                    <a href="{% url 'applications'  %}?sorted=-created_at" style="margin-right:5px">
+                        Дата
+                    </a>
+                    {% else %}
+                    <a href="{% url 'applications'  %}?sorted=created_at" style="margin-right:5px">
+                        Дата
+                    </a>
+                    {% endif %}
                 </th>
                 <th>
-                    статус
+                    {% if sorted_by == 'status' %}
+                    <a href="{% url 'applications'  %}?sorted=-status" style="margin-right:5px">
+                        Cтатус
+                    </a>
+                    {% else %}
+                    <a href="{% url 'applications'  %}?sorted=status" style="margin-right:5px">
+                        Cтатус
+                    </a>
+                    {% endif %}
                 </th>
             </tr>
             </thead>

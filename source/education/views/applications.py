@@ -1,7 +1,7 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse_lazy
-from django.views.generic import DetailView, ListView, TemplateView, View
+from django.views.generic import DetailView, TemplateView, View
 
 from education.forms.application_edit_form import (ApplicationContractEditForm,
                                                    ApplicationCustomEditForm,
@@ -12,13 +12,50 @@ from education.services.statuses import (get_button_status,
                                          set_application_status)
 
 
-class ApplicationListView(ListView):
+class ApplicationListView(TemplateView):
     template_name = 'education/applications.html'
-    model = Application
-    context_object_name = 'applications'
 
-    def get_queryset(self, *args, **kwargs):
-        return self.model.objects.filter(is_deleted=False)
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        sorted_by: str | None = self.request.GET.get('sorted')
+        queryset = Application.objects.filter(is_deleted=False)
+        if sorted_by == 'status':
+            query: str = """
+                    SELECT T2.APPLICATION_ID AS "id"
+                    FROM EDUCATION_APPLICATIONSTATUS,
+                        EDUCATION_STATUS,
+
+                        (SELECT EDUCATION_APPLICATIONSTATUS.APPLICATION_ID AS "application_id",
+                                MAX(EDUCATION_APPLICATIONSTATUS.CREATED_AT) AS "created_at"
+                            FROM EDUCATION_APPLICATIONSTATUS
+                            GROUP BY EDUCATION_APPLICATIONSTATUS.APPLICATION_ID) AS T2
+                    WHERE EDUCATION_APPLICATIONSTATUS.APPLICATION_ID = T2.APPLICATION_ID
+                        AND EDUCATION_APPLICATIONSTATUS.CREATED_AT = T2.CREATED_AT
+                        AND EDUCATION_APPLICATIONSTATUS.STATUS_ID = EDUCATION_STATUS.ID
+                    ORDER BY EDUCATION_STATUS.NAME
+                    """
+            queryset = Application.objects.raw(query)
+        elif sorted_by == '-status':
+            query: str = """
+                    SELECT T2.APPLICATION_ID AS "id"
+                    FROM EDUCATION_APPLICATIONSTATUS,
+                        EDUCATION_STATUS,
+
+                        (SELECT EDUCATION_APPLICATIONSTATUS.APPLICATION_ID AS "application_id",
+                                MAX(EDUCATION_APPLICATIONSTATUS.CREATED_AT) AS "created_at"
+                            FROM EDUCATION_APPLICATIONSTATUS
+                            GROUP BY EDUCATION_APPLICATIONSTATUS.APPLICATION_ID) AS T2
+                    WHERE EDUCATION_APPLICATIONSTATUS.APPLICATION_ID = T2.APPLICATION_ID
+                        AND EDUCATION_APPLICATIONSTATUS.CREATED_AT = T2.CREATED_AT
+                        AND EDUCATION_APPLICATIONSTATUS.STATUS_ID = EDUCATION_STATUS.ID
+                    ORDER BY EDUCATION_STATUS.NAME desc
+                    """
+            queryset = Application.objects.raw(query)
+        elif sorted_by is not None:
+            queryset = queryset.order_by(sorted_by)
+        context['applications'] = queryset
+        context['sorted_by'] = sorted_by
+        return context
 
 
 class ApplicationEditView(TemplateView):
