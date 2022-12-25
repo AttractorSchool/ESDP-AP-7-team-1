@@ -60,7 +60,7 @@
         <form class="forms-sample" action="{% url 'application_contract_update' application.pk %}" method="post" enctype="multipart/form-data">
             <div class="form-group">
                 {% csrf_token %}
-                
+
 
                 {% bootstrap_form application_contract_form %}
             </div>
@@ -79,10 +79,10 @@
     <form class="forms-sample" action="{% url 'application_payed_update' application.pk %}" method="post" enctype="multipart/form-data">
         <div class="form-group">
             {% csrf_token %}
-            
+
 
             {% bootstrap_form application_payed_form %}
-        </div> 
+        </div>
         <div>
             <input type="submit" style="background:linear-gradient(90deg, #c352eb, #8adabd)"
                 class="left btn  border-0 btn-primary font-weight-medium auth-form-btn"
@@ -94,24 +94,25 @@
 
     <div class="d-flex justify-content-between">
 
-
+        {% if application.application_statuses.last.status.name == 'Оплачена' %}
         <div>
             <input type="submit" style="background:linear-gradient(90deg, #c352eb, #8adabd)"
-                class="left btn  border-0 btn-primary font-weight-medium auth-form-btn"
-                value="Создать ученика" {{button_user}}>
+                class="left btn  border-0 btn-primary font-weight-medium auth-form-btn create_student_by_application"
+                value="Создать ученика" {{button_user}} data-application-id="{{ application.pk }}">
 
             <input type="submit" style="background:linear-gradient(90deg, #c352eb, #8adabd)"
                 class="left btn  border-0 btn-primary font-weight-medium auth-form-btn"
                 value="Создать родителя" {{button_user}}>
         </div>
+        {% endif %}
 
         <!-- Button trigger modal -->
         <input type="submit" class="left btn  border-0 btn-primary font-weight-medium auth-form-btn" value="Отклонить заявку" data-bs-toggle="modal" data-bs-target="#exampleModal">
 
     </div>
 
-        
-    
+
+
     <!-- модальное окно отклонить заявку -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -124,10 +125,10 @@
                 <form class="forms-sample" action="{% url 'application_reject' application.pk %}" method="post" enctype="multipart/form-data">
                     <div class="form-group">
                         {% csrf_token %}
-                        
-            
+
+
                         {% bootstrap_form application_reject_form %}
-                    </div> 
+                    </div>
                     <div class="modal-footer">
                         <button type="button" class="left btn  border-0 btn-primary font-weight-medium auth-form-btn" data-bs-dismiss="modal">Закрыть</button>
                         <button type="submit" class="left btn  border-0 btn-primary font-weight-medium auth-form-btn">Сохранить</button>
@@ -144,6 +145,22 @@
     <script src="{% static 'js/phone-mask.js' %}"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script>
+        let checked_first = $('input[class=subject-check]:checked').length
+        $.ajax({
+                url: `/api/get_sum`,
+                type: "POST",
+                data: JSON.stringify({
+                    'package': checked_first
+                }),
+                success: function (data) {
+                    console.log(data);
+                    $('#id_sum').val(data.sum);
+                },
+                error: function (data) {
+                    $('#id_sum').val(0);
+                    console.log('error');
+                }
+        });
         $('input[type=checkbox]').on('change', function (e) {
             if ($('input[class=subject-check]:checked').length > 4) {
                 $(this).prop('checked', false);
@@ -178,6 +195,35 @@
                 $this.val($this.val().substring(0, maxCount));
             }
         });
+    </script>
+    <script>
+    $('.create_student_by_application').on('click', function (e) {
+         const applicationId = $(this).data('application-id')
+         $.ajax({
+            url: `/api/create-user-by-application/${applicationId}`,
+            type: "POST",
+            data: {
+                csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
+            },
+            success: function (data) {
+                if (data.email) {
+                    console.log(data.email)
+                    alert('Студент с такой почтой уже существует')
+                } else if (data.phone){
+                    console.log(data.phone)
+                    alert('Студент с таким номером телефона уже существует')
+                } else if (data.success) {
+                    console.log(data.success)
+                    alert('Студент добавлен')
+                }
+
+            },
+            error: function (data) {
+                console.log('error')
+                alert('Студент уже создан')
+            }
+        });
+    })
     </script>
 
 
