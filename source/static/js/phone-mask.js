@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        if (["7", "8"].indexOf(inputNumbersValue[0]) > -1) {
+        if (["7"].indexOf(inputNumbersValue[0]) > -1) {
             var firstSymbols = (inputNumbersValue[0] == "8") ? "8" : "+7";
             formattedInputValue = input.value = firstSymbols + " ";
             if (inputNumbersValue.length > 1) {

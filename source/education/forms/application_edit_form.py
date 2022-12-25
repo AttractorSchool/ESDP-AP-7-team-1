@@ -31,7 +31,8 @@ class ApplicationCustomEditForm(forms.ModelForm):
     shift = forms.ChoiceField(label='Смена', choices=SHIFTS, required=False, widget=forms.Select)
     lesson_time = forms.ChoiceField(label='Желательное время', choices=LESSONS_TIME, required=False,
                                     widget=forms.Select)
-    birth_date = forms.DateField(widget=DateInput, required=False, label='День рождения')
+    birth_date = forms.DateField(widget=DateInput(format='%Y-%m-%d'), required=False, label='День рождения')
+
 
     class Meta:
         model = Application
