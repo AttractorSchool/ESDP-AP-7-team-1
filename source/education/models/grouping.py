@@ -3,6 +3,24 @@ from education.models import Subject
 from accounts.models import Account
 
 
+LANGUAGE_CHOICES = (
+    ('kaz', 'қазақша'),
+    ('rus', 'орыс'),
+)
+
+class StatusOfGrouping(models.Model):
+    """Возможные статусы группы"""
+    name = models.CharField(verbose_name='Название', max_length=30, unique=True)
+    is_deleted = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Доступный статус группы'
+        verbose_name_plural = 'Доступные статусы групп'
+
+
 class Grouping(models.Model):
     name = models.CharField(verbose_name='Название группы', max_length=20, unique=True)
     subject = models.ForeignKey(to=Subject, verbose_name='Название предмета', related_name='groupings', on_delete=models.CASCADE)
@@ -19,6 +37,23 @@ class Grouping(models.Model):
         related_name='teachers'
     )
     is_deleted = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+    start_date = models.DateTimeField(null=True, blank=True)
+    max_students = models.PositiveIntegerField(null=True, blank=True)
+    min_students = models.PositiveIntegerField(null=True, blank=True)
+    language = models.CharField(
+        verbose_name='Язык обучения',
+        max_length=20,
+        choices=LANGUAGE_CHOICES,
+        null=True,
+        blank=True,
+    )
+    statuses = models.ManyToManyField(
+        to=StatusOfGrouping,
+        verbose_name='Статус группы',
+        through='education.GroupingStatus',
+        related_name='groupings',
+    )
 
     def __str__(self):
         return self.name
@@ -26,6 +61,23 @@ class Grouping(models.Model):
     class Meta:
         verbose_name = 'Группа обучения'
         verbose_name_plural = 'Группы обучения'
+
+
+class GroupingStatus(models.Model):
+    """Установленные статусы групп (промежуточная таблица)"""
+    grouping = models.ForeignKey(to=Grouping, on_delete=models.CASCADE, related_name='grouping_statuses')
+    status = models.ForeignKey(to=StatusOfGrouping, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+    note = models.TextField(verbose_name='Примечание', max_length=150, blank=True)
+    author = models.ForeignKey(to='accounts.Account', on_delete=models.RESTRICT, null=True, blank=True)
+
+    def __str__(self):
+        return f'{self.grouping.name} - {self.status.name}'
+
+    class Meta:
+        verbose_name = 'Установленный статус группы'
+        verbose_name_plural = 'Установленные статусы групп'
+        get_latest_by = 'created_at'
 
 
 class StudentGrouping(models.Model):
