@@ -39,23 +39,26 @@
     </div>
     <hr width="100%" color="black" height="5%" />
     <!-- форма просмотра и отправки договора -->
-    <div>
-        <form class="forms-sample" action="" method="post" enctype="multipart/form-data">
+    <div style="display:flex">
+        <form class="forms-sample" action="{% url 'open_contract' application.pk %}" method="post" enctype="multipart/form-data">
             <div class="form-group">
                 {% csrf_token %}
                 <div>
-
                     <input type="submit" style="background:linear-gradient(90deg, #c352eb, #8adabd)"
                         class="left btn  border-0 btn-primary font-weight-medium auth-form-btn"
                         value="Открыть договор" {{button_contract}}>
 
-                    <input type="submit" style="background:linear-gradient(90deg, #c352eb, #8adabd)"
-                        class="left btn  border-0 btn-primary font-weight-medium auth-form-btn"
-                        value="Отправить договор на email" {{button_contract}}>
                 </div>
             </div>
         </form>
-
+                <div>
+                    <input id="send-contract" type="submit" style="background:linear-gradient(90deg, #c352eb, #8adabd); margin-left:1em"
+                        class="left btn  border-0 btn-primary font-weight-medium auth-form-btn"
+                        value="Отправить договор на email" {{button_contract}}  data-pk={{application.pk}}>
+                        <div>
+                </div>
+            </div>
+        </div>
         <!-- форма прикрепления договора -->
         <form class="forms-sample" action="{% url 'application_contract_update' application.pk %}" method="post" enctype="multipart/form-data">
             <div class="form-group">
