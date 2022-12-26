@@ -9,7 +9,7 @@ from education.views.applications import ApplicationListView, ApplicationEditVie
 from education.views.packages import PackageListView, PackageAddView, PackageEditView, DelPackageView
 from education.views.discounts import DiscountListView, DiscountAddView, DiscountEditView, DelDiscountView
 from education.views.groupings import GroupingListView, GroupingAddView, GroupingEditView, DelGroupingView
-from education.views.contracts import open_contract_pdf
+from education.views.contracts import open_contract_pdf, send_contract
 
 urlpatterns = [
     path('', IndexView.as_view(), name='main'),
@@ -43,5 +43,7 @@ urlpatterns = [
     path('grouping_add/', GroupingAddView.as_view(), name='grouping_add'),
     path('grouping_update/<int:pk>', GroupingEditView.as_view(), name='grouping_update'),
     path('grouping_del/<int:pk>', DelGroupingView.as_view(), name='grouping_del'),
-    path('open_contract/<int:pk>',open_contract_pdf,name='open_contract')
+    
+    path('open_contract/<int:pk>',open_contract_pdf,name='open_contract'),
+    path('send_contract/<int:pk>', send_contract, name='send_contract' ),
 ]

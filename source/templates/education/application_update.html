@@ -39,6 +39,7 @@
     </div>
     <hr width="100%" color="black" height="5%" />
     <!-- форма просмотра и отправки договора -->
+    <div>
     <div style="display:flex">
         <form class="forms-sample" action="{% url 'open_contract' application.pk %}" method="post" enctype="multipart/form-data">
             <div class="form-group">
@@ -228,7 +229,22 @@
         });
     })
     </script>
-
+    <script>
+        $('#send-contract').on('click',function (event) {
+            let appId = $(this).attr("data-pk")
+            $.ajax({
+                url: `/send_contract/${appId}`,
+                type: "POST",
+                data: {
+                    csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
+                },
+                success: function(data) {
+                    alert(data.answer)
+                    console.log(data)
+                }
+            });
+        });
+    </script>
 
 {% endblock %}
 

@@ -47,3 +47,16 @@ def open_contract_pdf(request, *args, **kwargs):
     response['Content-Disposition'] = 'filename=contract.pdf'
     return response
 
+
+def send_contract(request, *args, **kwargs):
+    app = Application.objects.get(pk=kwargs.get('pk'))
+    contract = render_pdf(request, app.pk)
+    emails = [app.email, app.parents_email]
+    for email in emails:
+        email_msg = EmailMessage('Договор', body=contract, from_email='testeruly@yandex.kz', to=[email])
+        email_msg.attach('contract.pdf', contract, "application/pdf")
+        email_msg.content_subtype = "pdf"  
+        email_msg.encoding = 'UTF-8'
+        email_msg.send()
+    responce = {'answer' : 'Договор отправлен'}
+    return JsonResponse(responce)
