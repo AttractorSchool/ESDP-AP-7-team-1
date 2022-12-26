@@ -26,6 +26,25 @@
 <p>Адресс : {{application.address|default_if_none:""}}</p>
 <p>Желаемое время : {{application.lesson_time|default_if_none:""}}</p>
 <br>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Статус заявки</th>
+                <th>Дата изменения </th>
+                <th>Автор изменения</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for application_status in application.application_statuses.all %}
+                <tr>
+                    <td>{{application_status.status}}</td>
+                    <td>{{application_status.created_at}}</td>
+                    <td>{{application_status.author|default_if_none:""}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+<br>
 <a href="{% url 'application_update' application.pk %}">
     Редактировать                          
 </a>
