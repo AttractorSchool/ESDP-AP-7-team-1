@@ -3,17 +3,24 @@
 {% block title %} Регистрация {% endblock %}
 {% load bootstrap5 %}
 {% block nav %}
-    {% include 'partial/left_nav.html' with page='register_student' %}
+    {% if 'student' in request.path %}
+        {% include 'partial/left_nav.html' with page='register_student' %}
+    {% elif 'teacher' in request.path %}
+        {% include 'partial/left_nav.html' with page='register_teacher' %}
+    {% else %}
+        {% include 'partial/left_nav.html' with page='register_admin' %}
+    {% endif %}
 {% endblock %}
 {% block content %}
-    <p class="card-title text-center">Зарегистрировать пользователя</p>
+    <p class="card-title text-center">Зарегистрировать {% if 'student' in request.path %}
+        студента {% elif 'teacher' in request.path %} преподавателя {% else %} админа {% endif %}</p>
     <div class="card-body">
         <form class="forms-sample" action="" method="post">
             {% csrf_token %}
-                <div class="form-group">
-                    {% csrf_token %}
-                    {% bootstrap_form form %}
-                </div>
+            <div class="form-group">
+                {% csrf_token %}
+                {% bootstrap_form form %}
+            </div>
             <div class="mt-3">
                 <input type="submit" style="background:linear-gradient(90deg, #c352eb, #8adabd)"
                        class="btn btn-block border-0 btn-primary btn-lg font-weight-medium auth-form-btn"
