@@ -30,9 +30,7 @@
 
             <div class="d-flex justify-content-between">
                 <div>
-                    <input type="submit" style="background:linear-gradient(90deg, #c352eb, #8adabd)"
-                        class="left btn  border-0 btn-primary font-weight-medium auth-form-btn"
-                        value="Сохранить">
+                    <button type="submit" class="btn btn-inverse-primary mr-2 mt-3">Сохранить</button>
                 </div>
             </div>
         </form>
@@ -45,12 +43,12 @@
                 {% csrf_token %}
                 <div>
 
-                    <input type="submit" style="background:linear-gradient(90deg, #c352eb, #8adabd)"
-                        class="left btn  border-0 btn-primary font-weight-medium auth-form-btn"
+                    <input type="submit"
+                        class="btn btn-inverse-primary font-weight-medium auth-form-btn"
                         value="Открыть договор" {{button_contract}}>
 
-                    <input type="submit" style="background:linear-gradient(90deg, #c352eb, #8adabd)"
-                        class="left btn  border-0 btn-primary font-weight-medium auth-form-btn"
+                    <input type="submit"
+                        class="left btn btn-inverse-primary font-weight-medium auth-form-btn"
                         value="Отправить договор на email" {{button_contract}}>
                 </div>
             </div>
@@ -65,8 +63,8 @@
                 {% bootstrap_form application_contract_form %}
             </div>
             <div>
-                <input type="submit" style="background:linear-gradient(90deg, #c352eb, #8adabd)"
-                    class="left btn  border-0 btn-primary font-weight-medium auth-form-btn"
+                <input type="submit"
+                    class="left btn btn-inverse-primary font-weight-medium auth-form-btn"
                     value="Сохранить" {{button_contract}}>
             </div>
         </form>
@@ -84,8 +82,8 @@
             {% bootstrap_form application_payed_form %}
         </div>
         <div>
-            <input type="submit" style="background:linear-gradient(90deg, #c352eb, #8adabd)"
-                class="left btn  border-0 btn-primary font-weight-medium auth-form-btn"
+            <input type="submit"
+                class="btn btn-inverse-primary font-weight-medium auth-form-btn"
                 value="Сохранить" {{button_payed}}>
         </div>
     </form>
@@ -96,18 +94,18 @@
 
         {% if application.application_statuses.last.status.name == 'Оплачена' %}
         <div>
-            <input type="submit" style="background:linear-gradient(90deg, #c352eb, #8adabd)"
-                class="left btn  border-0 btn-primary font-weight-medium auth-form-btn create_student_by_application"
+            <input type="submit"
+                class="left btn btn-inverse-primary font-weight-medium auth-form-btn create_student_by_application"
                 value="Создать ученика" {{button_user}} data-application-id="{{ application.pk }}">
 
-            <input type="submit" style="background:linear-gradient(90deg, #c352eb, #8adabd)"
-                class="left btn  border-0 btn-primary font-weight-medium auth-form-btn"
-                value="Создать родителя" {{button_user}}>
+            <!-- <input type="submit"
+                class="left btn btn-inverse-primary font-weight-medium auth-form-btn"
+                value="Создать родителя" {{button_user}}> -->
         </div>
         {% endif %}
 
         <!-- Button trigger modal -->
-        <input type="submit" class="left btn  border-0 btn-primary font-weight-medium auth-form-btn" value="Отклонить заявку" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <input type="submit" class="left btn btn-inverse-danger font-weight-medium auth-form-btn" value="Отклонить заявку" data-bs-toggle="modal" data-bs-target="#exampleModal">
 
     </div>
 
