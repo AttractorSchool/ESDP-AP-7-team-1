@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quantum Group</title>
+    <link rel="stylesheet" href="{% static 'css/schedule.css' %}"/>
+</head>
+<body>
+ 
+<center><h1>Расписание групп на неделю<h1></center>
+
+    <div class="d_dlex">
+    <div class="inline">
+        <div class="margin_bott">
+            <b>Группа</b><br>
+            {% for item in list_groupings %}
+                <b>{{ item.0 }}</b><br>
+            {% endfor %}
+
+        </div>
+        <div class="margin_bott">
+            <b>Понедельник</b><br>
+            {% for item in list_groupings %}
+                <b>{{ item.1 }}</b><br>
+            {% endfor %}
+        </div>
+        <div class="margin_bott">
+            <b>Вторник</b><br>
+            {% for item in list_groupings %}
+                <b>{{ item.2 }}</b><br>
+            {% endfor %}
+        </div>
+        <div class="margin_bott">
+            <b>Среда</b><br>
+            {% for item in list_groupings %}
+                <b>{{ item.3 }}</b><br>
+            {% endfor %}
+        </div>
+        <div class="margin_bott">
+            <b>Четверг</b><br>
+            {% for item in list_groupings %}
+                <b>{{ item.4 }}</b><br>
+            {% endfor %}
+        </div>
+        <div class="margin_bott">
+            <b>Пятница</b><br>
+            {% for item in list_groupings %}
+                <b>{{ item.5 }}</b><br>
+            {% endfor %}
+        </div>
+        <div class="margin_bott">
+            <b>Суббота</b><br>
+            {% for item in list_groupings %}
+                <b>{{ item.6 }}</b><br>
+            {% endfor %}
+        </div>
+        {% comment %} {% for item in a %}
+        <div class="margin_bott">
+            <b>{{ item.0 }}</b><br>
+        </div>
+        <div class="margin_bott">
+            <b>{{ item.0 }}</b><br>
+        </div>
+        <div class="margin_bott">
+            <b>{{ item.0 }}</b><br>
+        </div>
+        <div class="margin_bott">
+            <b>{{ item.0 }}</b><br>
+        </div>
+        <div class="margin_bott">
+            <b>{{ item.0 }}</b><br>
+        </div>
+        <div class="margin_bott">
+            <b>{{ item.0 }}</b><br>
+        </div>
+        <div class="margin_bott">
+            <b>{{ item.0 }}</b><br>
+        </div> {% endcomment %}
+    </div>
+</div>
+
+    

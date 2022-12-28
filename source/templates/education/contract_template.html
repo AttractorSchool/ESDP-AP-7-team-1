@@ -1,0 +1,265 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style type="text/css">
+        body {
+            line-height: 100%;
+            font-family: Calibri;
+            font-size: 12pt
+        }
+        p {
+            margin: 0pt 0pt 8pt 0pt
+        }
+
+        li,
+        table {
+            margin-top: 0pt;
+            margin-bottom: 10pt
+        }
+
+        .BalloonText {
+            margin-bottom: 0pt;
+            line-height: normal;
+            font-family: Tahoma;
+            font-size: 8pt
+        }
+        .ListParagraph {
+            margin-left: 36pt;
+            margin-bottom: 10pt;
+            line-height: 115%;
+            font-size: 11pt
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p style="margin-bottom:0pt; text-align:center; font-size:12pt"><span
+                style="font-family:'Times New Roman'; font-weight:bold">КЕЛІСІМ ШАРТ №</span></p>
+        <p style="margin-bottom:0pt; text-align:center; line-height:normal; font-size:12pt"><span
+                style="font-family:'Times New Roman'; font-weight:bold">«{{date.day}}» {{month}}  {{date.year}}  ж</span></p>
+        <p style="margin-bottom:0pt; text-align:center; line-height:normal; font-size:12pt"><span
+                style="font-family:'Times New Roman'; -aw-import:ignore">&#xa0;</span></p>
+        <p style="margin-bottom:0pt; text-indent:28.35pt; text-align:justify; line-height:normal; font-size:12pt"><span
+                style="font-family:'Times New Roman'">ЖШС «School Quantum», әрі қарай «Орындаушы», мемлекеттік тіркеу
+                куәлігінің №10100163272647, бұйрық негізінде әрекет ететін директоры Байжұма Ж.Е. бірінші жақтан,
+                 {{app.parents_name}} {{app.parents_surname}} әрі қарай «Ата-ана» екінші жақтан төмендегі туралы осы
+                келісім шарт жасасты:</span></p>
+        <p style="margin-bottom:0pt; text-align:justify; line-height:normal; font-size:12pt"><span
+                style="font-family:'Times New Roman'; -aw-import:ignore">&#xa0;</span></p>
+        <p style="margin-bottom:0pt; text-align:center; line-height:normal; font-size:12pt"><span
+                style="font-family:'Times New Roman'">1. КЕЛІСІМШАРТТЫҢ МӘНІ</span></p>
+        <p style="margin-bottom:0pt; text-align:center; line-height:normal; font-size:12pt"><span
+                style="font-family:'Times New Roman'; -aw-import:ignore">&#xa0;</span></p>
+        <p style="margin-bottom:0pt; text-align:justify; line-height:normal; font-size:12pt"><span
+                style="font-family:'Times New Roman'">1.1 Ата-ана Орындаушыға {{app.applicant_name}} {{app.applicant_surname}},
+                әрі қарай «Оқушы», {% for sub in app.subjects.all %} {{sub}} {%endfor%} 
+                пән(дер)і бойынша қосымша сабақтар өткізуді тапсырады. 
+        <p style="margin-bottom:0pt; text-align:justify; line-height:normal; font-size:12pt"><span
+                style="font-family:'Times New Roman'">1.2 Орындаушы қосымша сабақтар өткізуге тапсырысты
+                қабылдайды.</span></p>
+        <p style="margin-bottom:0pt; text-align:justify; line-height:normal; font-size:12pt"><span
+                style="font-family:'Times New Roman'">1.3 Қызметтің құны 
+                {{app.sum}}</span></p>
+        <p style="margin-bottom:0pt; text-align:justify; line-height:normal; font-size:12pt"><span
+                style="font-family:'Times New Roman'">1.4 Берілген келісімшарт «{{date.day}}» {{month}} {{date.year}} ж. бастап,
+            </span><span style="font-family:'Times New Roman'; font-weight:bold">«30» маусым 2023 ж.</span><span
+                style="font-family:'Times New Roman'"> дейін әрекет етеді.</span><span
+                style="font-family:'Times New Roman'; -aw-import:spaces">&#xa0; </span></p>
+        <p style="margin-bottom:0pt; text-align:justify; line-height:normal; font-size:12pt"><span
+                style="font-family:'Times New Roman'; -aw-import:ignore">&#xa0;</span></p>
+        <p style="margin-bottom:0pt; text-align:center; line-height:normal; font-size:12pt"><span
+                style="font-family:'Times New Roman'">2. ТАРАПТАРДЫҢ МІНДЕТТЕРІ МЕН ҚҰҚЫҚТАРЫ</span></p>
+        <p style="margin-bottom:0pt; text-align:center; line-height:normal; font-size:12pt"><span
+                style="font-family:'Times New Roman'; -aw-import:ignore">&#xa0;</span></p>
+        <p style="margin-bottom:0pt; text-indent:28.35pt; text-align:justify; line-height:normal; font-size:12pt"><span
+                style="font-family:'Times New Roman'; font-weight:bold">2.1.1 Орындаушының міндеттері:</span></p>
+        <p style="margin-bottom:0pt; text-indent:28.35pt; line-height:normal; font-size:12pt"><span
+                style="font-family:'Times New Roman'">2.1.1.1 Қызмет құнын төлеген оқушыларды қосымша сабақтарға
+                тіркеу</span></p>
+        <p style="margin-bottom:0pt; text-indent:28.35pt; line-height:normal; font-size:12pt"><span
+                style="font-family:'Times New Roman'">2.1.1.2 Сабақтар кестесін бекіту;</span></p>
+        <p style="margin-bottom:0pt; text-indent:28.35pt; text-align:justify; line-height:normal; font-size:12pt"><span
+                style="font-family:'Times New Roman'">2.1.1.3 Бекітілген сабақ кестесімен сабақтар өткізу;</span></p>
+        <p style="margin-bottom:0pt; text-indent:28.35pt; text-align:justify; line-height:normal; font-size:12pt"><span
+                style="font-family:'Times New Roman'">2.1.1.4 Сабақ өтетін орынмен қамтамасыз ету.</span></p>
+        <p style="margin-bottom:0pt; text-indent:28.35pt; text-align:justify; line-height:normal; font-size:12pt"><span
+                style="font-family:'Times New Roman'; font-weight:bold">2.1.2 Орындаушының құқықтары:</span></p>
+        <p style="margin-bottom:0pt; text-indent:28.35pt; text-align:justify; line-height:normal; font-size:12pt"><span
+                style="font-family:'Times New Roman'">2.1.2.1 Оқушыдан үй жұмысын толық орындауын талап ету; </span></p>
+        <p style="margin-bottom:0pt; text-indent:28.35pt; text-align:justify; line-height:normal; font-size:12pt"><span
+                style="font-family:'Times New Roman'">2.1.2.2 Ата-анадан оқушының сабаққа келмеген себебін
+                анықтау;</span></p>
+        <p style="margin-bottom:0pt; text-indent:28.35pt; text-align:justify; line-height:normal; font-size:12pt"><span
+                style="font-family:'Times New Roman'">2.1.2.3 Орындаушының ерекшеліктерін ескере отырып оқыту
+                технологияларын, әдістемелерін, бағдарламаларын таңдау және жүзеге асыру;</span></p>
+        <p style="margin-bottom:0pt; text-indent:28.35pt; text-align:justify; line-height:normal; font-size:12pt"><span
+                style="font-family:'Times New Roman'">2.1.2.4 Ата-ана немесе оқушы келісімшарт бойынша өз міндеттерін
+                орындамаған жағдайда, 15 күн бұрын Ата-анаға хабарлап, осы келісімшартты бұзу.</span></p>
+        <p style="margin-bottom:0pt; text-indent:28.35pt; text-align:justify; line-height:normal; font-size:12pt"><span
+                style="font-family:'Times New Roman'">2.1.2.5 Санитария талаптарын орындалуын талап ету (маскалық режим,
+                қашықтық сақтау)</span></p>
+        <p style="margin-bottom:0pt; text-indent:28.35pt; text-align:justify; line-height:normal; font-size:12pt"><span
+                style="font-family:'Times New Roman'">2.1.2.6 Тұмау немесе жедел респираторлық вирустық инфекция
+                белгілері (мұрын бітелуі, құрғақ жөтел, тамағының ауыруы, дене қызуының көтерілуі, ентігу т.б.) бар
+                Оқушыларды аудиторияға кіргізбеу.</span></p>
+        <p style="margin-bottom:0pt; text-indent:28.35pt; text-align:justify; line-height:normal; font-size:12pt"><span
+                style="font-family:'Times New Roman'; font-weight:bold">2.2.1 Ата-ананың міндеттері</span></p>
+        <p style="margin-bottom:0pt; text-indent:28.35pt; text-align:justify; line-height:normal; font-size:12pt"><span
+                style="font-family:'Times New Roman'">2.2.1.1 Әр айдың 10 жұлдызына дейін, осы келісімшартқа
+            </span><span style="font-family:'Times New Roman'; font-style:italic">1-қосымшаға</span><span
+                style="font-family:'Times New Roman'"> сәйкес сабақтардың 100% алдын ала төлемақысын жасау.</span></p>
+        <p style="margin-bottom:0pt; text-indent:28.35pt; text-align:justify; line-height:normal; font-size:12pt"><span
+                style="font-family:'Times New Roman'">2.2.1.2 Осы келісімшарттың әрекет ету мерзімі аяқталғанша оқушының
+                сабақтарға толық қатысуын қамтамасыз ету;</span></p>
+        <p style="margin-bottom:0pt; text-indent:28.35pt; text-align:justify; line-height:normal; font-size:12pt"><span
+                style="font-family:'Times New Roman'">2.2.1.3 Оқушының үй тапсырмаларын орындауын қадағалау;</span></p>
+        <p style="margin-bottom:0pt; text-indent:28.35pt; text-align:justify; line-height:normal; font-size:12pt"><span
+                style="font-family:'Times New Roman'">2.2.1.4 Оқушының сабаққа себепті жағдайлармен келе алмайтыны
+                туралы бір күн бұрын хабарлау;</span></p>
+        <p style="margin-bottom:0pt; text-indent:28.35pt; text-align:justify; line-height:normal; font-size:12pt"><span
+                style="font-family:'Times New Roman'">2.2.1.5 Оқушыда тұмау немесе жедел респираторлық вирустық инфекция
+                белгілері (мұрын бітелуі, құрғақ жөтел, тамағының ауыруы, дене қызуының көтерілуі, ентігу т.б.)
+                байқалған жағдайда Орындаушыны ескерту, дәрігер кеңесін алу.</span></p>
+        <p style="margin-bottom:0pt; text-indent:28.35pt; text-align:justify; line-height:normal; font-size:12pt"><span
+                style="font-family:'Times New Roman'; font-weight:bold">2.2.2 Ата ананың құқықтары:</span></p>
+        <p style="margin-bottom:0pt; text-indent:28.35pt; text-align:justify; line-height:normal; font-size:12pt"><span
+                style="font-family:'Times New Roman'">2.2.2.1 Оқушылармен жұмыс істеуді жақсарту бойынша ұсыныстарды
+                жазбаша түрде жасау;</span></p>
+        <p style="margin-bottom:0pt; text-indent:28.35pt; text-align:justify; line-height:normal; font-size:12pt"><span
+                style="font-family:'Times New Roman'">2.2.2.2 Қосымша қызметтер бойынша ұсыныстарды жасау;</span></p>
+        <p style="margin-bottom:0pt; text-indent:28.35pt; text-align:justify; line-height:normal; font-size:12pt"><span
+                style="font-family:'Times New Roman'">2.2.2.3 Келісімшарттың талаптарының орындалуын талап ету.</span>
+        </p>
+        <p style="margin-bottom:0pt; text-indent:28.35pt; line-height:normal; font-size:12pt"><span
+                style="font-family:'Times New Roman'; font-weight:bold">2.3.1 Оқушының міндеттері</span></p>
+        <p style="margin-bottom:0pt; text-indent:28.35pt; line-height:normal; font-size:12pt"><span
+                style="font-family:'Times New Roman'">2.3.1.1 Бекітілген сабақтар кестесі бойынша сабақтарға толық
+                қатысу;</span></p>
+        <p style="margin-bottom:0pt; text-indent:28.35pt; line-height:normal; font-size:12pt"><span
+                style="font-family:'Times New Roman'">2.3.1.2 Сабақтарға кешікпей келу;</span></p>
+        <p style="margin-bottom:0pt; text-indent:28.35pt; line-height:normal; font-size:12pt"><span
+                style="font-family:'Times New Roman'">2.3.1.3 Үй тапсырмаларын толық орындау;</span></p>
+        <p style="margin-bottom:0pt; text-indent:28.35pt; text-align:justify; line-height:normal; font-size:12pt"><span
+                style="font-family:'Times New Roman'">2.3.1.4 Сабақта тәртіп сақтап, мұқият, зер салып тыңдау;</span>
+        </p>
+        <p style="margin-bottom:0pt; text-indent:28.35pt; text-align:justify; line-height:normal; font-size:12pt"><span
+                style="font-family:'Times New Roman'">2.3.1.5 Сабаққа барарда және сабақтан қайтқанда жол
+                қауіпсіздігінің ережелерін сақтау.</span></p>
+        <p style="margin-bottom:0pt; text-indent:28.35pt; text-align:justify; line-height:normal; font-size:12pt"><span
+                style="font-family:'Times New Roman'">2.3.1.6 Сабаққа барарда, сабақ үстінде және сабақтан қайтқанда
+                санитария талаптарын орындау, маска тағу, әлеуметтік қашықтық сақтау, қолды жиі залалсыздардыру.</span>
+        </p>
+        <p style="margin-bottom:0pt; text-indent:28.35pt; text-align:justify; line-height:normal; font-size:12pt"><span
+                style="font-family:'Times New Roman'">2.3.1.7 Тұмау немесе жедел респираторлық вирустық инфекция
+                белгілері (мұрын бітелуі, құрғақ жөтел, тамағының ауыруы, дене қызуының көтерілуі, ентігу т.б.)
+                байқалған жағдайда үйде қалу</span></p>
+        <p style="margin-bottom:0pt; text-indent:28.35pt; text-align:justify; line-height:normal; font-size:12pt"><span
+                style="font-family:'Times New Roman'; font-weight:bold">2.3.2 Оқушының құқықтары:</span></p>
+        <p style="margin-bottom:0pt; text-indent:28.35pt; text-align:justify; line-height:normal; font-size:12pt"><span
+                style="font-family:'Times New Roman'">2.3.2.1 Түсінбеген тақырыптарды сұрау;</span></p>
+        <p style="margin-bottom:0pt; text-indent:28.35pt; text-align:justify; line-height:normal; font-size:12pt"><span
+                style="font-family:'Times New Roman'">2.3.2.2 Сабаққа себепті жағдаймен қатыса алмай қалған жағдайда
+                және 2.2.1.4 бойынша алдын ала хабарланған жағдайда, басқа топпен немесе онлайн сабаққа қатысу;</span>
+        </p>
+        <p style="margin-bottom:0pt; text-indent:28.35pt; text-align:justify; line-height:normal; font-size:12pt"><span
+                style="font-family:'Times New Roman'; -aw-import:ignore">&#xa0;</span></p>
+        <p style="margin-bottom:0pt; text-align:center; line-height:normal; font-size:12pt"><span
+                style="font-family:'Times New Roman'">3. КЕЛІСІМШАРТТЫҢ ОРЫНДАЛУЫН ҚАМТАМАСЫЗ ЕТУ</span></p>
+        <p style="margin-bottom:0pt; text-indent:28.35pt; text-align:justify; line-height:normal; font-size:12pt"><span
+                style="font-family:'Times New Roman'">3.1 Ата-ана осы келісімшарт жасасқан күннен бастап 30 күн ішінде
+                10</span><span style="font-family:'Times New Roman'">&#xa0;</span><span
+                style="font-family:'Times New Roman'">000 (он мың) теңге көлемінде депозит төлейді</span></p>
+        <p style="margin-bottom:0pt; text-indent:28.35pt; text-align:justify; line-height:normal; font-size:12pt"><span
+                style="font-family:'Times New Roman'">3.2 Аталған депозит жылдың соңына дейін сақталады, мамыр айының
+                төлемінен депозит құны шегеріледі</span></p>
+        <p style="margin-bottom:0pt; text-indent:28.35pt; text-align:justify; line-height:normal; font-size:12pt"><span
+                style="font-family:'Times New Roman'">3.3 Келісімшарт 1.4 тармақта көрсетілген мерзімнен бұрын, 2.1.2.4
+                сәйкес, </span><span style="font-family:'Times New Roman'; -aw-import:spaces">&#xa0;</span><span
+                style="font-family:'Times New Roman'">«Орындаушы» тарапынан тоқтатылса депозит толық қайтарылады</span>
+        </p>
+        <p style="margin-bottom:0pt; text-indent:28.35pt; text-align:justify; line-height:normal; font-size:12pt"><span
+                style="font-family:'Times New Roman'">3.4 </span><span
+                style="font-family:'Times New Roman'; font-weight:bold">Келісімшарт ата-ана тарапынан осы келісімшарттың
+                1.4 тармағында көрсетілген мерзімнен бұрын бұзылған жағдайда депозит қайтарылмайды</span></p>
+        <p style="margin-bottom:0pt; text-align:justify; line-height:normal; font-size:12pt"><span
+                style="font-family:'Times New Roman'; -aw-import:ignore">&#xa0;</span></p>
+        <p style="margin-bottom:0pt; text-align:center; line-height:normal; font-size:12pt"><span
+                style="font-family:'Times New Roman'">4. ДАУЛАРДЫ ШЕШУ ТӘРТІБІ</span></p>
+        <p style="margin-bottom:0pt; text-indent:28.35pt; text-align:justify; line-height:normal; font-size:12pt"><span
+                style="font-family:'Times New Roman'">4.1 Осы келісім шарт бойынша туындайтын Тараптардың барлық даулары
+                мен қайшылықтары өзара келіссөздер жүргізу арқылы шешіледі. Даулар мен қайшылықтар өзара келіссөз арқылы
+                шешілмеген жағдайда сотта қарауға беріледі.</span></p>
+        <p style="margin-bottom:0pt; text-align:justify; line-height:normal; font-size:12pt"><span
+                style="font-family:'Times New Roman'; -aw-import:ignore">&#xa0;</span></p>
+        <p style="margin-bottom:0pt; text-align:center; line-height:normal; font-size:12pt"><span
+                style="font-family:'Times New Roman'">5. ТАРАПТАРДЫҢ ЖАУАПКЕРШІЛІГІ</span></p>
+        <p style="margin-bottom:0pt; text-indent:28.35pt; text-align:justify; line-height:normal; font-size:12pt"><span
+                style="font-family:'Times New Roman'">5.1 Тараптар өздеріне тиесілі міндеттемелері бойынша Қазақстан
+                Республикасының қолданыстағы заңнамаға сәйкес жауапкершілік етеді.</span></p>
+        <p style="margin-bottom:0pt; text-indent:28.35pt; text-align:justify; line-height:normal; font-size:12pt"><span
+                style="font-family:'Times New Roman'">. </span></p>
+        <p style="margin-bottom:0pt; text-align:center; line-height:normal; font-size:12pt"><span
+                style="font-family:'Times New Roman'">6. ҚОРЫТЫНДЫ ЖАҒДАЙЛАР</span></p>
+        <p style="margin-bottom:0pt; text-indent:28.35pt; text-align:justify; line-height:normal; font-size:12pt"><span
+                style="font-family:'Times New Roman'">6.1 Осы келісім шарт әр Тарап үшін бірдей заңды күші бар екі
+                данада жасалған.</span></p>
+        <p style="margin-bottom:0pt; text-indent:28.35pt; text-align:justify; line-height:normal; font-size:12pt"><span
+                style="font-family:'Times New Roman'">6.2 Келісім шарт Тараптар қол қойған күннен бастап күшіне
+                енеді.</span></p>
+        <p style="margin-bottom:0pt; text-align:justify; line-height:normal; font-size:12pt"><span
+                style="font-family:'Times New Roman'; -aw-import:ignore">&#xa0;</span></p>
+        <table cellspacing="0" cellpadding="0" class="TableGrid"
+            style="margin-bottom:0pt; -aw-border-insideh:0.5pt single #000000; -aw-border-insidev:0.5pt single #000000; border-collapse:collapse">
+            <tr>
+                <td style="width:228.45pt; padding-right:5.4pt; padding-left:5.4pt; vertical-align:top">
+                    <p style="margin-bottom:0pt; text-align:justify; font-size:12pt"><span
+                            style="font-family:'Times New Roman'">ОРЫНДАУШЫ:</span></p>
+                    <p style="margin-bottom:0pt; text-align:justify; font-size:12pt"><span
+                            style="font-family:'Times New Roman'; -aw-import:ignore">&#xa0;</span></p>
+                    <p style="margin-bottom:0pt; text-align:justify; font-size:12pt"><span
+                            style="font-family:'Times New Roman'; font-weight:bold">ЖШС «School Quantum»</span></p>
+                    <p style="margin-bottom:0pt; text-align:justify; font-size:12pt"><span
+                            style="font-family:'Times New Roman'">Алматы облысы, Талғар ауданы, Тұздыбастау, Жамбыл 86
+                        </span></p>
+                    <p style="margin-bottom:0pt; text-align:justify; font-size:12pt"><span
+                            style="font-family:'Times New Roman'">БИН: 160740016324</span></p>
+                    <p style="margin-bottom:0pt; text-align:justify; font-size:12pt"><span
+                            style="font-family:'Times New Roman'">БИК: EURIKZKA</span></p>
+                    <p style="margin-bottom:0pt; text-align:justify; font-size:12pt"><span
+                            style="font-family:'Times New Roman'">ИИК: KZ1994806KZT22035427</span></p>
+                    <p style="margin-bottom:0pt; text-align:justify; font-size:12pt"><span
+                            style="font-family:'Times New Roman'; -aw-import:ignore">&#xa0;</span></p>
+                    <p style="margin-bottom:0pt; text-align:justify; font-size:12pt"><span
+                            style="font-family:'Times New Roman'">Байжұма Ж.Е. </span><span
+                            style="font-family:'Times New Roman'; -aw-import:spaces">&#xa0;</span><img
+                            src="{% static 'images/sign.jpeg' %}" width="103"
+                            style="-aw-left-pos:0pt; -aw-rel-hpos:column; -aw-rel-vpos:paragraph; -aw-top-pos:0pt; -aw-wrap-type:inline" /><span
+                            style="font-family:'Times New Roman'; font-size:8pt; vertical-align:super">(қолы)</span></p>
+                    <p style="margin-bottom:0pt; text-align:justify; font-size:12pt"><span
+                            style="font-family:'Times New Roman'">М.О.</span></p>
+                </td>
+                <td style="width:228.5pt; padding-right:5.4pt; padding-left:5.4pt; vertical-align:top">
+                    <p style="margin-bottom:0pt; text-align:justify; font-size:12pt"><span
+                            style="font-family:'Times New Roman'">АТА-АНА:</span></p>
+                            <p style="margin-top:14pt; margin-bottom:14pt; font-size:12pt"><span
+                                style="font-family:'Times New Roman'">{{app.parents_surname}} {{app.parents_name}}</span></p>
+                    <p style="margin-top:14pt; margin-bottom:14pt; font-size:12pt"><span
+                            style="font-family:'Times New Roman'">{{app.address}}</span></p>
+                    <p style="margin-top:14pt; margin-bottom:14pt; font-size:12pt">
+                        <span style="font-family:'Times New Roman'">{{app.parents_phone}}</span><br /><span
+                            style="font-family:'Times New Roman'">_____________________________________
+                        </span>
+                        <span style="font-family:'Times New Roman'">(үй телефоны) </span><br /></p>
+                    <p style="margin-bottom:0pt; text-align:justify; font-size:12pt"><span
+                            style="font-family:'Times New Roman'">___________________ </span><br /><span
+                            style="font-family:'Times New Roman'">Ата-ананың қолы</span></p>
+                </td>
+            </tr>
+        </table>
+    </div>
+    
+</body>
+</html>

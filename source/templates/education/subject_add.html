@@ -1,0 +1,32 @@
+{% extends 'crm.html' %}
+{% load static %}
+{% block title %} Добавление нового предмета {% endblock %}
+
+{% block nav %}
+{% include 'partial/left_nav.html' with page='subject' %}
+{% endblock %}
+
+{% block content %}
+<p class="card-title">Добавление нового предмета</p>
+<form class="forms-sample" action="{% url 'subject_add' %}" method="POST">
+    {% csrf_token %}
+    <div class="form-group">
+      {{ form.name }}
+    </div>
+    {% for error in form.name.errors %}
+    <div class="ms-2 text-danger">{{ error }}</div>
+    {% endfor %}
+    <div class="form-check form-check-flat form-check-info">
+        <label class="form-check-label">
+            {{ form.is_required }}
+            <!-- <input type="checkbox" class="form-check-input"> -->
+            Обязательный
+        <i class="input-helper"></i></label>
+    </div>
+    {% for error in form.is_required.errors %}
+    <div class="ms-2 text-danger">{{ error }}</div>
+    {% endfor %}
+    <button type="submit" class="btn btn-inverse-primary mr-2 mt-3">Сохранить</button>
+    <a href="{% url 'subjects' %}" class="btn btn-inverse-dark mt-3">Отмена</a>
+  </form>
+{% endblock %}

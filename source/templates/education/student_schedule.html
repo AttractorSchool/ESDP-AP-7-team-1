@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quantum Group</title>
+    <link rel="stylesheet" href="{% static 'css/schedule.css' %}"/>
+</head>
+<body>
+ 
+<center><h1>Расписание студента на неделю<h1></center>
+{% comment %} {% for i in monday %} {% endcomment %}
+        {% comment %} {{i.0}}<br>
+        {{i.1}}<br> {% endcomment %}
+
+<div class="d_dlex">
+    <div class="inline">
+        <div class="margin_bott">
+            <b>Понедельник</b><br>
+            {% for i in monday %}
+                {{i.0}} Время: {{i.1}}<br>
+            {% endfor %}
+        </div>
+        <div class="margin_bott">
+            <b>Вторник</b><br>
+            {% for i in tuesday %}
+                {{i.0}} Время: {{i.1}}<br>
+            {% endfor %}
+        </div>
+        <div class="margin_bott">
+            <b>Среда</b><br>
+            {% for i in wednesday %}
+                {{i.0}} Время: {{i.1}}<br>
+            {% endfor %}
+        </div>
+        <div class="margin_bott">
+            <b>Четверг</b><br>
+            {% for i in thursday %}
+                {{i.0}} Время: {{i.1}}<br>
+            {% endfor %}
+        </div>
+        <div class="margin_bott">
+            <b>Пятница</b><br>
+            {% for i in friday %}
+                {{i.0}} Время: {{i.1}}<br>
+            {% endfor %}
+        </div>
+        <div class="margin_bott">
+            <b>Суббота</b><br>
+            {% for i in saturday %}
+                {{i.0}} Время: {{i.1}}<br>
+            {% endfor %}
+        </div>
+    </div>
+</div>

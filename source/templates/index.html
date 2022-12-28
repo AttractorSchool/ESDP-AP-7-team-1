@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap5 %}
+{% block title %} Главная страница {% endblock %}
+
+{% block nav %}
+    <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <ul class="nav">
+        </ul>
+    </nav>
+{% endblock %}
+
+{% block content %}
+    <p class="card-title text-center">Оставьте Вашу заявку</p>
+    <div class="card-body">
+        <h6 class="font-weight-light">Заполните все поля и выберете интересующие Вас предметы:</h6>
+        <form class="forms-sample" action="" method="post">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            <div class="mt-3 text-center">
+                <button style="background:linear-gradient(90deg, #c352eb, #8adabd)"
+                       class="btn border-0 btn-primary btn-lg font-weight-medium auth-form-btn send_application_form"
+                       >ОСТАВИТЬ ЗАЯВКУ</button>
+            </div>
+        </form>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+        $('input[type=checkbox]').on('change', function (e) {
+            if ($('#sum_package')) {
+                $('#sum_package').remove()
+            }
+            if ($('input[type=checkbox]:checked').length > 4) {
+                $(this).prop('checked', false);
+                alert("Можно выбрать только 4 предмета");
+            }
+            let checked = $('input[type=checkbox]:checked').length
+            console.log(checked)
+            $.ajax({
+                url: `/api/get_sum`,
+                type: "POST",
+                data: JSON.stringify({
+                    'package': checked
+                }),
+                success: function (data) {
+                    $("#id_subjects").append(`<label class="form-label" id='sum_package'>Выбран ${data.package}. Цена ${data.sum}</label>`)
+                },
+                error: function (data) {
+                    console.log('error')
+                    {#<div class="invalid-feedback">Обязательное поле.</div>#}
+                }
+            });
+        });
+    </script>
+    <script>
+        $('.send_application_form').on('click', function (e) {
+            let email_ = $('#id_email').val()
+            let name_ = $('#id_applicant_name').val()
+            let surname_ = $('#id_applicant_surname').val()
+            let phone_ = $('#id_phone').val()
+            let subjects_ = $('input[type=checkbox]')
+            let checkedValue = '';
+            for (let i = 0, n = subjects_.length; i < n; i++) {
+                if (subjects_[i].checked) {
+                    checkedValue += subjects_[i].value;
+                }
+            }
+            $.ajax({
+                url: `/api/create-application`,
+                type: "POST",
+                data: JSON.stringify({
+                    email: email_,
+                    name: name_,
+                    surname: surname_,
+                    phone: phone_,
+                    subjects: checkedValue
+                }),
+                success: function (data) {
+                    if (data.success) {
+                        console.log(`${data.success}`)
+                        alert(`${data.success}`)
+                        if (data.success === 'Заявка создана') {
+                            history.go(0);
+                        }
+                    }
+                },
+                error: function (data) {
+                    console.log('error')
+                    alert('Ошибка')
+                }
+            });
+        })
+    </script>
+
+
+{% endblock %}
+{% block js %}
+    <script src="{% static 'js/phone-mask.js' %}"></script>
+{% endblock %}
