@@ -69,10 +69,10 @@
             </tr>
             </thead>
             <tbody>
-            {% for app in applications %}
+            {% for app in page_obj %}
                 <tr>
                     <td class="py-1">
-                        {{ forloop.counter }}
+                        {{ forloop.counter0|add:page_obj.start_index }}
                     </td>
                     <td>
                         {{ app.applicant_name }}
@@ -132,6 +132,24 @@
             </tbody>
         </table>
     </div>
+    <div style="margin-top:30px" class="pagination">
+        <span class="step-links" >
+            {% if page_obj.has_previous %}
+                <a class="btn btn-inverse-dark" href="?page=1"><i class="ti-angle-double-left"></i></a>
+                <a class="btn btn-inverse-dark" href="?page={{ page_obj.previous_page_number }}"><i class="ti-angle-left"></i></a>
+            {% endif %}
+    
+            <span class="current mx-5">
+                Страница <strong>{{ page_obj.number }}</strong> из <strong>{{ page_obj.paginator.num_pages }}</strong>
+            </span>
+    
+            {% if page_obj.has_next %}
+                <a class="btn btn-inverse-dark" href="?page={{ page_obj.next_page_number }}"><i class="ti-angle-right"></i></a>
+                <a class="btn btn-inverse-dark" href="?page={{ page_obj.paginator.num_pages }}"><i class="ti-angle-double-right"></i></a>
+            {% endif %}
+        </span>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
             crossorigin="anonymous"></script>

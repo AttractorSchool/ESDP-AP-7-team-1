@@ -1,7 +1,7 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse_lazy
-from django.views.generic import DetailView, TemplateView, View
+from django.views.generic import DetailView, TemplateView, View, ListView
 
 from education.forms.application_edit_form import (ApplicationContractEditForm,
                                                    ApplicationCustomEditForm,
@@ -12,8 +12,10 @@ from education.services.statuses import (get_button_status,
                                          set_application_status)
 
 
-class ApplicationListView(TemplateView):
+class ApplicationListView(ListView):
     template_name = 'education/applications.html'
+    model = Application
+    paginate_by = 10
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
