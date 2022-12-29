@@ -4,3 +4,4 @@ from .grouping import Grouping, StudentGrouping, GroupingStatus, StatusOfGroupin
 from .shedule import Schedule
 from .discount import Discount
 from .packet import Packet
+from .time import Time

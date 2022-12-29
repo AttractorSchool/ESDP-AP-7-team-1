@@ -1,5 +1,5 @@
 from django.db import models
-from education.models import Grouping
+from education.models import Grouping, Time
 
 CATEGORY_CHOICES = [
     ('monday', 'Дүйсенбі'),
@@ -18,7 +18,9 @@ class Schedule(models.Model):
         max_length=15,
         choices=CATEGORY_CHOICES
     )
-    time_start = models.TimeField(verbose_name='Время начала занятия')
+    class_time = models.ForeignKey(to=Time, related_name='schedules', on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+    changed_at = models.DateTimeField(auto_now_add=True)
     is_deleted = models.BooleanField(default=False)
 
     def __str__(self):
