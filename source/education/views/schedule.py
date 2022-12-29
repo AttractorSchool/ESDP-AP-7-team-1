@@ -1,5 +1,8 @@
-from django.views.generic import ListView
+from django.views.generic import ListView, CreateView
+from django.urls import reverse
+
 from education.models import Schedule, Grouping
+from education.forms.schedule_create import ScheduleForm
 
 
 class StudentScheduleView(ListView):
@@ -50,3 +53,11 @@ class GroupingsScheduleView(ListView):
         context['list_groupings'] = list_groupings
         return context
 
+
+class ScheduleCreateView(CreateView):
+    template_name = 'education/schedule_create.html'
+    model = Schedule
+    form_class = ScheduleForm
+
+    def get_success_url(self):
+        return reverse('crm')

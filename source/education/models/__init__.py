@@ -1,7 +1,9 @@
-from .subject import Subject
-from .application import Application, Status, ApplicationStatus, StudentSex
-from .grouping import Grouping, StudentGrouping, GroupingStatus, StatusOfGrouping, TeacherGrouping
-from .shedule import Schedule
+from .application import Application, ApplicationStatus, Status, StudentSex
+from .auditorium import Auditorium
+from .classtime import ClassTime
 from .discount import Discount
+from .grouping import (Grouping, GroupingStatus, StatusOfGrouping,
+                       StudentGrouping, TeacherGrouping)
 from .packet import Packet
-from .time import Time
+from .shedule import Schedule
+from .subject import Subject
