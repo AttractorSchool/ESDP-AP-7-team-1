@@ -2,8 +2,6 @@ from django.db import models
 
 from accounts.models import Account
 
-from education.models import Subject
-
 
 LANGUAGE_CHOICES = (
     ('kaz', 'қазақша'),
@@ -27,7 +25,7 @@ class StatusOfGrouping(models.Model):
 class Grouping(models.Model):
     name = models.CharField(verbose_name='Название группы', max_length=20, unique=True)
     subject = models.ForeignKey(
-        to=Subject,
+        to='education.Subject',
         verbose_name='Название предмета',
         related_name='groupings',
         on_delete=models.CASCADE,

@@ -2,7 +2,8 @@ from django.contrib import admin
 
 from education.models import (Application, ApplicationStatus, Discount,
                               Grouping, Packet, Schedule, Status,
-                              StudentGrouping, Subject, GroupingStatus, StatusOfGrouping, TeacherGrouping)
+                              StudentGrouping, Subject, GroupingStatus, StatusOfGrouping, TeacherGrouping,
+                              ClassTime, Auditorium)
 
 
 @admin.register(Subject)
@@ -65,3 +66,13 @@ class StatusOfGroupingAdmin(admin.ModelAdmin):
 @admin.register(TeacherGrouping)
 class TeacherGroupingAdmin(admin.ModelAdmin):
     list_display = [field.name for field in TeacherGrouping._meta.fields]
+
+
+@admin.register(ClassTime)
+class ClassTimeAdmin(admin.ModelAdmin):
+    list_display = [field.name for field in ClassTime._meta.fields]
+
+
+@admin.register(Auditorium)
+class AuditoriumAdmin(admin.ModelAdmin):
+    list_display = [field.name for field in Auditorium._meta.fields]

@@ -1,0 +1,26 @@
+
+{% extends 'crm.html' %}
+{% load static %}
+{% block title %} Добавление расписания {% endblock %}
+
+{% block nav %}
+{% include 'partial/left_nav.html' with page='subject' %}
+{% endblock %}
+
+{% block content %}
+<p class="card-title">Добавление расписания</p>
+<form class="forms-sample d-flex" action="{% url 'schedule_create' %}" method="POST">
+    {% csrf_token %}
+    <div class="form-group">
+        <div>
+            {{ form }}
+        </div>
+        <button type="submit" class="btn btn-inverse-primary mr-2 mt-3">Сохранить</button>
+
+
+    </div>
+    
+  </form>
+{% endblock %}
+
+

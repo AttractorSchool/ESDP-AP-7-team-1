@@ -2,7 +2,7 @@ from django.urls import path
 
 from education.views.base import IndexView, NotificationView
 from education.views.crm_view import CrmView
-from education.views.schedule import StudentScheduleView, GroupingsScheduleView
+from education.views.schedule import StudentScheduleView, GroupingsScheduleView, ScheduleCreateView
 from education.views.subjects import SubjectListView, SubjectAddView, SubjectEditView, DelSubjectView
 from education.views.applications import ApplicationListView, ApplicationEditView, DeleteApplicationView, \
     ApplicationDetailView, ApplicationCustomEditView, ApplicationContractEditView, ApplicationPayedEditView, ApplicationRejectView
@@ -15,14 +15,18 @@ urlpatterns = [
     path('', IndexView.as_view(), name='main'),
     path('notification/', NotificationView.as_view(), name='notification'),
     path('crm/', CrmView.as_view(), name='crm'),
+
+    path('schedule/', StudentScheduleView.as_view(), name='schedule_student'),
     path('schedule/', StudentScheduleView.as_view(), name='schedule_student'),
     path('schedule-groupings/', GroupingsScheduleView.as_view(), name='schedule_groupings'),
+    path('schedule-create/', ScheduleCreateView.as_view(), name='schedule_create'),
+
     path('subjects/', SubjectListView.as_view(), name='subjects'),
     path('subject_add/', SubjectAddView.as_view(), name='subject_add'),
     path('subject_update/<int:pk>', SubjectEditView.as_view(), name='subject_update'),
     path('subject_del/<int:pk>', DelSubjectView.as_view(), name='subject_del'),
-    path('application_update/<int:pk>', ApplicationEditView.as_view(), name='application_update'),
 
+    path('application_update/<int:pk>', ApplicationEditView.as_view(), name='application_update'),
     path('application-custom-update/<int:pk>', ApplicationCustomEditView.as_view(), name='application_custom_update'),
     path('application-contract-update/<int:pk>', ApplicationContractEditView.as_view(), name='application_contract_update'),
     path('application-payed-update/<int:pk>', ApplicationPayedEditView.as_view(), name='application_payed_update'),
