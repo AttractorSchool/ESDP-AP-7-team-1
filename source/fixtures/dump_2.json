@@ -245,14 +245,6 @@
 },
 {
   "model": "sessions.session",
-  "pk": "04pkb803tgbp1v78qtal2qimqw533h6e",
-  "fields": {
-    "session_data": ".eJxVjMsOwiAURP-FtSEX5OnSvd9AuFyQqoGktCvjv9smXehqkjln5s1CXJca1pHnMBG7MMFOvx3G9MxtB_SI7d556m2ZJ-S7wg86-K1Tfl0P9--gxlG3NSpdpLRbRKeEEAYKFq_Bk8JkCoA_J0ElKkiWnHbZoqfshNSUDGjLPl_WOzej:1p9rD0:X1sCBzkLklIiAo06eLDgfhoxqAQsdttPpq0zDPPQ0kY",
-    "expire_date": "2023-01-09T17:24:18.483Z"
-  }
-},
-{
-  "model": "sessions.session",
   "pk": "7jfke84v8c4o4g0vfx4eqs2u4ae2ktyt",
   "fields": {
     "session_data": ".eJxVjMsOwiAURP-FtSEX5OnSvd9AuFyQqoGktCvjv9smXehqkjln5s1CXJca1pHnMBG7MMFOvx3G9MxtB_SI7d556m2ZJ-S7wg86-K1Tfl0P9--gxlG3NSpdpLRbRKeEEAYKFq_Bk8JkCoA_J0ElKkiWnHbZoqfshNSUDGjLPl_WOzej:1p4HOH:Y8Eb6KLoDo6mvr0b3vjlKk6SEI1up8ck9VRiBts683A",
@@ -265,6 +257,14 @@
   "fields": {
     "session_data": ".eJxVjMsOwiAURP-FtSEX5OnSvd9AuFyQqoGktCvjv9smXehqkjln5s1CXJca1pHnMBG7MMFOvx3G9MxtB_SI7d556m2ZJ-S7wg86-K1Tfl0P9--gxlG3NSpdpLRbRKeEEAYKFq_Bk8JkCoA_J0ElKkiWnHbZoqfshNSUDGjLPl_WOzej:1p6r42:5gFE_Pd1ZHaa9JpyLJU_MCRalfCNA2HiunFC-0n3Qss",
     "expire_date": "2023-01-01T10:38:38.798Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "befcct3yhdad3v7hgdoqwf6i2cdv6ex2",
+  "fields": {
+    "session_data": ".eJxVjDsOwjAQBe_iGlnx36Gk5wzWeneNA8iR4qRC3B0ipYD2zcx7iQTbWtPWeUkTibNQ4vS7ZcAHtx3QHdptlji3dZmy3BV50C6vM_Hzcrh_BxV6_daWApOKOAT0GrMrHJSnzIA2GB-KJldIG4xhRMvDqIpS3iJ4w9E4zuL9Af8cOGw:1pAx9y:oxD9ySz9hC0qdKsBrKqDo9lus5wFBmI3OPVLggaim8A",
+    "expire_date": "2023-01-12T17:57:42.726Z"
   }
 },
 {
@@ -287,7 +287,7 @@
   "model": "accounts.account",
   "fields": {
     "password": "pbkdf2_sha256$390000$rnNSqWIF8uWVEEJqqC1Mhs$bfqpAOjya0Fkxtq2RFIxKJDqYVy74EPSisMZ8pMqZvE=",
-    "last_login": "2022-12-26T17:24:18.480Z",
+    "last_login": "2022-12-29T17:57:42.722Z",
     "is_superuser": true,
     "first_name": "Суперюзер",
     "last_name": "Фамилия",
@@ -306,93 +306,25 @@
   }
 },
 {
-  "model": "education.subject",
-  "pk": 1,
+  "model": "accounts.account",
   "fields": {
-    "name": "Информатика",
-    "is_deleted": false,
-    "is_required": false
-  }
-},
-{
-  "model": "education.subject",
-  "pk": 2,
-  "fields": {
-    "name": "Физика",
-    "is_deleted": false,
-    "is_required": false
-  }
-},
-{
-  "model": "education.subject",
-  "pk": 3,
-  "fields": {
-    "name": "Математика",
-    "is_deleted": false,
-    "is_required": false
-  }
-},
-{
-  "model": "education.subject",
-  "pk": 4,
-  "fields": {
-    "name": "Қазақстан тарихы",
-    "is_deleted": false,
-    "is_required": false
-  }
-},
-{
-  "model": "education.subject",
-  "pk": 5,
-  "fields": {
-    "name": "Матсауат",
-    "is_deleted": false,
-    "is_required": false
-  }
-},
-{
-  "model": "education.subject",
-  "pk": 7,
-  "fields": {
-    "name": "ДЖТ",
-    "is_deleted": false,
-    "is_required": false
-  }
-},
-{
-  "model": "education.subject",
-  "pk": 8,
-  "fields": {
-    "name": "Химия",
-    "is_deleted": false,
-    "is_required": false
-  }
-},
-{
-  "model": "education.subject",
-  "pk": 9,
-  "fields": {
-    "name": "Биология",
-    "is_deleted": false,
-    "is_required": false
-  }
-},
-{
-  "model": "education.subject",
-  "pk": 10,
-  "fields": {
-    "name": "География",
-    "is_deleted": false,
-    "is_required": false
-  }
-},
-{
-  "model": "education.subject",
-  "pk": 11,
-  "fields": {
-    "name": "Ағылшын",
-    "is_deleted": false,
-    "is_required": false
+    "password": "pbkdf2_sha256$390000$aDBz7Ac4DgGpyUnZxbCp0d$dpCmnzO08VD1u6kzvaajlza6ZPEIwtuMJYejosn1AXQ=",
+    "last_login": null,
+    "is_superuser": false,
+    "first_name": "root",
+    "last_name": "sdsd",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-01-02T09:08:47.051Z",
+    "email": "root@mal.ru",
+    "avatar": "",
+    "phone_number": "+77123456785",
+    "groups": [
+      [
+        "teacher"
+      ]
+    ],
+    "user_permissions": []
   }
 },
 {
@@ -1513,6 +1445,108 @@
   }
 },
 {
+  "model": "education.auditorium",
+  "pk": 1,
+  "fields": {
+    "name": "108",
+    "is_deleted": false,
+    "created_at": "2022-12-29T18:30:43.922Z",
+    "update_at": "2022-12-29T18:30:43.922Z"
+  }
+},
+{
+  "model": "education.auditorium",
+  "pk": 2,
+  "fields": {
+    "name": "109",
+    "is_deleted": false,
+    "created_at": "2022-12-29T18:30:50.773Z",
+    "update_at": "2022-12-29T18:30:50.773Z"
+  }
+},
+{
+  "model": "education.auditorium",
+  "pk": 3,
+  "fields": {
+    "name": "110",
+    "is_deleted": false,
+    "created_at": "2022-12-29T18:30:55.735Z",
+    "update_at": "2022-12-29T18:30:55.735Z"
+  }
+},
+{
+  "model": "education.classtime",
+  "pk": 2,
+  "fields": {
+    "time_start": "15:00:00",
+    "time_end": "16:30:00",
+    "is_deleted": false,
+    "created_at": "2022-12-29T18:01:29.414Z",
+    "changed_at": "2023-01-01T16:43:08.939Z",
+    "number_lesson": 2
+  }
+},
+{
+  "model": "education.classtime",
+  "pk": 3,
+  "fields": {
+    "time_start": "16:30:00",
+    "time_end": "18:00:00",
+    "is_deleted": false,
+    "created_at": "2022-12-29T18:02:26.588Z",
+    "changed_at": "2023-01-01T16:43:16.081Z",
+    "number_lesson": 3
+  }
+},
+{
+  "model": "education.classtime",
+  "pk": 4,
+  "fields": {
+    "time_start": "13:30:00",
+    "time_end": "15:00:00",
+    "is_deleted": false,
+    "created_at": "2022-12-29T18:03:36.621Z",
+    "changed_at": "2023-01-01T16:42:59.623Z",
+    "number_lesson": 1
+  }
+},
+{
+  "model": "education.discount",
+  "pk": 1,
+  "fields": {
+    "name": "Екінші бала",
+    "discount_amount": 20,
+    "is_deleted": false
+  }
+},
+{
+  "model": "education.discount",
+  "pk": 2,
+  "fields": {
+    "name": "Жетім",
+    "discount_amount": 50,
+    "is_deleted": false
+  }
+},
+{
+  "model": "education.discount",
+  "pk": 3,
+  "fields": {
+    "name": "Көпбалалы",
+    "discount_amount": 20,
+    "is_deleted": false
+  }
+},
+{
+  "model": "education.discount",
+  "pk": 4,
+  "fields": {
+    "name": "Олимпиада",
+    "discount_amount": 50,
+    "is_deleted": false
+  }
+},
+{
   "model": "education.statusofgrouping",
   "pk": 1,
   "fields": {
@@ -1733,6 +1767,20 @@
   }
 },
 {
+  "model": "education.grouping",
+  "pk": 15,
+  "fields": {
+    "name": "Колбаса",
+    "subject": 5,
+    "is_deleted": false,
+    "created_at": "2023-01-02T09:09:11.342Z",
+    "start_date": null,
+    "max_students": null,
+    "min_students": null,
+    "language": null
+  }
+},
+{
   "model": "education.groupingstatus",
   "pk": 1,
   "fields": {
@@ -1814,159 +1862,16 @@
   }
 },
 {
-  "model": "education.schedule",
-  "pk": 1,
-  "fields": {
-    "grouping": 1,
-    "week_day": "monday",
-    "time_start": "14:14:32",
-    "is_deleted": false
-  }
-},
-{
-  "model": "education.schedule",
-  "pk": 2,
-  "fields": {
-    "grouping": 1,
-    "week_day": "tuesday",
-    "time_start": "14:14:37",
-    "is_deleted": false
-  }
-},
-{
-  "model": "education.schedule",
+  "model": "education.teachergrouping",
   "pk": 3,
   "fields": {
-    "grouping": 1,
-    "week_day": "wednesday",
-    "time_start": "14:14:44",
-    "is_deleted": false
-  }
-},
-{
-  "model": "education.schedule",
-  "pk": 4,
-  "fields": {
-    "grouping": 2,
-    "week_day": "wednesday",
-    "time_start": "14:14:49",
-    "is_deleted": false
-  }
-},
-{
-  "model": "education.schedule",
-  "pk": 5,
-  "fields": {
-    "grouping": 2,
-    "week_day": "friday",
-    "time_start": "14:14:54",
-    "is_deleted": false
-  }
-},
-{
-  "model": "education.schedule",
-  "pk": 6,
-  "fields": {
-    "grouping": 3,
-    "week_day": "monday",
-    "time_start": "14:14:59",
-    "is_deleted": false
-  }
-},
-{
-  "model": "education.schedule",
-  "pk": 7,
-  "fields": {
-    "grouping": 3,
-    "week_day": "wednesday",
-    "time_start": "14:15:04",
-    "is_deleted": false
-  }
-},
-{
-  "model": "education.schedule",
-  "pk": 8,
-  "fields": {
-    "grouping": 5,
-    "week_day": "wednesday",
-    "time_start": "14:15:07",
-    "is_deleted": false
-  }
-},
-{
-  "model": "education.schedule",
-  "pk": 9,
-  "fields": {
-    "grouping": 5,
-    "week_day": "friday",
-    "time_start": "14:15:11",
-    "is_deleted": false
-  }
-},
-{
-  "model": "education.schedule",
-  "pk": 10,
-  "fields": {
-    "grouping": 6,
-    "week_day": "wednesday",
-    "time_start": "14:15:16",
-    "is_deleted": false
-  }
-},
-{
-  "model": "education.schedule",
-  "pk": 11,
-  "fields": {
-    "grouping": 9,
-    "week_day": "thursday",
-    "time_start": "14:15:20",
-    "is_deleted": false
-  }
-},
-{
-  "model": "education.schedule",
-  "pk": 12,
-  "fields": {
-    "grouping": 11,
-    "week_day": "wednesday",
-    "time_start": "14:15:23",
-    "is_deleted": false
-  }
-},
-{
-  "model": "education.discount",
-  "pk": 1,
-  "fields": {
-    "name": "Екінші бала",
-    "discount_amount": 20,
-    "is_deleted": false
-  }
-},
-{
-  "model": "education.discount",
-  "pk": 2,
-  "fields": {
-    "name": "Жетім",
-    "discount_amount": 50,
-    "is_deleted": false
-  }
-},
-{
-  "model": "education.discount",
-  "pk": 3,
-  "fields": {
-    "name": "Көпбалалы",
-    "discount_amount": 20,
-    "is_deleted": false
-  }
-},
-{
-  "model": "education.discount",
-  "pk": 4,
-  "fields": {
-    "name": "Олимпиада",
-    "discount_amount": 50,
-    "is_deleted": false
+    "grouping": 15,
+    "teacher": [
+      "root@mal.ru"
+    ],
+    "started": null,
+    "finished": null,
+    "is_active": true
   }
 },
 {
@@ -2007,6 +1912,278 @@
     "qty": 4,
     "is_deleted": false,
     "sum": 32000
+  }
+},
+{
+  "model": "education.schedule",
+  "pk": 62,
+  "fields": {
+    "grouping": 1,
+    "week_day": "monday",
+    "class_time": 4,
+    "created_at": "2023-01-02T09:31:58.934Z",
+    "changed_at": "2023-01-02T10:06:16.620Z",
+    "is_deleted": true,
+    "auditorium": 1
+  }
+},
+{
+  "model": "education.schedule",
+  "pk": 63,
+  "fields": {
+    "grouping": 6,
+    "week_day": "monday",
+    "class_time": 4,
+    "created_at": "2023-01-02T09:32:16.749Z",
+    "changed_at": "2023-01-02T10:06:11.833Z",
+    "is_deleted": true,
+    "auditorium": 1
+  }
+},
+{
+  "model": "education.schedule",
+  "pk": 64,
+  "fields": {
+    "grouping": 2,
+    "week_day": "monday",
+    "class_time": 4,
+    "created_at": "2023-01-02T09:45:30.262Z",
+    "changed_at": "2023-01-02T10:06:06.432Z",
+    "is_deleted": true,
+    "auditorium": 1
+  }
+},
+{
+  "model": "education.schedule",
+  "pk": 65,
+  "fields": {
+    "grouping": 6,
+    "week_day": "monday",
+    "class_time": 4,
+    "created_at": "2023-01-02T09:54:04.370Z",
+    "changed_at": "2023-01-02T10:05:59.144Z",
+    "is_deleted": true,
+    "auditorium": 1
+  }
+},
+{
+  "model": "education.schedule",
+  "pk": 66,
+  "fields": {
+    "grouping": 1,
+    "week_day": "monday",
+    "class_time": 4,
+    "created_at": "2023-01-02T09:54:10.016Z",
+    "changed_at": "2023-01-02T10:10:06.122Z",
+    "is_deleted": true,
+    "auditorium": 1
+  }
+},
+{
+  "model": "education.schedule",
+  "pk": 69,
+  "fields": {
+    "grouping": 4,
+    "week_day": "tuesday",
+    "class_time": 2,
+    "created_at": "2023-01-02T10:11:29.335Z",
+    "changed_at": "2023-01-02T10:16:18.362Z",
+    "is_deleted": true,
+    "auditorium": 1
+  }
+},
+{
+  "model": "education.schedule",
+  "pk": 70,
+  "fields": {
+    "grouping": 2,
+    "week_day": "tuesday",
+    "class_time": 2,
+    "created_at": "2023-01-02T10:16:18.374Z",
+    "changed_at": "2023-01-02T10:16:24.905Z",
+    "is_deleted": true,
+    "auditorium": 1
+  }
+},
+{
+  "model": "education.schedule",
+  "pk": 71,
+  "fields": {
+    "grouping": 7,
+    "week_day": "tuesday",
+    "class_time": 2,
+    "created_at": "2023-01-02T10:16:24.921Z",
+    "changed_at": "2023-01-02T10:23:31.699Z",
+    "is_deleted": true,
+    "auditorium": 1
+  }
+},
+{
+  "model": "education.schedule",
+  "pk": 72,
+  "fields": {
+    "grouping": 1,
+    "week_day": "monday",
+    "class_time": 4,
+    "created_at": "2023-01-02T10:23:26.098Z",
+    "changed_at": "2023-01-02T10:23:26.098Z",
+    "is_deleted": false,
+    "auditorium": 1
+  }
+},
+{
+  "model": "education.schedule",
+  "pk": 73,
+  "fields": {
+    "grouping": 3,
+    "week_day": "tuesday",
+    "class_time": 2,
+    "created_at": "2023-01-02T10:23:31.713Z",
+    "changed_at": "2023-01-02T10:29:37.018Z",
+    "is_deleted": true,
+    "auditorium": 1
+  }
+},
+{
+  "model": "education.schedule",
+  "pk": 74,
+  "fields": {
+    "grouping": 3,
+    "week_day": "monday",
+    "class_time": 2,
+    "created_at": "2023-01-02T10:29:20.082Z",
+    "changed_at": "2023-01-02T10:29:20.082Z",
+    "is_deleted": false,
+    "auditorium": 1
+  }
+},
+{
+  "model": "education.schedule",
+  "pk": 75,
+  "fields": {
+    "grouping": 3,
+    "week_day": "wednesday",
+    "class_time": 2,
+    "created_at": "2023-01-02T10:29:25.001Z",
+    "changed_at": "2023-01-02T10:29:25.001Z",
+    "is_deleted": false,
+    "auditorium": 1
+  }
+},
+{
+  "model": "education.schedule",
+  "pk": 76,
+  "fields": {
+    "grouping": 1,
+    "week_day": "monday",
+    "class_time": 3,
+    "created_at": "2023-01-02T10:29:31.215Z",
+    "changed_at": "2023-01-02T10:29:31.215Z",
+    "is_deleted": false,
+    "auditorium": 1
+  }
+},
+{
+  "model": "education.schedule",
+  "pk": 77,
+  "fields": {
+    "grouping": 12,
+    "week_day": "tuesday",
+    "class_time": 2,
+    "created_at": "2023-01-02T10:29:37.032Z",
+    "changed_at": "2023-01-02T10:29:37.032Z",
+    "is_deleted": false,
+    "auditorium": 1
+  }
+},
+{
+  "model": "education.subject",
+  "pk": 1,
+  "fields": {
+    "name": "Информатика",
+    "is_deleted": false,
+    "is_required": false
+  }
+},
+{
+  "model": "education.subject",
+  "pk": 2,
+  "fields": {
+    "name": "Физика",
+    "is_deleted": false,
+    "is_required": false
+  }
+},
+{
+  "model": "education.subject",
+  "pk": 3,
+  "fields": {
+    "name": "Математика",
+    "is_deleted": false,
+    "is_required": false
+  }
+},
+{
+  "model": "education.subject",
+  "pk": 4,
+  "fields": {
+    "name": "Қазақстан тарихы",
+    "is_deleted": false,
+    "is_required": false
+  }
+},
+{
+  "model": "education.subject",
+  "pk": 5,
+  "fields": {
+    "name": "Матсауат",
+    "is_deleted": false,
+    "is_required": false
+  }
+},
+{
+  "model": "education.subject",
+  "pk": 7,
+  "fields": {
+    "name": "ДЖТ",
+    "is_deleted": false,
+    "is_required": false
+  }
+},
+{
+  "model": "education.subject",
+  "pk": 8,
+  "fields": {
+    "name": "Химия",
+    "is_deleted": false,
+    "is_required": false
+  }
+},
+{
+  "model": "education.subject",
+  "pk": 9,
+  "fields": {
+    "name": "Биология",
+    "is_deleted": false,
+    "is_required": false
+  }
+},
+{
+  "model": "education.subject",
+  "pk": 10,
+  "fields": {
+    "name": "География",
+    "is_deleted": false,
+    "is_required": false
+  }
+},
+{
+  "model": "education.subject",
+  "pk": 11,
+  "fields": {
+    "name": "Ағылшын",
+    "is_deleted": false,
+    "is_required": false
   }
 },
 {
@@ -7315,6 +7492,1680 @@
     ],
     "object_id": "20",
     "object_repr": "qammmm qa",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 296,
+  "fields": {
+    "action_time": "2022-12-29T18:01:29.417Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "classtime"
+    ],
+    "object_id": "2",
+    "object_repr": "15:00:00",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 297,
+  "fields": {
+    "action_time": "2022-12-29T18:02:26.590Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "classtime"
+    ],
+    "object_id": "3",
+    "object_repr": "16:30:00",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 298,
+  "fields": {
+    "action_time": "2022-12-29T18:03:36.626Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "classtime"
+    ],
+    "object_id": "4",
+    "object_repr": "13:30:00",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 299,
+  "fields": {
+    "action_time": "2022-12-29T18:30:43.924Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "auditorium"
+    ],
+    "object_id": "1",
+    "object_repr": "108",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 300,
+  "fields": {
+    "action_time": "2022-12-29T18:30:50.775Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "auditorium"
+    ],
+    "object_id": "2",
+    "object_repr": "109",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 301,
+  "fields": {
+    "action_time": "2022-12-29T18:30:55.736Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "auditorium"
+    ],
+    "object_id": "3",
+    "object_repr": "110",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 302,
+  "fields": {
+    "action_time": "2022-12-29T18:31:35.645Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "12",
+    "object_repr": "информатика-3 - wednesday",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Class time\", \"Auditorium\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 303,
+  "fields": {
+    "action_time": "2022-12-29T18:31:55.054Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "11",
+    "object_repr": "информатика-1 - thursday",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Class time\", \"Auditorium\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 304,
+  "fields": {
+    "action_time": "2023-01-01T12:52:43.925Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "10",
+    "object_repr": "химия-1 - wednesday - 109",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Class time\", \"Auditorium\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 305,
+  "fields": {
+    "action_time": "2023-01-01T12:52:53.319Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "9",
+    "object_repr": "математика-3 - friday - 109",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Class time\", \"Auditorium\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 306,
+  "fields": {
+    "action_time": "2023-01-01T12:53:02.761Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "8",
+    "object_repr": "математика-3 - wednesday - 109",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Class time\", \"Auditorium\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 307,
+  "fields": {
+    "action_time": "2023-01-01T12:53:11.097Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "7",
+    "object_repr": "математика-1 - wednesday - 108",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Class time\", \"Auditorium\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 308,
+  "fields": {
+    "action_time": "2023-01-01T12:53:19.703Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "6",
+    "object_repr": "математика-1 - monday - 109",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Class time\", \"Auditorium\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 309,
+  "fields": {
+    "action_time": "2023-01-01T12:53:27.816Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "5",
+    "object_repr": "физика-2 - friday - 110",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Class time\", \"Auditorium\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 310,
+  "fields": {
+    "action_time": "2023-01-01T12:53:36.748Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "4",
+    "object_repr": "физика-2 - wednesday - 110",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Class time\", \"Auditorium\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 311,
+  "fields": {
+    "action_time": "2023-01-01T12:53:46.347Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "3",
+    "object_repr": "физика-1 - wednesday - 108",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Class time\", \"Auditorium\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 312,
+  "fields": {
+    "action_time": "2023-01-01T12:53:54.144Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "2",
+    "object_repr": "физика-1 - tuesday - 108",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Class time\", \"Auditorium\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 313,
+  "fields": {
+    "action_time": "2023-01-01T12:54:02.276Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "1",
+    "object_repr": "физика-1 - monday - 109",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Class time\", \"Auditorium\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 314,
+  "fields": {
+    "action_time": "2023-01-01T16:42:59.625Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "classtime"
+    ],
+    "object_id": "4",
+    "object_repr": "13:30:00",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041d\\u043e\\u043c\\u0435\\u0440 \\u0443\\u0440\\u043e\\u043a\\u0430\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 315,
+  "fields": {
+    "action_time": "2023-01-01T16:43:08.941Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "classtime"
+    ],
+    "object_id": "2",
+    "object_repr": "15:00:00",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041d\\u043e\\u043c\\u0435\\u0440 \\u0443\\u0440\\u043e\\u043a\\u0430\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 316,
+  "fields": {
+    "action_time": "2023-01-01T16:43:16.083Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "classtime"
+    ],
+    "object_id": "3",
+    "object_repr": "16:30:00",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041d\\u043e\\u043c\\u0435\\u0440 \\u0443\\u0440\\u043e\\u043a\\u0430\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 317,
+  "fields": {
+    "action_time": "2023-01-02T09:22:21.524Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "58",
+    "object_repr": "математика-2 - tuesday - 108",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Is deleted\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 318,
+  "fields": {
+    "action_time": "2023-01-02T09:24:18.646Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "59",
+    "object_repr": "Колбаса - wednesday - 109",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Is deleted\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 319,
+  "fields": {
+    "action_time": "2023-01-02T09:30:37.366Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "59",
+    "object_repr": "Колбаса - wednesday - 109",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 320,
+  "fields": {
+    "action_time": "2023-01-02T09:30:37.369Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "58",
+    "object_repr": "математика-2 - tuesday - 108",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 321,
+  "fields": {
+    "action_time": "2023-01-02T09:30:37.371Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "57",
+    "object_repr": "информатика-1 - monday - 110",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 322,
+  "fields": {
+    "action_time": "2023-01-02T09:30:37.372Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "56",
+    "object_repr": "химия-1 - tuesday - 108",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 323,
+  "fields": {
+    "action_time": "2023-01-02T09:30:37.374Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "55",
+    "object_repr": "математика-3 - monday - 108",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 324,
+  "fields": {
+    "action_time": "2023-01-02T09:30:37.375Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "54",
+    "object_repr": "химия-1 - monday - 110",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 325,
+  "fields": {
+    "action_time": "2023-01-02T09:30:37.376Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "53",
+    "object_repr": "физика-1 - monday - 110",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 326,
+  "fields": {
+    "action_time": "2023-01-02T09:30:37.378Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "52",
+    "object_repr": "математика-2 - monday - 108",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 327,
+  "fields": {
+    "action_time": "2023-01-02T09:30:37.379Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "51",
+    "object_repr": "химия-1 - monday - 108",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 328,
+  "fields": {
+    "action_time": "2023-01-02T09:30:37.380Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "50",
+    "object_repr": "информатика-1 - thursday - 109",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 329,
+  "fields": {
+    "action_time": "2023-01-02T09:30:37.381Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "49",
+    "object_repr": "информатика-1 - wednesday - 108",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 330,
+  "fields": {
+    "action_time": "2023-01-02T09:30:37.382Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "48",
+    "object_repr": "Колбаса - thursday - 108",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 331,
+  "fields": {
+    "action_time": "2023-01-02T09:30:37.384Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "47",
+    "object_repr": "физика-1 - monday - 108",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 332,
+  "fields": {
+    "action_time": "2023-01-02T09:30:37.385Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "46",
+    "object_repr": "математика-3 - thursday - 108",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 333,
+  "fields": {
+    "action_time": "2023-01-02T09:30:37.386Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "45",
+    "object_repr": "химия-1 - wednesday - 108",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 334,
+  "fields": {
+    "action_time": "2023-01-02T09:30:37.387Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "44",
+    "object_repr": "информатика-1 - thursday - 109",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 335,
+  "fields": {
+    "action_time": "2023-01-02T09:30:37.388Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "43",
+    "object_repr": "информатика-1 - monday - 109",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 336,
+  "fields": {
+    "action_time": "2023-01-02T09:30:37.389Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "42",
+    "object_repr": "физика-2 - monday - 109",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 337,
+  "fields": {
+    "action_time": "2023-01-02T09:30:37.391Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "41",
+    "object_repr": "химия-3 - tuesday - 109",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 338,
+  "fields": {
+    "action_time": "2023-01-02T09:30:37.392Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "40",
+    "object_repr": "информатика-3 - saturday - 110",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 339,
+  "fields": {
+    "action_time": "2023-01-02T09:30:37.393Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "39",
+    "object_repr": "химия-3 - thursday - 108",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 340,
+  "fields": {
+    "action_time": "2023-01-02T09:30:37.395Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "38",
+    "object_repr": "математика-10 - tuesday - 110",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 341,
+  "fields": {
+    "action_time": "2023-01-02T09:30:37.396Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "37",
+    "object_repr": "информатика-2 - tuesday - 109",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 342,
+  "fields": {
+    "action_time": "2023-01-02T09:30:37.397Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "36",
+    "object_repr": "химия-1 - friday - 108",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 343,
+  "fields": {
+    "action_time": "2023-01-02T09:30:37.398Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "35",
+    "object_repr": "химия-2 - saturday - 108",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 344,
+  "fields": {
+    "action_time": "2023-01-02T09:30:37.400Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "34",
+    "object_repr": "химия-3 - tuesday - 108",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 345,
+  "fields": {
+    "action_time": "2023-01-02T09:30:37.401Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "33",
+    "object_repr": "информатика-1 - monday - 108",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 346,
+  "fields": {
+    "action_time": "2023-01-02T09:30:37.402Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "32",
+    "object_repr": "физика-1 - monday - 108",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 347,
+  "fields": {
+    "action_time": "2023-01-02T09:30:37.403Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "31",
+    "object_repr": "математика-2 - monday - 108",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 348,
+  "fields": {
+    "action_time": "2023-01-02T09:30:37.404Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "30",
+    "object_repr": "информатика-1 - monday - 108",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 349,
+  "fields": {
+    "action_time": "2023-01-02T09:30:37.405Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "29",
+    "object_repr": "химия-1 - monday - 108",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 350,
+  "fields": {
+    "action_time": "2023-01-02T09:30:37.407Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "28",
+    "object_repr": "математика-1 - monday - 108",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 351,
+  "fields": {
+    "action_time": "2023-01-02T09:30:37.408Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "27",
+    "object_repr": "физика-1 - monday - 108",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 352,
+  "fields": {
+    "action_time": "2023-01-02T09:30:37.409Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "26",
+    "object_repr": "химия-1 - monday - 108",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 353,
+  "fields": {
+    "action_time": "2023-01-02T09:30:37.410Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "25",
+    "object_repr": "физика-1 - monday - 108",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 354,
+  "fields": {
+    "action_time": "2023-01-02T09:30:37.412Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "24",
+    "object_repr": "математика-1 - monday - 108",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 355,
+  "fields": {
+    "action_time": "2023-01-02T09:30:37.413Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "23",
+    "object_repr": "информатика-1 - tuesday - 108",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 356,
+  "fields": {
+    "action_time": "2023-01-02T09:30:37.414Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "22",
+    "object_repr": "Надежда - tuesday - 108",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 357,
+  "fields": {
+    "action_time": "2023-01-02T09:30:37.416Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "21",
+    "object_repr": "химия-3 - tuesday - 108",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 358,
+  "fields": {
+    "action_time": "2023-01-02T09:30:37.417Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "20",
+    "object_repr": "химия-1 - tuesday - 108",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 359,
+  "fields": {
+    "action_time": "2023-01-02T09:30:37.418Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "19",
+    "object_repr": "математика-1 - monday - 108",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 360,
+  "fields": {
+    "action_time": "2023-01-02T09:30:37.419Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "18",
+    "object_repr": "математика-10 - saturday - 108",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 361,
+  "fields": {
+    "action_time": "2023-01-02T09:30:37.420Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "17",
+    "object_repr": "физика-1 - monday - 108",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 362,
+  "fields": {
+    "action_time": "2023-01-02T09:30:37.421Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "16",
+    "object_repr": "физика-1 - saturday - 108",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 363,
+  "fields": {
+    "action_time": "2023-01-02T09:30:37.422Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "15",
+    "object_repr": "математика-3 - wednesday - 109",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 364,
+  "fields": {
+    "action_time": "2023-01-02T09:30:37.424Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "14",
+    "object_repr": "информатика-1 - friday - 108",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 365,
+  "fields": {
+    "action_time": "2023-01-02T09:30:37.425Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "13",
+    "object_repr": "физика-1 - monday - 108",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 366,
+  "fields": {
+    "action_time": "2023-01-02T09:30:37.426Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "12",
+    "object_repr": "информатика-3 - wednesday - 108",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 367,
+  "fields": {
+    "action_time": "2023-01-02T09:30:37.428Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "11",
+    "object_repr": "информатика-1 - thursday - 109",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 368,
+  "fields": {
+    "action_time": "2023-01-02T09:30:37.429Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "10",
+    "object_repr": "химия-1 - wednesday - 109",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 369,
+  "fields": {
+    "action_time": "2023-01-02T09:30:37.430Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "9",
+    "object_repr": "математика-3 - friday - 109",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 370,
+  "fields": {
+    "action_time": "2023-01-02T09:30:37.432Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "8",
+    "object_repr": "математика-3 - wednesday - 109",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 371,
+  "fields": {
+    "action_time": "2023-01-02T09:30:37.433Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "7",
+    "object_repr": "математика-1 - wednesday - 108",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 372,
+  "fields": {
+    "action_time": "2023-01-02T09:30:37.434Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "6",
+    "object_repr": "математика-1 - monday - 109",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 373,
+  "fields": {
+    "action_time": "2023-01-02T09:30:37.435Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "5",
+    "object_repr": "физика-2 - friday - 110",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 374,
+  "fields": {
+    "action_time": "2023-01-02T09:30:37.436Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "4",
+    "object_repr": "физика-2 - wednesday - 110",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 375,
+  "fields": {
+    "action_time": "2023-01-02T09:30:37.438Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "3",
+    "object_repr": "физика-1 - wednesday - 108",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 376,
+  "fields": {
+    "action_time": "2023-01-02T09:30:37.439Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "2",
+    "object_repr": "физика-1 - tuesday - 108",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 377,
+  "fields": {
+    "action_time": "2023-01-02T09:30:37.440Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "1",
+    "object_repr": "физика-1 - monday - 109",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 378,
+  "fields": {
+    "action_time": "2023-01-02T09:30:44.386Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "61",
+    "object_repr": "информатика-2 - wednesday - 108",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 379,
+  "fields": {
+    "action_time": "2023-01-02T09:30:44.392Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "60",
+    "object_repr": "физика-1 - thursday - 108",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 380,
+  "fields": {
+    "action_time": "2023-01-02T10:05:12.291Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "66",
+    "object_repr": "физика-1 - monday - 108",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Is deleted\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 381,
+  "fields": {
+    "action_time": "2023-01-02T10:05:59.146Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "65",
+    "object_repr": "химия-1 - monday - 108",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Is deleted\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 382,
+  "fields": {
+    "action_time": "2023-01-02T10:06:06.434Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "64",
+    "object_repr": "физика-2 - monday - 108",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Is deleted\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 383,
+  "fields": {
+    "action_time": "2023-01-02T10:06:11.834Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "63",
+    "object_repr": "химия-1 - monday - 108",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Is deleted\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 384,
+  "fields": {
+    "action_time": "2023-01-02T10:06:16.622Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "62",
+    "object_repr": "физика-1 - monday - 108",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Is deleted\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 385,
+  "fields": {
+    "action_time": "2023-01-02T10:08:05.266Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "66",
+    "object_repr": "физика-1 - monday - 108",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Is deleted\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 386,
+  "fields": {
+    "action_time": "2023-01-02T10:10:06.124Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "66",
+    "object_repr": "физика-1 - monday - 108",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Is deleted\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 387,
+  "fields": {
+    "action_time": "2023-01-02T10:15:50.102Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "68",
+    "object_repr": "физика-2 - monday - 108",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 388,
+  "fields": {
+    "action_time": "2023-01-02T10:15:50.106Z",
+    "user": [
+      "root@root.kz"
+    ],
+    "content_type": [
+      "education",
+      "schedule"
+    ],
+    "object_id": "67",
+    "object_repr": "химия-3 - monday - 108",
     "action_flag": 3,
     "change_message": ""
   }
