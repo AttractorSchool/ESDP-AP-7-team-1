@@ -66,9 +66,15 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="">
+                    <a class="nav-link" href="{% url 'schedule_groupings' %}">
                         <i class="ti-layers-alt menu-icon"></i>
                         <span class="menu-title">Расписание групп</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'schedule_create' %}">
+                        <i class="ti-layers-alt menu-icon"></i>
+                        <span class="menu-title">Создание расписания</span>
                     </a>
                 </li>
             {% endif %}

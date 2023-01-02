@@ -7,9 +7,10 @@ class ClassTime(models.Model):
     is_deleted = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     changed_at = models.DateTimeField(auto_now=True)
+    number_lesson = models.IntegerField(verbose_name='Номер урока', null=True, blank=True)
 
     def __str__(self):
-        return str(self.time_start)
+        return str(self.number_lesson)
 
     class Meta:
         verbose_name = 'Время занятия'
