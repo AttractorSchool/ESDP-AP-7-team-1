@@ -76,6 +76,8 @@ class ScheduleCreateView(CreateView):
                 my_dict[schedule.week_day][schedule.class_time.number_lesson] = schedule.grouping.name
             sum_dict[auditorium.name] = my_dict
         context['sum_dict'] = sum_dict
+        groupings = Grouping.objects.all()
+        context['groupings'] = groupings
         return context
 
     def post(self, request, *args, **kwargs):
@@ -93,5 +95,7 @@ class ScheduleCreateView(CreateView):
             schedule.is_deleted = True
             schedule.save()
         if form.is_valid():
-            form.save()
+            grouping = request.POST.get('grouping')
+            if grouping:
+                form.save()
         return redirect('schedule_create')

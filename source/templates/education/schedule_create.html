@@ -9,6 +9,19 @@
 {% block content %}
 
 <p class="card-title">Составление расписания</p>
+<div class="mb-3 mt-2">
+    Выберите группу для просмотра расписания: 
+    <select name="grouping" id="grouping_select">
+        <option value="" selected="">---------</option> 
+        {% for grouping in groupings %}
+    
+            <option value="{{ grouping }}">{{ grouping }}</option>
+        {% endfor %}
+    
+    </select>
+</div>
+
+
 
     <table class="table table-bordered">
         <thead>
@@ -44,7 +57,6 @@
             </tr>
             <tr>
                 <td scope="col">17:00</td>
-                <td class="color_hover" data-bs-target="#exampleModal" data-bs-toggle="modal" id="108-monday-3" scope="col">{{ sum_dict.108.monday.3 }}</td>
                 <td class="color_hover" data-bs-target="#exampleModal" data-bs-toggle="modal" id="108-monday-3" scope="col">{{ sum_dict.108.monday.3 }}</td>
                 <td class="color_hover" data-bs-target="#exampleModal" data-bs-toggle="modal" id="108-tuesday-3" scope="col">{{ sum_dict.108.tuesday.3 }}</td>
                 <td class="color_hover" data-bs-target="#exampleModal" data-bs-toggle="modal" id="108-wednesday-3" scope="col">{{ sum_dict.108.wednesday.3 }}</td>

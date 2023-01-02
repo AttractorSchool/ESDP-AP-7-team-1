@@ -13,7 +13,8 @@ CATEGORY_CHOICES = [
 
 
 class Schedule(models.Model):
-    grouping = models.ForeignKey(to=Grouping, related_name='schedules', on_delete=models.CASCADE, verbose_name='Группа')
+    grouping = models.ForeignKey(to=Grouping, related_name='schedules', on_delete=models.CASCADE,
+                                 verbose_name='Группа', blank=True)
     week_day = models.CharField(
         verbose_name='День недели',
         max_length=15,

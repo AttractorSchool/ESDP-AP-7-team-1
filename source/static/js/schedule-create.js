@@ -47,4 +47,25 @@ document.addEventListener("DOMContentLoaded", function () {
         
      });
 
+    var select = document.getElementById("grouping_select");     
+    // var input = document.querySelector("input");
+    
+    select.addEventListener("change", function(){
+        console.log('adasdasdad')
+        var selectValue = this.options[this.selectedIndex].text;
+        // console.log(this.options[this.selectedIndex].text)
+        cells = document.getElementsByClassName('color_hover')
+        // console.log(cells)
+        for (let i = 0; i < cells.length; i += 1) {
+            // Этот код выполняется для каждого элемента
+            console.log(cells[i].innerText);
+            if (cells[i].innerText === selectValue) {
+                cells[i].style.backgroundColor = '#aab2bd';
+            } else {
+                cells[i].style.backgroundColor = '#ffffff';
+            }
+        }
+    });
+    
 })
+
