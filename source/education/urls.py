@@ -1,15 +1,27 @@
 from django.urls import path
 
+from education.views.applications import (ApplicationContractEditView,
+                                          ApplicationCustomEditView,
+                                          ApplicationDetailView,
+                                          ApplicationEditView,
+                                          ApplicationListView,
+                                          ApplicationPayedEditView,
+                                          ApplicationRejectView,
+                                          DeleteApplicationView)
 from education.views.base import IndexView, NotificationView
-from education.views.crm_view import CrmView
-from education.views.schedule import StudentScheduleView, GroupingsScheduleView, ScheduleCreateView
-from education.views.subjects import SubjectListView, SubjectAddView, SubjectEditView, DelSubjectView
-from education.views.applications import ApplicationListView, ApplicationEditView, DeleteApplicationView, \
-    ApplicationDetailView, ApplicationCustomEditView, ApplicationContractEditView, ApplicationPayedEditView, ApplicationRejectView
-from education.views.packages import PackageListView, PackageAddView, PackageEditView, DelPackageView
-from education.views.discounts import DiscountListView, DiscountAddView, DiscountEditView, DelDiscountView
-from education.views.groupings import GroupingListView, GroupingAddView, GroupingEditView, DelGroupingView
 from education.views.contracts import open_contract_pdf, send_contract
+from education.views.crm_view import CrmView
+from education.views.discounts import (DelDiscountView, DiscountAddView,
+                                       DiscountEditView, DiscountListView)
+from education.views.groupings import (DelGroupingView, GroupingAddView,
+                                       GroupingEditView, GroupingListView)
+from education.views.packages import (DelPackageView, PackageAddView,
+                                      PackageEditView, PackageListView)
+from education.views.schedule import (GroupingsScheduleView,
+                                      ScheduleCreateView, StudentScheduleView,
+                                      schedule_generate_view)
+from education.views.subjects import (DelSubjectView, SubjectAddView,
+                                      SubjectEditView, SubjectListView)
 
 urlpatterns = [
     path('', IndexView.as_view(), name='main'),
@@ -20,6 +32,7 @@ urlpatterns = [
     path('schedule/', StudentScheduleView.as_view(), name='schedule_student'),
     path('schedule-groupings/', GroupingsScheduleView.as_view(), name='schedule_groupings'),
     path('schedule-create/', ScheduleCreateView.as_view(), name='schedule_create'),
+    path('schedule-generate/', schedule_generate_view, name='schedule_generate'),
 
     path('subjects/', SubjectListView.as_view(), name='subjects'),
     path('subject_add/', SubjectAddView.as_view(), name='subject_add'),
@@ -48,6 +61,6 @@ urlpatterns = [
     path('grouping_update/<int:pk>', GroupingEditView.as_view(), name='grouping_update'),
     path('grouping_del/<int:pk>', DelGroupingView.as_view(), name='grouping_del'),
     
-    path('open_contract/<int:pk>',open_contract_pdf,name='open_contract'),
-    path('send_contract/<int:pk>', send_contract, name='send_contract' ),
+    path('open_contract/<int:pk>', open_contract_pdf, name='open_contract'),
+    path('send_contract/<int:pk>', send_contract, name='send_contract'),
 ]
