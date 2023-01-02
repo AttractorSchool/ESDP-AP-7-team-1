@@ -87,7 +87,7 @@ class ScheduleCreateView(CreateView):
         week_day = request.POST.get('week_day')
         class_time_pk = request.POST.get('class_time')
         class_time = get_object_or_404(ClassTime, pk=class_time_pk)
-        
+
         if Schedule.objects.filter(auditorium=auditorium, class_time=class_time,
                                    week_day=week_day, is_deleted=False).exists():
             schedule = get_object_or_404(Schedule, auditorium=auditorium, class_time=class_time,
@@ -99,3 +99,35 @@ class ScheduleCreateView(CreateView):
             if grouping:
                 form.save()
         return redirect('schedule_create')
+
+
+def schedule_generate_view(request):
+    """"""
+    # очищает текущее расписание
+    schedules = Schedule.objects.filter(is_deleted=False)
+    for schedule in schedules:
+        schedule.is_deleted = True
+        schedule.save()
+
+    groupings = Grouping.objects.filter(is_deleted=False)
+    # Цикл добавления расписание группам
+    for grouping in groupings:
+        week_day, auditorium, class_time = get_first_availible_cell(week_days=('monday', 'tuesday', 'wednesday'))
+        Schedule.objects.create(grouping=grouping, week_day=week_day, class_time=class_time, auditorium=auditorium)
+
+        week_day, auditorium, class_time = get_first_availible_cell(week_days=('thursday', 'friday', 'saturday'))
+        Schedule.objects.create(grouping=grouping, week_day=week_day, class_time=class_time, auditorium=auditorium)
+
+    return redirect('schedule_create')
+
+
+def get_first_availible_cell(week_days: tuple[str]) -> tuple[str, Auditorium, ClassTime]:
+    """Находит первую пустую ячейку в сочетании трех значений аудитория, день недели и номер урока"""
+    class_times = ClassTime.objects.all()
+    auditoriums = Auditorium.objects.all()
+    for week_day in week_days:
+        for auditorium in auditoriums:
+            for class_time in class_times:
+                if not Schedule.objects.filter(auditorium=auditorium, class_time=class_time,
+                                               week_day=week_day, is_deleted=False).exists():
+                    return (week_day, auditorium, class_time)
