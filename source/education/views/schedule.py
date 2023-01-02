@@ -1,9 +1,9 @@
-from django.shortcuts import redirect
+from django.shortcuts import redirect, get_object_or_404
 from django.urls import reverse
 from django.views.generic import CreateView, ListView
 
 from education.forms.schedule_create import ScheduleForm
-from education.models import Auditorium, Grouping, Schedule
+from education.models import Auditorium, Grouping, Schedule, ClassTime
 
 
 class StudentScheduleView(ListView):
@@ -65,12 +65,12 @@ class ScheduleCreateView(CreateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        schedule = Schedule.objects.all()
-        context['schedule'] = schedule
+        # schedule = Schedule.objects.all(is_deleted=False)
+        # context['schedule'] = schedule
         auditoriums = Auditorium.objects.all()
         sum_dict = {'108': {}, '109': {}, '110': {}}
         for auditorium in auditoriums:
-            schedules = auditorium.schedules.all()
+            schedules = auditorium.schedules.filter(is_deleted=False)
             my_dict = {'monday': {}, 'tuesday': {}, 'wednesday': {}, 'thursday': {}, 'friday': {}, 'saturday': {}}
             for schedule in schedules:
                 my_dict[schedule.week_day][schedule.class_time.number_lesson] = schedule.grouping.name
@@ -79,7 +79,19 @@ class ScheduleCreateView(CreateView):
         return context
 
     def post(self, request, *args, **kwargs):
-        form = ScheduleForm(self.request.POST)
+        form = ScheduleForm(request.POST)
+        auditorium_pk = request.POST.get('auditorium')
+        auditorium = get_object_or_404(Auditorium, pk=auditorium_pk)
+        week_day = request.POST.get('week_day')
+        class_time_pk = request.POST.get('class_time')
+        class_time = get_object_or_404(ClassTime, pk=class_time_pk)
+        
+        if Schedule.objects.filter(auditorium=auditorium, class_time=class_time,
+                                   week_day=week_day, is_deleted=False).exists():
+            schedule = get_object_or_404(Schedule, auditorium=auditorium, class_time=class_time,
+                                         week_day=week_day, is_deleted=False)
+            schedule.is_deleted = True
+            schedule.save()
         if form.is_valid():
             form.save()
         return redirect('schedule_create')
