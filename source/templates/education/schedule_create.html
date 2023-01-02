@@ -1,4 +1,3 @@
-
 {% extends 'crm.html' %}
 {% load static %}
 {% block title %} Добавление расписания {% endblock %}
@@ -8,19 +7,146 @@
 {% endblock %}
 
 {% block content %}
-<p class="card-title">Добавление расписания</p>
-<form class="forms-sample d-flex" action="{% url 'schedule_create' %}" method="POST">
-    {% csrf_token %}
-    <div class="form-group">
-        <div>
-            {{ form }}
-        </div>
-        <button type="submit" class="btn btn-inverse-primary mr-2 mt-3">Сохранить</button>
 
+<p class="card-title">Составление расписания</p>
 
+    <table class="table table-bordered">
+        <thead>
+            <th scope="col">Аудитория</th>
+            <th scope="col">Время</th>
+            <th scope="col">Понедельник</th>
+            <th scope="col">Вторник</th>
+            <th scope="col">Среда</th>
+            <th scope="col">Четверг</th>
+            <th scope="col">Пятница</th>
+            <th scope="col">Суббота</th>
+        </thead>
+        <tbody>
+            
+            <tr>
+                <td rowspan="3">108</td>
+                <td scope="col">13:00</td>
+                <td class="color_hover" data-bs-target="#exampleModal" data-bs-toggle="modal" id="108-monday-1" scope="col">{{ sum_dict.108.monday.1 }}</td>
+                <td class="color_hover" data-bs-target="#exampleModal" data-bs-toggle="modal" id="108-tuesday-1" scope="col">{{ sum_dict.108.tuesday.1 }}</td>
+                <td class="color_hover" data-bs-target="#exampleModal" data-bs-toggle="modal" id="108-wednesday-1" scope="col">{{ sum_dict.108.wednesday.1 }}</td>
+                <td class="color_hover" data-bs-target="#exampleModal" data-bs-toggle="modal" id="108-thursday-1" scope="col">{{ sum_dict.108.thursday.1 }}</td>
+                <td class="color_hover" data-bs-target="#exampleModal" data-bs-toggle="modal" id="108-friday-1" scope="col">{{ sum_dict.108.friday.1 }}</td>
+                <td class="color_hover" data-bs-target="#exampleModal" data-bs-toggle="modal" id="108-saturday-1" scope="col">{{ sum_dict.108.saturday.1 }}</td>
+            </tr>
+            <tr>
+                <td scope="col">15:00</td>
+                <td class="color_hover" data-bs-target="#exampleModal" data-bs-toggle="modal" id="108-monday-2" scope="col">{{ sum_dict.108.monday.2 }}</td>
+                <td class="color_hover" data-bs-target="#exampleModal" data-bs-toggle="modal" id="108-tuesday-2" scope="col">{{ sum_dict.108.tuesday.2 }}</td>
+                <td class="color_hover" data-bs-target="#exampleModal" data-bs-toggle="modal" id="108-wednesday-2" scope="col">{{ sum_dict.108.wednesday.2 }}</td>
+                <td class="color_hover" data-bs-target="#exampleModal" data-bs-toggle="modal" id="108-thursday-2" scope="col">{{ sum_dict.108.thursday.2 }}</td>
+                <td class="color_hover" data-bs-target="#exampleModal" data-bs-toggle="modal" id="108-friday-2" scope="col">{{ sum_dict.108.friday.2 }}</td>
+                <td class="color_hover" data-bs-target="#exampleModal" data-bs-toggle="modal" id="108-saturday-2" scope="col">{{ sum_dict.108.saturday.2 }}</td>
+            </tr>
+            <tr>
+                <td scope="col">17:00</td>
+                <td class="color_hover" data-bs-target="#exampleModal" data-bs-toggle="modal" id="108-monday-3" scope="col">{{ sum_dict.108.monday.3 }}</td>
+                <td class="color_hover" data-bs-target="#exampleModal" data-bs-toggle="modal" id="108-monday-3" scope="col">{{ sum_dict.108.monday.3 }}</td>
+                <td class="color_hover" data-bs-target="#exampleModal" data-bs-toggle="modal" id="108-tuesday-3" scope="col">{{ sum_dict.108.tuesday.3 }}</td>
+                <td class="color_hover" data-bs-target="#exampleModal" data-bs-toggle="modal" id="108-wednesday-3" scope="col">{{ sum_dict.108.wednesday.3 }}</td>
+                <td class="color_hover" data-bs-target="#exampleModal" data-bs-toggle="modal" id="108-thursday-3" scope="col">{{ sum_dict.108.thursday.3 }}</td>
+                <td class="color_hover" data-bs-target="#exampleModal" data-bs-toggle="modal" id="108-friday-3" scope="col">{{ sum_dict.108.friday.3 }}</td>
+                <td class="color_hover" data-bs-target="#exampleModal" data-bs-toggle="modal" id="108-saturday-3" scope="col">{{ sum_dict.108.saturday.3 }}</td>
+            </tr>
+            <tr>
+                <td rowspan="3">109</td>
+                <td scope="col">13:00</td>
+                <td class="color_hover" data-bs-target="#exampleModal" data-bs-toggle="modal" id="109-monday-1" scope="col">{{ sum_dict.109.monday.1 }}</td>
+                <td class="color_hover" data-bs-target="#exampleModal" data-bs-toggle="modal" id="109-tuesday-1" scope="col">{{ sum_dict.109.tuesday.1 }}</td>
+                <td class="color_hover" data-bs-target="#exampleModal" data-bs-toggle="modal" id="109-wednesday-1" scope="col">{{ sum_dict.109.wednesday.1 }}</td>
+                <td class="color_hover" data-bs-target="#exampleModal" data-bs-toggle="modal" id="109-thursday-1" scope="col">{{ sum_dict.109.thursday.1 }}</td>
+                <td class="color_hover" data-bs-target="#exampleModal" data-bs-toggle="modal" id="109-friday-1" scope="col">{{ sum_dict.109.friday.1 }}</td>
+                <td class="color_hover" data-bs-target="#exampleModal" data-bs-toggle="modal" id="109-saturday-1" scope="col">{{ sum_dict.109.saturday.1 }}</td>
+            </tr>
+            <tr>
+                <td scope="col">15:00</td>
+                <td class="color_hover" data-bs-target="#exampleModal" data-bs-toggle="modal" id="109-monday-2" scope="col">{{ sum_dict.109.monday.2 }}</td>
+                <td class="color_hover" data-bs-target="#exampleModal" data-bs-toggle="modal" id="109-tuesday-2" scope="col">{{ sum_dict.109.tuesday.2 }}</td>
+                <td class="color_hover" data-bs-target="#exampleModal" data-bs-toggle="modal" id="109-wednesday-2" scope="col">{{ sum_dict.109.wednesday.2 }}</td>
+                <td class="color_hover" data-bs-target="#exampleModal" data-bs-toggle="modal" id="109-thursday-2" scope="col">{{ sum_dict.109.thursday.2 }}</td>
+                <td class="color_hover" data-bs-target="#exampleModal" data-bs-toggle="modal" id="109-friday-2" scope="col">{{ sum_dict.109.friday.2 }}</td>
+                <td class="color_hover" data-bs-target="#exampleModal" data-bs-toggle="modal" id="109-saturday-2" scope="col">{{ sum_dict.109.saturday.2 }}</td>
+            </tr>
+            <tr>
+                <td scope="col">17:00</td>
+                <td class="color_hover" data-bs-target="#exampleModal" data-bs-toggle="modal" id="109-monday-3" scope="col">{{ sum_dict.109.monday.3 }}</td>
+                <td class="color_hover" data-bs-target="#exampleModal" data-bs-toggle="modal" id="109-tuesday-3" scope="col">{{ sum_dict.109.tuesday.3 }}</td>
+                <td class="color_hover" data-bs-target="#exampleModal" data-bs-toggle="modal" id="109-wednesday-3" scope="col">{{ sum_dict.109.wednesday.3 }}</td>
+                <td class="color_hover" data-bs-target="#exampleModal" data-bs-toggle="modal" id="109-thursday-3" scope="col">{{ sum_dict.109.thursday.3 }}</td>
+                <td class="color_hover" data-bs-target="#exampleModal" data-bs-toggle="modal" id="109-friday-3" scope="col">{{ sum_dict.109.friday.3 }}</td>
+                <td class="color_hover" data-bs-target="#exampleModal" data-bs-toggle="modal" id="109-saturday-3" scope="col">{{ sum_dict.109.saturday.3 }}</td>
+            </tr>
+            <tr>
+                <td rowspan="3">110</td>
+                <td scope="col">13:00</td>
+                <td class="color_hover" data-bs-target="#exampleModal" data-bs-toggle="modal" id="110-monday-1" scope="col">{{ sum_dict.110.monday.1 }}</td>
+                <td class="color_hover" data-bs-target="#exampleModal" data-bs-toggle="modal" id="110-tuesday-1" scope="col">{{ sum_dict.110.tuesday.1 }}</td>
+                <td class="color_hover" data-bs-target="#exampleModal" data-bs-toggle="modal" id="110-wednesday-1" scope="col">{{ sum_dict.110.wednesday.1 }}</td>
+                <td class="color_hover" data-bs-target="#exampleModal" data-bs-toggle="modal" id="110-thursday-1" scope="col">{{ sum_dict.110.thursday.1 }}</td>
+                <td class="color_hover" data-bs-target="#exampleModal" data-bs-toggle="modal" id="110-friday-1" scope="col">{{ sum_dict.110.friday.1 }}</td>
+                <td class="color_hover" data-bs-target="#exampleModal" data-bs-toggle="modal" id="110-saturday-1" scope="col">{{ sum_dict.110.saturday.1 }}</td>
+            </tr>
+            <tr>
+                <td scope="col">15:00</td>
+                <td class="color_hover" data-bs-target="#exampleModal" data-bs-toggle="modal" id="110-monday-2" scope="col">{{ sum_dict.110.monday.2 }}</td>
+                <td class="color_hover" data-bs-target="#exampleModal" data-bs-toggle="modal" id="110-tuesday-2" scope="col">{{ sum_dict.110.tuesday.2 }}</td>
+                <td class="color_hover" data-bs-target="#exampleModal" data-bs-toggle="modal" id="110-wednesday-2" scope="col">{{ sum_dict.110.wednesday.2 }}</td>
+                <td class="color_hover" data-bs-target="#exampleModal" data-bs-toggle="modal" id="110-thursday-2" scope="col">{{ sum_dict.110.thursday.2 }}</td>
+                <td class="color_hover" data-bs-target="#exampleModal" data-bs-toggle="modal" id="110-friday-2" scope="col">{{ sum_dict.110.friday.2 }}</td>
+                <td class="color_hover" data-bs-target="#exampleModal" data-bs-toggle="modal" id="110-saturday-2" scope="col">{{ sum_dict.110.saturday.2 }}</td>
+            </tr>
+            <tr>
+                <td scope="col">17:00</td>
+                <td class="color_hover" data-bs-target="#exampleModal" data-bs-toggle="modal" id="110-monday-3" scope="col">{{ sum_dict.110.monday.3 }}</td>
+                <td class="color_hover" data-bs-target="#exampleModal" data-bs-toggle="modal" id="110-tuesday-3" scope="col">{{ sum_dict.110.tuesday.3 }}</td>
+                <td class="color_hover" data-bs-target="#exampleModal" data-bs-toggle="modal" id="110-wednesday-3" scope="col">{{ sum_dict.110.wednesday.3 }}</td>
+                <td class="color_hover" data-bs-target="#exampleModal" data-bs-toggle="modal" id="110-thursday-3" scope="col">{{ sum_dict.110.thursday.3 }}</td>
+                <td class="color_hover" data-bs-target="#exampleModal" data-bs-toggle="modal" id="110-friday-3" scope="col">{{ sum_dict.110.friday.3 }}</td>
+                <td class="color_hover" data-bs-target="#exampleModal" data-bs-toggle="modal" id="110-saturday-3" scope="col">{{ sum_dict.110.saturday.3 }}</td>
+            </tr>
+        </tbody>
+    </table>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <form  action="{% url 'schedule_create' %}" method="POST">
+        
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                {% csrf_token %}
+                <div class="form-group">
+                    <div>
+                        {{ form.as_p }}
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Сохранить</button>
+            </div>
+        </form>
+
+      </div>
     </div>
-    
-  </form>
+  </div>
+
+
+
+<script src="{% static 'js/schedule-create.js' %}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+crossorigin="anonymous"></script>
+  
 {% endblock %}
-
-

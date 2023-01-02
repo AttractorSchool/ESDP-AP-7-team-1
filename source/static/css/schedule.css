@@ -21,3 +21,7 @@
     margin-right: 18px;
 
 }
+
+.color_hover:hover{
+    background-color: #C0C0C0;
+}
