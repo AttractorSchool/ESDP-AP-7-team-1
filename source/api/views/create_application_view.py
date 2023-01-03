@@ -1,11 +1,12 @@
 import json
 import re
-import phonenumbers
 
 from django.http import JsonResponse
 from django.views import View
 
-from education.models import Application
+import phonenumbers
+
+from applications.models import Application
 
 
 class AddApplicationView(View):
@@ -40,7 +41,6 @@ class AddApplicationView(View):
                                         application_create = Application.objects.create(applicant_name=name,
                                                                                         applicant_surname=surname,
                                                                                         email=email, phone=phone)
-                                        application_create.save()
                                         for i in subjects:
                                             application_create.subjects.add(i)
                                         application_create.statuses.add(1)

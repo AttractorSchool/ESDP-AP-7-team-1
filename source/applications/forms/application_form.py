@@ -1,7 +1,10 @@
 from django import forms
-from education.models import Application, Subject
 
 from phonenumber_field.formfields import PhoneNumberField
+
+from applications.models import Application
+
+from education.models import Subject
 
 
 class ApplicationSendForm(forms.ModelForm):
@@ -34,5 +37,4 @@ class ApplicationSendForm(forms.ModelForm):
     def save(self, commit=True):
         application = super().save(commit=True)
         application.save()
-        # application.statuses.add('1')
         return application

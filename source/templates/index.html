@@ -54,6 +54,7 @@
     </script>
     <script>
         $('.send_application_form').on('click', function (e) {
+            e.preventDefault();
             let email_ = $('#id_email').val()
             let name_ = $('#id_applicant_name').val()
             let surname_ = $('#id_applicant_surname').val()

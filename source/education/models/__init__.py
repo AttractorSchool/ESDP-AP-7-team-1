@@ -1,4 +1,3 @@
-from .application import Application, ApplicationStatus, Status, StudentSex
 from .auditorium import Auditorium
 from .classtime import ClassTime
 from .discount import Discount

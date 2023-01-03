@@ -1,6 +1,6 @@
 from django.shortcuts import get_object_or_404
 
-from education.models import Application, ApplicationStatus, Status
+from applications.models import Application, ApplicationStatus, Status
 
 
 def set_application_status(application, status_name, author):
