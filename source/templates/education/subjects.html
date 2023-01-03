@@ -27,9 +27,6 @@
                     Название предмета
                 </th>
                 <th>
-                    Обязательный
-                </th>
-                <th>
 
                 </th>
             </tr>
@@ -42,13 +39,6 @@
                     </td>
                     <td>
                         {{ sub.name }}
-                    </td>
-                    <td>
-                        {% if sub.is_required == False %}
-                            Нет
-                        {% else %}
-                            Да
-                        {% endif %}
                     </td>
                     <td style="text-align:right;">
                         <a href="{% url 'subject_update' sub.pk %}" class="btn btn-inverse-dark btn-sm text-center">
