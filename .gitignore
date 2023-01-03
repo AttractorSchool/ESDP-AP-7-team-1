@@ -13,3 +13,6 @@ uploads
 
 /source/education/migrations/*
 !/source/education/migrations/__init__.py
+
+/source/applications/migrations/*
+!/source/applications/migrations/__init__.py
