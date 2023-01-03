@@ -1,8 +1,9 @@
-﻿from django.views.generic import View, ListView, CreateView, UpdateView
-from education.models import Grouping
+﻿from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse
-from django.shortcuts import redirect, get_object_or_404
+from django.views.generic import CreateView, ListView, UpdateView, View
+
 from education.forms.grouping_form import GroupingForm
+from education.models import Grouping, TeacherGrouping
 
 
 class GroupingListView(ListView):
@@ -31,6 +32,16 @@ class GroupingEditView(UpdateView):
 
     def get_success_url(self):
         return reverse('groupings')
+
+
+def remove_teacher_from_grouping(request, pk):
+    grouping: Grouping = get_object_or_404(Grouping, pk=pk)
+    teacher_grouping: TeacherGrouping = grouping.teacher_groupings.last()
+    finished_at = request.POST.get('finished_at')
+    teacher_grouping.finished_at = finished_at
+    teacher_grouping.is_active = False
+    teacher_grouping.save()
+    return redirect('grouping_update', pk=pk)
 
 
 class DelGroupingView(View):

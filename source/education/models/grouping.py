@@ -102,19 +102,32 @@ class StudentGrouping(models.Model):
         verbose_name_plural = 'Студенты в группе'
 
 
+class ActiveModelQuerySet(models.QuerySet):
+
+    def not_active(self, *args, **kwargs):
+        return self.filter(is_active=False, *args, **kwargs)
+
+    def active(self, *args, **kwargs):
+        return self.filter(is_active=True, *args, **kwargs)
+
+    def last(self):
+        return self.active().latest('created_at')
+
+
 class TeacherGrouping(models.Model):
     """Привязка преподавателя к группе"""
     grouping = models.ForeignKey(to=Grouping, on_delete=models.CASCADE, related_name='teacher_groupings')
     teacher = models.ForeignKey(to=Account, on_delete=models.CASCADE, related_name='teacher_groupings')
-    started = models.DateField(verbose_name='Начал преподавать', blank=True, null=True)
-    finished = models.DateField(verbose_name='Закончил преподавать', blank=True, null=True)
+    started_at = models.DateField(verbose_name='Начал преподавать', blank=True, null=True)
+    finished_at = models.DateField(verbose_name='Закончил преподавать', blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
     is_active = models.BooleanField(verbose_name='Активен', default=True)
-    
+
+    objects = ActiveModelQuerySet().as_manager()
+
     def __str__(self):
         return f'Группа: {self.grouping} - Преподаватель: {self.teacher}'
 
     class Meta:
         verbose_name = 'Преподаватель группы'
         verbose_name_plural = 'Преподаватели групп'
-        get_latest_by = 'created_at'
-

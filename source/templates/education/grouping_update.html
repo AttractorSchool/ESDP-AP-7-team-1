@@ -31,7 +31,19 @@
 {#            <div class="ms-2 text-danger">{{ error }}</div>#}
 {#        {% endfor %}#}
         {% bootstrap_form form %}
+
         <button type="submit" class="btn btn-inverse-primary mr-2 mt-3">Сохранить</button>
         <a href="{% url 'groupings' %}" class="btn btn-inverse-dark mt-3">Отмена</a>
     </form>
+    Текущий преподаватель: {{grouping.teacher_groupings.last.teacher}}<br>
+    Начал преподавать: {{grouping.teacher_groupings.last.started_at}}
+
+    <form class="forms-sample" action="{% url 'remove_teacher_from_grouping' grouping.pk %}" method="POST">
+        {% csrf_token %}
+        Выберите дату окончания преподавания:<br>
+        <input type="date" name="finished_at" required><br>
+        <button type="submit" class="btn btn-inverse-primary mr-2 mt-3">Сохранить</button>
+        <a href="{% url 'groupings' %}" class="btn btn-inverse-dark mt-3">Отмена</a>
+    </form>
+
 {% endblock %}
