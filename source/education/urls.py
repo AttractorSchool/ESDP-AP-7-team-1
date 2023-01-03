@@ -6,7 +6,7 @@ from education.views.crm_view import CrmView
 from education.views.discounts import (DelDiscountView, DiscountAddView,
                                        DiscountEditView, DiscountListView)
 from education.views.groupings import (DelGroupingView, GroupingAddView,
-                                       GroupingEditView, GroupingListView)
+                                       GroupingEditView, GroupingListView, remove_teacher_from_grouping_view, add_teacher_to_grouping_view)
 from education.views.packages import (DelPackageView, PackageAddView,
                                       PackageEditView, PackageListView)
 from education.views.schedule import (GroupingsScheduleView,
@@ -38,7 +38,10 @@ urlpatterns = [
     path('discount_add/', DiscountAddView.as_view(), name='discount_add'),
     path('discount_update/<int:pk>', DiscountEditView.as_view(), name='discount_update'),
     path('discount_del/<int:pk>', DelDiscountView.as_view(), name='discount_del'),
+
     path('groupings/', GroupingListView.as_view(), name='groupings'),
+    path('groupings/remove-teacher/<int:pk>', remove_teacher_from_grouping_view, name='remove_teacher_from_grouping'),
+    path('groupings/<int:grouping_pk>/add-teacher', add_teacher_to_grouping_view, name='add_teacher_to_grouping'),
     path('grouping_add/', GroupingAddView.as_view(), name='grouping_add'),
     path('grouping_update/<int:pk>', GroupingEditView.as_view(), name='grouping_update'),
     path('grouping_del/<int:pk>', DelGroupingView.as_view(), name='grouping_del'),

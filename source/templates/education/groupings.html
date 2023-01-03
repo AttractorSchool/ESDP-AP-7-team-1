@@ -33,7 +33,7 @@
                     Предмет
                 </th>
                 <th>
-
+                    Учитель
                 </th>
             </tr>
             </thead>
@@ -48,6 +48,10 @@
                     </td>
                     <td>
                         {{ group.subject }}
+                    </td>
+                    <td>
+                        {{ group.teacher_groupings.last.teacher }}
+                    </td>
                     <td style="text-align:right;">
                         <a href="{% url 'grouping_update' group.pk %}" class="btn btn-inverse-dark btn-sm text-center">
                             <i class="ti-pencil-alt"></i>

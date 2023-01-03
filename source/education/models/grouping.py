@@ -34,13 +34,13 @@ class Grouping(models.Model):
         to=Account,
         through='education.StudentGrouping',
         verbose_name='Студенты',
-        related_name='groupings',
+        related_name='study_groupings',
     )
     teachers = models.ManyToManyField(
         to=Account,
         verbose_name='Преподаватели',
         through='education.TeacherGrouping',
-        related_name='teachers',
+        related_name='teach_groupings',
     )
     is_deleted = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -102,13 +102,28 @@ class StudentGrouping(models.Model):
         verbose_name_plural = 'Студенты в группе'
 
 
+class ActiveModelQuerySet(models.QuerySet):
+
+    def not_active(self, *args, **kwargs):
+        return self.filter(is_active=False, *args, **kwargs)
+
+    def active(self, *args, **kwargs):
+        return self.filter(is_active=True, *args, **kwargs)
+
+    def last(self):
+        return self.active().latest('created_at')
+
+
 class TeacherGrouping(models.Model):
     """Привязка преподавателя к группе"""
-    grouping = models.ForeignKey(to=Grouping, on_delete=models.CASCADE)
-    teacher = models.ForeignKey(to=Account, on_delete=models.CASCADE)
-    started = models.DateField(verbose_name='Начал преподавать', blank=True, null=True)
-    finished = models.DateField(verbose_name='Закончил преподавать', blank=True, null=True)
+    grouping = models.ForeignKey(to=Grouping, on_delete=models.CASCADE, related_name='teacher_groupings')
+    teacher = models.ForeignKey(to=Account, on_delete=models.CASCADE, related_name='teacher_groupings')
+    started_at = models.DateField(verbose_name='Начал преподавать', blank=True, null=True)
+    finished_at = models.DateField(verbose_name='Закончил преподавать', blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
     is_active = models.BooleanField(verbose_name='Активен', default=True)
+
+    objects = ActiveModelQuerySet().as_manager()
 
     def __str__(self):
         return f'Группа: {self.grouping} - Преподаватель: {self.teacher}'
