@@ -4,6 +4,7 @@ from django.views.generic import CreateView, ListView, UpdateView, View
 
 from education.forms.grouping_form import GroupingForm
 from education.models import Grouping, TeacherGrouping
+from accounts.models import Account
 
 
 class GroupingListView(ListView):
@@ -30,11 +31,18 @@ class GroupingEditView(UpdateView):
     form_class = GroupingForm
     context_object_name = 'grouping'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        teachers = Account.objects.all()
+        context['teachers'] = teachers
+
+        return context
+
     def get_success_url(self):
         return reverse('groupings')
 
 
-def remove_teacher_from_grouping(request, pk):
+def remove_teacher_from_grouping_view(request, pk):
     grouping: Grouping = get_object_or_404(Grouping, pk=pk)
     teacher_grouping: TeacherGrouping = grouping.teacher_groupings.last()
     finished_at = request.POST.get('finished_at')
@@ -42,6 +50,15 @@ def remove_teacher_from_grouping(request, pk):
     teacher_grouping.is_active = False
     teacher_grouping.save()
     return redirect('grouping_update', pk=pk)
+
+
+def add_teacher_to_grouping_view(request, grouping_pk):
+    grouping: Grouping = get_object_or_404(Grouping, pk=grouping_pk)
+    teacher_pk: str = request.POST.get('teacher_pk')
+    teacher: Account = get_object_or_404(Account, pk=teacher_pk)
+    started_at: str = request.POST.get('started_at')
+    TeacherGrouping.objects.create(grouping=grouping, teacher=teacher, started_at=started_at)
+    return redirect('grouping_update', pk=grouping_pk)
 
 
 class DelGroupingView(View):

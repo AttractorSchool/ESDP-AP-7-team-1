@@ -43,7 +43,20 @@
         Выберите дату окончания преподавания:<br>
         <input type="date" name="finished_at" required><br>
         <button type="submit" class="btn btn-inverse-primary mr-2 mt-3">Сохранить</button>
-        <a href="{% url 'groupings' %}" class="btn btn-inverse-dark mt-3">Отмена</a>
+    </form>
+
+    <form class="forms-sample" action="{% url 'add_teacher_to_grouping' grouping.pk %}" method="POST">
+        {% csrf_token %}
+        Выберите преподавателя:
+        <select name="teacher_pk" id="teacher_select">
+            {% for teacher in teachers %}
+                <option value="{{ teacher.pk }}">{{ teacher }}</option>
+            {% endfor %}
+        </select><br>
+
+        Выберите дату начала преподавания:<br>
+        <input type="date" name="started_at" required><br>
+        <button type="submit" class="btn btn-inverse-primary mr-2 mt-3">Сохранить</button>
     </form>
 
 {% endblock %}
