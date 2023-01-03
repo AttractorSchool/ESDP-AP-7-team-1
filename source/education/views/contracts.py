@@ -1,13 +1,15 @@
 import datetime
-from django.core.mail import EmailMessage 
-from django.template.loader import render_to_string
-from weasyprint import HTML, CSS
-import tempfile
+
+from django.core.mail import EmailMessage
 from django.http import HttpResponse, JsonResponse
-from education.models.application import Application
+from django.template.loader import render_to_string
+
+from weasyprint import CSS, HTML
+
+from applications.models import Application
 
 
-MONTH=[
+MONTH = [
     "Қантар",
     "Ақпан",
     "Наурыз",
@@ -23,16 +25,16 @@ MONTH=[
 ]
 
 
-def render_pdf(request ,pk):
+def render_pdf(request, pk):
     """Формирование PDF Файла"""
     app = Application.objects.get(pk=pk)
     cur_date = datetime.datetime.now()
-    month = MONTH[cur_date.month-1]   
+    month = MONTH[cur_date.month-1]
     html_string = render_to_string('education/contract_template.html',
-                                   {'app': app, 
-                                    'date':cur_date, 
-                                    'month': month
-                                    }
+                                   {'app': app,
+                                    'date': cur_date,
+                                    'month': month,
+                                    },
                                    )
     css = CSS(string=''' @page {size: 220mm 297mm;}''')
     html = HTML(string=html_string, base_url=request.build_absolute_uri())
@@ -55,8 +57,8 @@ def send_contract(request, *args, **kwargs):
     for email in emails:
         email_msg = EmailMessage('Договор', body=contract, from_email='testeruly@yandex.kz', to=[email])
         email_msg.attach('contract.pdf', contract, "application/pdf")
-        email_msg.content_subtype = "pdf"  
+        email_msg.content_subtype = "pdf"
         email_msg.encoding = 'UTF-8'
         email_msg.send()
-    responce = {'answer' : 'Договор отправлен'}
+    responce = {'answer': 'Договор отправлен'}
     return JsonResponse(responce)

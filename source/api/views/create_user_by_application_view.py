@@ -1,9 +1,10 @@
 from django.http import JsonResponse
-from django.shortcuts import get_object_or_404, redirect
+from django.shortcuts import get_object_or_404
 from django.views import View
 
 from accounts.models import Account
-from education.models import Application
+
+from applications.models import Application
 
 
 class CreateUser(View):

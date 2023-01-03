@@ -1,8 +1,8 @@
 from django.core.exceptions import ValidationError
 from django.core.validators import MinValueValidator
-from django.utils.translation import gettext_lazy as _
 from django.db import models
 from django.db.models import TextChoices
+from django.utils.translation import gettext_lazy as _
 
 from phonenumber_field.modelfields import PhoneNumberField
 
@@ -71,7 +71,7 @@ class Application(models.Model):
     statuses = models.ManyToManyField(
         to=Status,
         verbose_name='Статус заявки',
-        through='education.ApplicationStatus',
+        through='applications.ApplicationStatus',
         related_name='applications',
     )
     is_deleted = models.BooleanField(default=False)
@@ -111,6 +111,4 @@ class ApplicationStatus(models.Model):
     class Meta:
         verbose_name = 'Установленный статус заявки'
         verbose_name_plural = 'Установленные статусы заявок'
-        # ordering = ['-created_at']
-
         get_latest_by = 'created_at'

@@ -2,7 +2,9 @@ from django import forms
 
 from phonenumber_field.formfields import PhoneNumberField
 
-from education.models import Application, StudentSex, Subject, ApplicationStatus
+from applications.models import Application, ApplicationStatus, StudentSex 
+
+from education.models import Subject
 
 
 SHIFTS = ((1, 1), (2, 2), (3, 3))

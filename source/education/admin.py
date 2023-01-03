@@ -1,9 +1,9 @@
 from django.contrib import admin
 
-from education.models import (Application, ApplicationStatus, Discount,
-                              Grouping, Packet, Schedule, Status,
-                              StudentGrouping, Subject, GroupingStatus, StatusOfGrouping, TeacherGrouping,
-                              ClassTime, Auditorium)
+from education.models import (Auditorium, ClassTime, Discount, Grouping,
+                              GroupingStatus, Packet, Schedule,
+                              StatusOfGrouping, StudentGrouping, Subject,
+                              TeacherGrouping)
 
 
 @admin.register(Subject)
@@ -11,21 +11,6 @@ class SubjectAdmin(admin.ModelAdmin):
     """Декоратор регистрирует в админ панели модель
        Лист дисплэй выводит все поля из модели"""
     list_display = [field.name for field in Subject._meta.fields]
-
-
-@admin.register(ApplicationStatus)
-class ApplicationStatusAdmin(admin.ModelAdmin):
-    list_display = [field.name for field in ApplicationStatus._meta.fields]
-
-
-@admin.register(Status)
-class StatusAdmin(admin.ModelAdmin):
-    list_display = [field.name for field in Status._meta.fields]
-
-
-@admin.register(Application)
-class ApplicationAdmin(admin.ModelAdmin):
-    list_display = [field.name for field in Application._meta.fields]
 
 
 @admin.register(Grouping)

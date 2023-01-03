@@ -3,17 +3,15 @@ from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse_lazy
 from django.views.generic import DetailView, TemplateView, View
 
-from education.forms.application_edit_form import (ApplicationContractEditForm,
-                                                   ApplicationCustomEditForm,
-                                                   ApplicationPayedEditForm,
-                                                   ApplicationRejectForm)
-from education.models import Application, ApplicationStatus, Status
-from education.services.statuses import (get_button_status,
-                                         set_application_status)
+from applications.forms.application_edit_form import (
+    ApplicationContractEditForm, ApplicationCustomEditForm,
+    ApplicationPayedEditForm, ApplicationRejectForm)
+from applications.models import Application, ApplicationStatus, Status
+from applications.services.statuses import get_button_status, set_application_status
 
 
 class ApplicationListView(TemplateView):
-    template_name = 'education/applications.html'
+    template_name = 'applications/applications.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -22,33 +20,33 @@ class ApplicationListView(TemplateView):
         if sorted_by == 'status':
             query: str = """
                     SELECT T2.APPLICATION_ID AS "id"
-                    FROM EDUCATION_APPLICATIONSTATUS,
-                        EDUCATION_STATUS,
+                    FROM APPLICATIONS_APPLICATIONSTATUS,
+                        APPLICATIONS_STATUS,
 
-                        (SELECT EDUCATION_APPLICATIONSTATUS.APPLICATION_ID AS "application_id",
-                                MAX(EDUCATION_APPLICATIONSTATUS.CREATED_AT) AS "created_at"
-                            FROM EDUCATION_APPLICATIONSTATUS
-                            GROUP BY EDUCATION_APPLICATIONSTATUS.APPLICATION_ID) AS T2
-                    WHERE EDUCATION_APPLICATIONSTATUS.APPLICATION_ID = T2.APPLICATION_ID
-                        AND EDUCATION_APPLICATIONSTATUS.CREATED_AT = T2.CREATED_AT
-                        AND EDUCATION_APPLICATIONSTATUS.STATUS_ID = EDUCATION_STATUS.ID
-                    ORDER BY EDUCATION_STATUS.NAME
+                        (SELECT APPLICATIONS_APPLICATIONSTATUS.APPLICATION_ID AS "application_id",
+                                MAX(APPLICATIONS_APPLICATIONSTATUS.CREATED_AT) AS "created_at"
+                            FROM APPLICATIONS_APPLICATIONSTATUS
+                            GROUP BY APPLICATIONS_APPLICATIONSTATUS.APPLICATION_ID) AS T2
+                    WHERE APPLICATIONS_APPLICATIONSTATUS.APPLICATION_ID = T2.APPLICATION_ID
+                        AND APPLICATIONS_APPLICATIONSTATUS.CREATED_AT = T2.CREATED_AT
+                        AND APPLICATIONS_APPLICATIONSTATUS.STATUS_ID = APPLICATIONS_STATUS.ID
+                    ORDER BY APPLICATIONS_STATUS.NAME
                     """
             queryset = Application.objects.raw(query)
         elif sorted_by == '-status':
             query: str = """
                     SELECT T2.APPLICATION_ID AS "id"
-                    FROM EDUCATION_APPLICATIONSTATUS,
-                        EDUCATION_STATUS,
+                    FROM APPLICATIONS_APPLICATIONSTATUS,
+                        APPLICATIONS_STATUS,
 
-                        (SELECT EDUCATION_APPLICATIONSTATUS.APPLICATION_ID AS "application_id",
-                                MAX(EDUCATION_APPLICATIONSTATUS.CREATED_AT) AS "created_at"
-                            FROM EDUCATION_APPLICATIONSTATUS
-                            GROUP BY EDUCATION_APPLICATIONSTATUS.APPLICATION_ID) AS T2
-                    WHERE EDUCATION_APPLICATIONSTATUS.APPLICATION_ID = T2.APPLICATION_ID
-                        AND EDUCATION_APPLICATIONSTATUS.CREATED_AT = T2.CREATED_AT
-                        AND EDUCATION_APPLICATIONSTATUS.STATUS_ID = EDUCATION_STATUS.ID
-                    ORDER BY EDUCATION_STATUS.NAME desc
+                        (SELECT APPLICATIONS_APPLICATIONSTATUS.APPLICATION_ID AS "application_id",
+                                MAX(APPLICATIONS_APPLICATIONSTATUS.CREATED_AT) AS "created_at"
+                            FROM APPLICATIONS_APPLICATIONSTATUS
+                            GROUP BY APPLICATIONS_APPLICATIONSTATUS.APPLICATION_ID) AS T2
+                    WHERE APPLICATIONS_APPLICATIONSTATUS.APPLICATION_ID = T2.APPLICATION_ID
+                        AND APPLICATIONS_APPLICATIONSTATUS.CREATED_AT = T2.CREATED_AT
+                        AND APPLICATIONS_APPLICATIONSTATUS.STATUS_ID = APPLICATIONS_STATUS.ID
+                    ORDER BY APPLICATIONS_STATUS.NAME desc
                     """
             queryset = Application.objects.raw(query)
         elif sorted_by is not None:
@@ -61,7 +59,7 @@ class ApplicationListView(TemplateView):
 class ApplicationEditView(TemplateView):
     """Формирование контекста для отображения шаблона редактирования заявки"""
 
-    template_name = 'education/application_update.html'
+    template_name = 'applications/application_update.html'
 
     def get_context_data(self, **kwargs):
         context = super(ApplicationEditView, self).get_context_data(**kwargs)
@@ -158,4 +156,4 @@ class DeleteApplicationView(View):
 
 class ApplicationDetailView(DetailView):
     model = Application
-    template_name = "education/application_detail.html"
+    template_name = 'applications/application_detail.html'
