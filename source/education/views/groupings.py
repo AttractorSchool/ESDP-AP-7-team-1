@@ -2,9 +2,10 @@
 from django.urls import reverse
 from django.views.generic import CreateView, ListView, UpdateView, View
 
+from accounts.models import Account
+
 from education.forms.grouping_form import GroupingForm
 from education.models import Grouping, TeacherGrouping
-from accounts.models import Account
 
 
 class GroupingListView(ListView):
@@ -33,7 +34,8 @@ class GroupingEditView(UpdateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        teachers = Account.objects.all()
+        subject_name: str = self.get_object().subject.name
+        teachers = Account.objects.filter(groups__name='teacher', teach_subjects__name=subject_name)
         context['teachers'] = teachers
 
         return context

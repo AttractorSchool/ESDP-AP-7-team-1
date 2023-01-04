@@ -20,6 +20,7 @@ class Account(AbstractUser):
         null=False,
         blank=False,
     )
+    teach_subjects = models.ManyToManyField(to='education.Subject', related_name='teachers')
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []

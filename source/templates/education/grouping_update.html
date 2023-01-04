@@ -9,7 +9,18 @@
 
 
 {% block content %}
-    <p class="card-title">Редактирование группы "{{ grouping.name }}"</p>
+
+<div class="d-flex justify-content-between mb-3">
+    <div>
+        <h5>Редактирование группы
+            <strong>{{ grouping.name }}</strong></h5>
+    </div>
+    <div>
+    <p>Текущий преподаватель группы: <strong>{{grouping.teacher_groupings.last.teacher}}</strong></p>
+        <p>Начал преподавать: {{grouping.teacher_groupings.last.started_at}}</p>   
+    </div>
+</div>
+
     <form class="forms-sample" action="{% url 'grouping_update' grouping.pk %}" method="POST">
         {% csrf_token %}
 {#        <div class="form-group">#}
@@ -35,16 +46,17 @@
         <button type="submit" class="btn btn-inverse-primary mr-2 mt-3">Сохранить</button>
         <a href="{% url 'groupings' %}" class="btn btn-inverse-dark mt-3">Отмена</a>
     </form>
-    Текущий преподаватель: {{grouping.teacher_groupings.last.teacher}}<br>
-    Начал преподавать: {{grouping.teacher_groupings.last.started_at}}
+    <hr>
+    <center><strong>Открепить преподавателя</strong></center>
 
     <form class="forms-sample" action="{% url 'remove_teacher_from_grouping' grouping.pk %}" method="POST">
         {% csrf_token %}
         Выберите дату окончания преподавания:<br>
         <input type="date" name="finished_at" required><br>
-        <button type="submit" class="btn btn-inverse-primary mr-2 mt-3">Сохранить</button>
+        <button type="submit" class="btn btn-inverse-primary mr-2 mt-3">Открепить</button>
     </form>
-
+    <hr>
+    <center><strong>Прикрепить преподавателя</strong></center>
     <form class="forms-sample" action="{% url 'add_teacher_to_grouping' grouping.pk %}" method="POST">
         {% csrf_token %}
         Выберите преподавателя:
