@@ -21,6 +21,15 @@ class Account(AbstractUser):
         blank=False,
     )
     teach_subjects = models.ManyToManyField(to='education.Subject', related_name='teachers')
+    application = models.ForeignKey(
+        verbose_name="Заявка",
+        to='applications.Application',
+        related_name='accounts',
+        on_delete=models.RESTRICT,
+        null=True,
+        blank=True,
+    )
+
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []

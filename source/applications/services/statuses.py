@@ -1,16 +1,17 @@
 from django.shortcuts import get_object_or_404
 
+from accounts.models import Account
+
 from applications.models import Application, ApplicationStatus, Status
 
 
-def set_application_status(application, status_name, author):
+def set_application_status(application: Application, status_name: str, author: Account):
 
-    status: Status = get_object_or_404(Status, name=status_name)
-    last_status: Status = application.application_statuses.last()
+    new_status: Status = get_object_or_404(Status, name=status_name)
+    current_status: Status = application.application_statuses.last().status
 
-    if last_status != status:
-        application_status = ApplicationStatus(application=application, status=status, author=author)
-        application_status.save()
+    if current_status != new_status:
+        ApplicationStatus.objects.create(application=application, status=new_status, author=author)
 
 
 def get_button_status(application: Application) -> dict[str, str]:

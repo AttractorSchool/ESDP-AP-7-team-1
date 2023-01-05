@@ -83,10 +83,10 @@ class Application(models.Model):
         null=True,
         blank=True,
     )
-    student = models.OneToOneField(to='accounts.Account', on_delete=models.RESTRICT,
-                                   related_name='application_student', blank=True, null=True)
-    parent = models.OneToOneField(to='accounts.Account', on_delete=models.SET_NULL,
-                                  related_name='application_parent', blank=True, null=True)
+    # student = models.OneToOneField(to='accounts.Account', on_delete=models.RESTRICT,
+    #                                related_name='application_student', blank=True, null=True)
+    # parent = models.OneToOneField(to='accounts.Account', on_delete=models.SET_NULL,
+    #                               related_name='application_parent', blank=True, null=True)
 
     def __str__(self):
         return f'Заявка от: {self.applicant_name}'

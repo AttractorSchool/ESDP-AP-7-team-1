@@ -204,7 +204,7 @@
     $('.create_student_by_application').on('click', function (e) {
          const applicationId = $(this).data('application-id')
          $.ajax({
-            url: `/api/create-user-by-application/${applicationId}`,
+            url: `/api/create-student-by-application/${applicationId}`,
             type: "POST",
             data: {
                 csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
