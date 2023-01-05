@@ -21,6 +21,9 @@
 
     <!-- форма редактирования общих сведений заявки -->
     <div>
+        {% if duplicate_email %}
+            email существует в базе, смените его
+        {% endif %}
         <form class="forms-sample" action="{% url 'application_custom_update' application.pk %}" method="post" enctype="multipart/form-data">
             <div class="form-group">
                 {% csrf_token %}
