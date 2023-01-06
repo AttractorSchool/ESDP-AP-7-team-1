@@ -24,7 +24,8 @@
         {% if duplicate_email %}
             email существует в базе, смените его
         {% endif %}
-        <form class="forms-sample" action="{% url 'application_custom_update' application.pk %}" method="post" enctype="multipart/form-data">
+        <form class="forms-sample" action="{% url 'application_custom_update' application.pk %}" method="post"
+              enctype="multipart/form-data">
             <div class="form-group">
                 {% csrf_token %}
 
@@ -34,37 +35,40 @@
             <div class="d-flex justify-content-between">
                 <div>
                     <input type="submit" style="background:linear-gradient(90deg, #c352eb, #8adabd)"
-                        class="left btn  border-0 btn-primary font-weight-medium auth-form-btn"
-                        value="Сохранить">
+                           class="left btn  border-0 btn-primary font-weight-medium auth-form-btn"
+                           value="Сохранить">
                 </div>
             </div>
         </form>
     </div>
-    <hr width="100%" color="black" height="5%" />
+    <hr width="100%" color="black" height="5%"/>
     <!-- форма просмотра и отправки договора -->
     <div>
-    <div style="display:flex">
-        <form class="forms-sample" action="{% url 'open_contract' application.pk %}" method="post" enctype="multipart/form-data">
-            <div class="form-group">
-                {% csrf_token %}
-                <div>
-                    <input type="submit" style="background:linear-gradient(90deg, #c352eb, #8adabd)"
-                        class="left btn  border-0 btn-primary font-weight-medium auth-form-btn"
-                        value="Открыть договор" {{button_contract}}>
+        <div style="display:flex">
+            <form class="forms-sample" id="send-application" action="{% url 'open_contract' application.pk %}" method="post"
+                  enctype="multipart/form-data">
+                <div class="form-group">
+                    {% csrf_token %}
+                    <div>
+                        <input type="submit" style="background:linear-gradient(90deg, #c352eb, #8adabd)"
+                               class="left btn  border-0 btn-primary font-weight-medium auth-form-btn"
+                               value="Открыть договор" {{ button_contract }}>
 
+                    </div>
                 </div>
-            </div>
-        </form>
+            </form>
+            <div>
+                <input id="send-contract" type="submit"
+                       style="background:linear-gradient(90deg, #c352eb, #8adabd); margin-left:1em"
+                       class="left btn  border-0 btn-primary font-weight-medium auth-form-btn"
+                       value="Отправить договор на email" {{ button_contract }} data-pk={{ application.pk }}>
                 <div>
-                    <input id="send-contract" type="submit" style="background:linear-gradient(90deg, #c352eb, #8adabd); margin-left:1em"
-                        class="left btn  border-0 btn-primary font-weight-medium auth-form-btn"
-                        value="Отправить договор на email" {{button_contract}}  data-pk={{application.pk}}>
-                        <div>
                 </div>
             </div>
         </div>
         <!-- форма прикрепления договора -->
-        <form class="forms-sample" action="{% url 'application_contract_update' application.pk %}" method="post" enctype="multipart/form-data">
+        <form class="forms-sample" action="{% url 'application_contract_update' application.pk %}" method="post"
+              enctype="multipart/form-data">
             <div class="form-group">
                 {% csrf_token %}
 
@@ -73,17 +77,18 @@
             </div>
             <div>
                 <input type="submit" style="background:linear-gradient(90deg, #c352eb, #8adabd)"
-                    class="left btn  border-0 btn-primary font-weight-medium auth-form-btn"
-                    value="Сохранить" {{button_contract}}>
+                       class="left btn  border-0 btn-primary font-weight-medium auth-form-btn"
+                       value="Сохранить" {{ button_contract }}>
             </div>
         </form>
     </div>
 
-    <hr width="100%" color="black" height="5%" />
+    <hr width="100%" color="black" height="5%"/>
 
 
     <!-- форма оплаты -->
-    <form class="forms-sample" action="{% url 'application_payed_update' application.pk %}" method="post" enctype="multipart/form-data">
+    <form class="forms-sample" action="{% url 'application_payed_update' application.pk %}" method="post"
+          enctype="multipart/form-data">
         <div class="form-group">
             {% csrf_token %}
 
@@ -92,29 +97,30 @@
         </div>
         <div>
             <input type="submit" style="background:linear-gradient(90deg, #c352eb, #8adabd)"
-                class="left btn  border-0 btn-primary font-weight-medium auth-form-btn"
-                value="Сохранить" {{button_payed}}>
+                   class="left btn  border-0 btn-primary font-weight-medium auth-form-btn"
+                   value="Сохранить" {{ button_payed }}>
         </div>
     </form>
-    <hr width="100%" color="black" height="5%" />
+    <hr width="100%" color="black" height="5%"/>
 
 
     <div class="d-flex justify-content-between">
 
         {% if application.application_statuses.last.status.name == 'Оплачена' %}
-        <div>
-            <input type="submit" style="background:linear-gradient(90deg, #c352eb, #8adabd)"
-                class="left btn  border-0 btn-primary font-weight-medium auth-form-btn create_student_by_application"
-                value="Создать ученика" {{button_user}} data-application-id="{{ application.pk }}">
+            <div>
+                <input type="submit" style="background:linear-gradient(90deg, #c352eb, #8adabd)"
+                       class="left btn  border-0 btn-primary font-weight-medium auth-form-btn create_student_by_application"
+                       value="Создать ученика" {{ button_user }} data-application-id="{{ application.pk }}">
 
-            <input type="submit" style="background:linear-gradient(90deg, #c352eb, #8adabd)"
-                class="left btn  border-0 btn-primary font-weight-medium auth-form-btn"
-                value="Создать родителя" {{button_user}}>
-        </div>
+                <input type="submit" style="background:linear-gradient(90deg, #c352eb, #8adabd)"
+                       class="left btn  border-0 btn-primary font-weight-medium auth-form-btn"
+                       value="Создать родителя" {{ button_user }}>
+            </div>
         {% endif %}
 
         <!-- Button trigger modal -->
-        <input type="submit" class="left btn  border-0 btn-primary font-weight-medium auth-form-btn" value="Отклонить заявку" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <input type="submit" class="left btn  border-0 btn-primary font-weight-medium auth-form-btn"
+               value="Отклонить заявку" data-bs-toggle="modal" data-bs-target="#exampleModal">
 
     </div>
 
@@ -123,27 +129,33 @@
     <!-- модальное окно отклонить заявку -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Отклонить заявку</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Отклонить заявку</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form class="forms-sample" action="{% url 'application_reject' application.pk %}" method="post"
+                          enctype="multipart/form-data">
+                        <div class="form-group">
+                            {% csrf_token %}
+
+
+                            {% bootstrap_form application_reject_form %}
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button"
+                                    class="left btn  border-0 btn-primary font-weight-medium auth-form-btn"
+                                    data-bs-dismiss="modal">Закрыть
+                            </button>
+                            <button type="submit"
+                                    class="left btn  border-0 btn-primary font-weight-medium auth-form-btn">Сохранить
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
             </div>
-            <div class="modal-body">
-                <form class="forms-sample" action="{% url 'application_reject' application.pk %}" method="post" enctype="multipart/form-data">
-                    <div class="form-group">
-                        {% csrf_token %}
-
-
-                        {% bootstrap_form application_reject_form %}
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="left btn  border-0 btn-primary font-weight-medium auth-form-btn" data-bs-dismiss="modal">Закрыть</button>
-                        <button type="submit" class="left btn  border-0 btn-primary font-weight-medium auth-form-btn">Сохранить</button>
-                    </div>
-                </form>
-            </div>
-
-        </div>
         </div>
     </div>
 
@@ -154,19 +166,19 @@
     <script>
         let checked_first = $('input[class=subject-check]:checked').length
         $.ajax({
-                url: `/api/get_sum`,
-                type: "POST",
-                data: JSON.stringify({
-                    'package': checked_first
-                }),
-                success: function (data) {
-                    console.log(data);
-                    $('#id_sum').val(data.sum);
-                },
-                error: function (data) {
-                    $('#id_sum').val(0);
-                    console.log('error');
-                }
+            url: `/api/get_sum`,
+            type: "POST",
+            data: JSON.stringify({
+                'package': checked_first
+            }),
+            success: function (data) {
+                console.log(data);
+                $('#id_sum').val(data.sum);
+            },
+            error: function (data) {
+                $('#id_sum').val(0);
+                console.log('error');
+            }
         });
         $('input[type=checkbox]').on('change', function (e) {
             if ($('input[class=subject-check]:checked').length > 4) {
@@ -204,36 +216,58 @@
         });
     </script>
     <script>
-    $('.create_student_by_application').on('click', function (e) {
-         const applicationId = $(this).data('application-id')
-         $.ajax({
-            url: `/api/create-student-by-application/${applicationId}`,
-            type: "POST",
-            data: {
-                csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
-            },
-            success: function (data) {
-                if (data.email) {
-                    console.log(data.email)
-                    alert('Студент с такой почтой уже существует')
-                } else if (data.phone){
-                    console.log(data.phone)
-                    alert('Студент с таким номером телефона уже существует')
-                } else if (data.success) {
-                    console.log(data.success)
-                    alert('Студент добавлен')
-                }
+        $('.create_student_by_application').on('click', function (e) {
+            const applicationId = $(this).data('application-id')
+            $.ajax({
+                url: `/api/create-student-by-application/${applicationId}`,
+                type: "POST",
+                data: {
+                    csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
+                },
+                success: function (data) {
+                    if (data.email) {
+                        console.log(data.email)
+                        $('#content').append(`<div class="alert alert-warning alert-dismissible fade show mt-2" role="alert"  id="id_alert">
+                          <strong>Студент с такой почтой уже существует</strong>
+                          <button type="button" class="btn-close pb-2" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>`)
+                        setInterval(function () {
+                                    $(`#id_alert`).remove()
+                                }, 5000);
+                    }
+                        {#alert('Студент с такой почтой уже существует')#}
+                     else if (data.phone) {
+                        console.log(data.phone)
+                        $('#content').append(`<div class="alert alert-warning alert-dismissible fade show mt-2" role="alert"  id="id_alert">
+                          <strong>Студент с таким номером телефона уже существует</strong>
+                          <button type="button" class="btn-close pb-2" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>`)
+                        setInterval(function () {
+                                    $(`#id_alert`).remove()
+                                }, 5000);
+                        {#alert('Студент с таким номером телефона уже существует')#}
+                    } else if (data.success) {
+                        console.log(data.success)
+                        {#alert('Студент добавлен')#}
+                        $('#content').append(`<div class="alert alert-success alert-dismissible fade show mt-2" role="alert"  id="id_alert">
+                          <strong>Студент добавлен</strong>
+                          <button type="button" class="btn-close pb-2" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>`)
+                        setInterval(function () {
+                                    $(`#id_alert`).remove()
+                                }, 5000);
+                    }
 
-            },
-            error: function (data) {
-                console.log('error')
-                alert('Студент уже создан')
-            }
-        });
-    })
+                },
+                error: function (data) {
+                    console.log('error')
+                    alert('Студент уже создан')
+                }
+            });
+        })
     </script>
     <script>
-        $('#send-contract').on('click',function (event) {
+        $('#send-contract').on('click', function (event) {
             let appId = $(this).attr("data-pk")
             $.ajax({
                 url: `/send_contract/${appId}`,
@@ -241,8 +275,15 @@
                 data: {
                     csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
                 },
-                success: function(data) {
-                    alert(data.answer)
+                success: function (data) {
+                    {#alert(data.answer)#}
+                    $('#send-application').append(`<div class="alert alert-success alert-dismissible fade show mt-2" role="alert"  id="id_alert">
+                          <strong>${data.answer}</strong>
+                          <button type="button" class="btn-close pb-2" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>`)
+                        setInterval(function () {
+                                    $(`#id_alert`).remove()
+                                }, 5000);
                     console.log(data)
                 }
             });
@@ -252,5 +293,7 @@
 {% endblock %}
 
 {% block js %}
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
 {% endblock %}
