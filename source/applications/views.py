@@ -79,7 +79,7 @@ class ApplicationEditView(TemplateView):
 
         context.update(button_status)
         current_status_name: str = application.application_statuses.last().status.name
-        if current_status_name == 'Завершена':
+        if current_status_name != 'Завершена':
             duplicate_email: bool = Account.objects.filter(email=application.email).exists()
             context['duplicate_email'] = duplicate_email
 
