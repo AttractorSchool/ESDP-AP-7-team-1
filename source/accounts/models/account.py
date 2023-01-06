@@ -20,7 +20,7 @@ class Account(AbstractUser):
         null=False,
         blank=False,
     )
-    teach_subjects = models.ManyToManyField(to='education.Subject', related_name='teachers')
+    teach_subjects = models.ManyToManyField(to='education.Subject', related_name='teachers', blank=True)
     application = models.ForeignKey(
         verbose_name="Заявка",
         to='applications.Application',
@@ -29,7 +29,6 @@ class Account(AbstractUser):
         null=True,
         blank=True,
     )
-
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []

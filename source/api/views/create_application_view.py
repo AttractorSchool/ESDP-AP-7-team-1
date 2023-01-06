@@ -20,23 +20,28 @@ class AddApplicationView(View):
             name = application.get('name')
             subjects = application.get('subjects')
             if email == '':
-                data['success'] = 'Укажите почту'
+                data['error'] = 'Укажите почту'
+                data['id'] = 'email_error'
             else:
                 regex = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
                 if re.fullmatch(regex, email):
                     if phone == '':
-                        data['success'] = 'Укажите корректный телефон'
+                        data['error'] = 'Укажите корректный телефон'
+                        data['id'] = 'phone_error'
                     else:
                         check_number = phonenumbers.parse(phone, "KZ")
                         if phonenumbers.is_valid_number(check_number):
                             if name == '':
-                                data['success'] = 'Укажите имя'
+                                data['error'] = 'Укажите имя'
+                                data['id'] = 'name_error'
                             else:
                                 if surname == '':
-                                    data['success'] = 'Укажите фамилию'
+                                    data['error'] = 'Укажите фамилию'
+                                    data['id'] = 'surname_error'
                                 else:
                                     if len(subjects) == 0:
-                                        data['success'] = 'Выберете предмет'
+                                        data['error'] = 'Выберете предмет'
+                                        data['id'] = 'subject_error'
                                     else:
                                         application_create = Application.objects.create(applicant_name=name,
                                                                                         applicant_surname=surname,

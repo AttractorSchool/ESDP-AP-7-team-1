@@ -1,3 +1,4 @@
+from django.contrib.auth.models import Group
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404
 from django.views import View
@@ -24,7 +25,8 @@ class CreateStudent(View):
                                          application=application)
         student.set_password('1234')
         student.save()
-        student.groups.add(2)
+        group = Group.objects.get(name='student')
+        student.groups.add(group)
         set_application_status(application=application, status_name='Завершена', author=request.user)
         data['success'] = 'Студент создан'
         return JsonResponse(data)
