@@ -14,7 +14,6 @@ class DiscountListView(ListView):
         return Discount.objects.filter(is_deleted=False).order_by('pk')
 
 
-
 class DiscountAddView(CreateView):
     template_name = 'education/discount_add.html'
     form_class = DiscountForm
@@ -22,7 +21,6 @@ class DiscountAddView(CreateView):
 
     def get_success_url(self):
         return reverse('discounts')
-
 
 
 class DiscountEditView(UpdateView):

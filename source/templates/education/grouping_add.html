@@ -13,6 +13,6 @@
     {% csrf_token %}
     {% bootstrap_form form %}
     <button type="submit" class="btn btn-inverse-primary mr-2 mt-3">Сохранить</button>
-    <a href="" class="btn btn-inverse-dark mt-3">Отмена</a>
+    <a href="{% url 'groupings' %}" class="btn btn-inverse-dark mt-3">Отмена</a>
   </form>
 {% endblock %}

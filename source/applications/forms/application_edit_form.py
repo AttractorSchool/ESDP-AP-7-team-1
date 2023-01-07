@@ -17,7 +17,8 @@ class DateInput(forms.DateInput):
 
 class ApplicationCustomEditForm(forms.ModelForm):
     """Форма редактирования общих данных заявки"""
-    subjects = forms.ModelMultipleChoiceField(label='Предметы к обучению', queryset=Subject.objects.all(),
+    subjects = forms.ModelMultipleChoiceField(label='Предметы к обучению',
+                                              queryset=Subject.objects.filter(is_deleted=False),
                                               widget=forms.CheckboxSelectMultiple(
                                                   attrs={
                                                       'class': 'subject-check',
@@ -33,8 +34,7 @@ class ApplicationCustomEditForm(forms.ModelForm):
     shift = forms.ChoiceField(label='Смена', choices=SHIFTS, required=False, widget=forms.Select)
     lesson_time = forms.ChoiceField(label='Желательное время', choices=LESSONS_TIME, required=False,
                                     widget=forms.Select)
-    birth_date = forms.DateField(widget=DateInput(format='%Y-%m-%d'), required=False, label='День рождения')
-
+    birth_date = forms.DateField(widget=DateInput(format='%Y-%m-%d'), required=False, label='Дата рождения')
 
     class Meta:
         model = Application

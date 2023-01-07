@@ -8,7 +8,8 @@ from education.models import Subject
 
 
 class ApplicationSendForm(forms.ModelForm):
-    subjects = forms.ModelMultipleChoiceField(label='Желаемые предметы', queryset=Subject.objects.all(),
+    subjects = forms.ModelMultipleChoiceField(label='Желаемые предметы',
+                                              queryset=Subject.objects.filter(is_deleted=False),
                                               widget=forms.CheckboxSelectMultiple(
                                                   attrs={
                                                       'class': 'subject-check',

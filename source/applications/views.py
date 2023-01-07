@@ -3,8 +3,6 @@ from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse_lazy
 from django.views.generic import DetailView, TemplateView, View
 
-from accounts.models import Account
-
 from applications.forms.application_edit_form import (
     ApplicationContractEditForm, ApplicationCustomEditForm,
     ApplicationPayedEditForm, ApplicationRejectForm)
@@ -78,10 +76,10 @@ class ApplicationEditView(TemplateView):
         button_status: dict[str, str] = get_button_status(application=application)
 
         context.update(button_status)
-        current_status_name: str = application.application_statuses.last().status.name
-        if current_status_name != 'Завершена':
-            duplicate_email: bool = Account.objects.filter(email=application.email).exists()
-            context['duplicate_email'] = duplicate_email
+        # current_status_name: str = application.application_statuses.last().status.name
+        # if current_status_name != 'Завершена':
+        #     duplicate_email: bool = Account.objects.filter(email=application.email).exists()
+        #     context['duplicate_email'] = duplicate_email
 
         return context
 
