@@ -88,8 +88,8 @@ class GroupingStatus(models.Model):
 
 class StudentGrouping(models.Model):
     """Привязка студента к группе"""
-    grouping = models.ForeignKey(to=Grouping, on_delete=models.CASCADE)
-    student = models.ForeignKey(to=Account, on_delete=models.CASCADE)
+    grouping = models.ForeignKey(to=Grouping, on_delete=models.CASCADE, related_name='student_grouping')
+    student = models.ForeignKey(to=Account, on_delete=models.CASCADE, related_name='student_grouping')
     enrolled_at = models.DateField(verbose_name='Дата зачисления', blank=True, null=True)
     expelled_at = models.DateField(verbose_name='Дата отчисления', blank=True, null=True)
     is_active = models.BooleanField(verbose_name='Студент в группе', default=True)

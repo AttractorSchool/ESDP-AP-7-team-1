@@ -14,15 +14,16 @@ class StudentScheduleView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         user = self.request.user
-        groupings = user.groupings.all()
+        student_groupings = user.student_grouping.filter(is_active=True).select_related('grouping')
         context['monday'] = []
         context['tuesday'] = []
         context['wednesday'] = []
         context['thursday'] = []
         context['friday'] = []
         context['saturday'] = []
-        for grouping in groupings:
-            for schedule in grouping.schedules.all():
+        for item in student_groupings:
+            grouping = item.grouping
+            for schedule in grouping.schedules.filter(is_deleted=False):
                 context[schedule.week_day].append((grouping, schedule.class_time))
         return context
 
