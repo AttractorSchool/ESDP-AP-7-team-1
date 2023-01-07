@@ -76,7 +76,7 @@ class ScheduleCreateView(CreateView):
                 my_dict[schedule.week_day][schedule.class_time.number_lesson] = schedule.grouping.name
             sum_dict[auditorium.name] = my_dict
         context['sum_dict'] = sum_dict
-        groupings = Grouping.objects.all()
+        groupings = Grouping.objects.filter(is_deleted=False)
         context['groupings'] = groupings
         return context
 
