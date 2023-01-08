@@ -183,7 +183,14 @@
         $('input[type=checkbox]').on('change', function (e) {
             if ($('input[class=subject-check]:checked').length > 4) {
                 $(this).prop('checked', false);
-                alert("Выберите не более 4-х предметов");
+                $('#id_subjects').append(`<div class="alert alert-warning alert-dismissible fade show mt-2" role="alert"  id="id_alert">
+                          <strong>Выберите не более 4-х предметов</strong>
+                          <button type="button" class="btn-close pb-2" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>`)
+                    setInterval(function () {
+                        $(`#id_alert`).remove()
+                    }, 5000);
+                {#alert("Выберите не более 4-х предметов");#}
             }
             let checked = $('input[class=subject-check]:checked').length;
             console.log(checked);
