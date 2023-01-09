@@ -19,10 +19,12 @@
         </div>
     </div>
 
-
     <!-- форма редактирования общих сведений заявки -->
     
-    <div class="col-lg-11 col-lg-offset-2">
+    <div id="all_information" class="col-lg-11 col-lg-offset-2">
+        {% if duplicate_email %}
+            email существует в базе, смените его
+        {% endif %}
         <form id="contact-form" method="post" action="{% url 'application_custom_update' application.pk %}" role="form">
             {% csrf_token %}
             <div class="messages"></div>
@@ -328,7 +330,14 @@
         $('input[type=checkbox]').on('change', function (e) {
             if ($('input[type=checkbox]:checked').length > 4) {
                 $(this).prop('checked', false);
-                alert("Выберите не более 4-х предметов");
+                $('#id_subjects').append(`<div class="alert alert-warning alert-dismissible fade show mt-2" role="alert"  id="id_alert">
+                          <strong>Выберите не более 4-х предметов</strong>
+                          <button type="button" class="btn-close pb-2" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>`)
+                    setInterval(function () {
+                        $(`#id_alert`).remove()
+                    }, 5000);
+                {#alert("Выберите не более 4-х предметов");#}
             }
             let checked = $('input[type=checkbox]:checked').length;
             console.log(checked);
@@ -433,6 +442,31 @@
                 }
             });
         });
+    </script>
+    <script>
+        $('#id_discount').change(function () {
+            let discount = $('#id_discount option:selected').val()
+            let subject = $('input[class=subject-check]:checked').length
+            $.ajax({
+                url: `/api/get_discount`,
+                type: "POST",
+                data: JSON.stringify({
+                    'discount': discount,
+                    'subject': subject
+                }),
+                success: function (data) {
+                    console.log(data);
+                    $('#id_sum').val(data.total);
+                    $('#all_information').append(`<div class="alert alert-success alert-dismissible fade show mt-2" role="alert"  id="id_alert">
+                          <strong>Скидка ${data.discount}%</strong>
+                          <button type="button" class="btn-close pb-2" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>`)
+                },
+                error: function (data) {
+                    console.log('error');
+                }
+            });
+        })
     </script>
 
 {% endblock %}
