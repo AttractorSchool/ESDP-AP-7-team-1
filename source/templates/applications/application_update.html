@@ -20,7 +20,7 @@
     </div>
 
     <!-- форма редактирования общих сведений заявки -->
-    <div>
+    <div id="all_information">
         {% if duplicate_email %}
             email существует в базе, смените его
         {% endif %}
@@ -295,6 +295,31 @@
                 }
             });
         });
+    </script>
+    <script>
+        $('#id_discount').change(function () {
+            let discount = $('#id_discount option:selected').val()
+            let subject = $('input[class=subject-check]:checked').length
+            $.ajax({
+                url: `/api/get_discount`,
+                type: "POST",
+                data: JSON.stringify({
+                    'discount': discount,
+                    'subject': subject
+                }),
+                success: function (data) {
+                    console.log(data);
+                    $('#id_sum').val(data.total);
+                    $('#all_information').append(`<div class="alert alert-success alert-dismissible fade show mt-2" role="alert"  id="id_alert">
+                          <strong>Скидка ${data.discount}%</strong>
+                          <button type="button" class="btn-close pb-2" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>`)
+                },
+                error: function (data) {
+                    console.log('error');
+                }
+            });
+        })
     </script>
 
 {% endblock %}
