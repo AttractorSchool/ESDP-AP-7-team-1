@@ -20,27 +20,173 @@
     </div>
 
     <!-- форма редактирования общих сведений заявки -->
-    <div id="all_information">
+    
+    <div id="all_information" class="col-lg-11 col-lg-offset-2">
         {% if duplicate_email %}
             email существует в базе, смените его
         {% endif %}
-        <form class="forms-sample" action="{% url 'application_custom_update' application.pk %}" method="post"
-              enctype="multipart/form-data">
-            <div class="form-group">
-                {% csrf_token %}
-
-                {% bootstrap_form application_custom_form %}
+        <form id="contact-form" method="post" action="{% url 'application_custom_update' application.pk %}" role="form">
+            {% csrf_token %}
+            <div class="messages"></div>
+            <div class="controls">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Имя ученика *</label>
+                        {{application_custom_form.applicant_name}}
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Фамилия ученика *</label>
+                        {{application_custom_form.applicant_surname}}
+                    </div>
+                </div>
             </div>
-
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Дата рождения *</label>
+                        {{application_custom_form.birth_date}}
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Пол *</label>
+                        {{application_custom_form.sex}}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Email *</label>
+                        {{application_custom_form.email}}
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Телефон</label>
+                        {{application_custom_form.phone}}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Номер школы</label>
+                        {{application_custom_form.school}}
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Номер класса</label>
+                        {{application_custom_form.class_number}}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Номер смены</label>
+                        {{application_custom_form.shift}}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Фамилия родителя</label>
+                        {{application_custom_form.parents_surname}}
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Имя родителя</label>
+                        {{application_custom_form.parents_name}}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>ИИН родителя</label>
+                        {{application_custom_form.parents_inn}}
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Email родителя</label>
+                        {{application_custom_form.parents_email}}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Адрес</label>
+                        {{application_custom_form.address}}
+                        {{application_custom_form.address.help_text}}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Желаемое время обучения</label>
+                        {{application_custom_form.lesson_time}}
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Email родителя</label>
+                        {{application_custom_form.parents_email}}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Льгота</label>
+                        {{application_custom_form.discount}}
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Сумма</label>
+                        {{application_custom_form.sum}}
+                    </div>
+                </div>
+            </div>
+            <label>Предметы к обучению</label>
+                <div class="col-md-12 form-group btn-group">
+                    <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                        <div class="form-group btn-group">
+                            <div role="group" aria-label="Basic checkbox toggle button group">
+                                <div role="group" class="label_parent">
+                                    <div class="subject-check">
+                                        {{application_custom_form.subjects}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>      
+        
             <div class="d-flex justify-content-between">
                 <div>
                     <input type="submit" style="background:linear-gradient(90deg, #c352eb, #8adabd)"
-                           class="left btn  border-0 btn-primary font-weight-medium auth-form-btn"
-                           value="Сохранить">
+                        class="left btn  border-0 btn-primary font-weight-medium auth-form-btn"
+                        value="Сохранить">
                 </div>
             </div>
+        
         </form>
-    </div>
+        
+    </div><!-- /.col-lg-8 col-lg-offset-2 -->
+
+
+
     <hr width="100%" color="black" height="5%"/>
     <!-- форма просмотра и отправки договора -->
     <div>
@@ -162,6 +308,7 @@
 
 
     <script src="{% static 'js/phone-mask.js' %}"></script>
+    <script src="{% static 'js/sudject_checkbox.js' %}"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script>
         let checked_first = $('input[class=subject-check]:checked').length
@@ -181,7 +328,7 @@
             }
         });
         $('input[type=checkbox]').on('change', function (e) {
-            if ($('input[class=subject-check]:checked').length > 4) {
+            if ($('input[type=checkbox]:checked').length > 4) {
                 $(this).prop('checked', false);
                 $('#id_subjects').append(`<div class="alert alert-warning alert-dismissible fade show mt-2" role="alert"  id="id_alert">
                           <strong>Выберите не более 4-х предметов</strong>
@@ -192,7 +339,7 @@
                     }, 5000);
                 {#alert("Выберите не более 4-х предметов");#}
             }
-            let checked = $('input[class=subject-check]:checked').length;
+            let checked = $('input[type=checkbox]:checked').length;
             console.log(checked);
             $.ajax({
                 url: `/api/get_sum`,
@@ -201,12 +348,12 @@
                     'package': checked
                 }),
                 success: function (data) {
-                    console.log(data);
+                    //console.log(data);
                     $('#id_sum').val(data.sum);
                 },
                 error: function (data) {
                     $('#id_sum').val(0);
-                    console.log('error');
+                    //console.log('error');
                 }
             });
         });
