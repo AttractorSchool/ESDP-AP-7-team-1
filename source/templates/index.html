@@ -100,14 +100,13 @@
                         console.log(`${data.error}`)
                         {#alert(`${data.success}`)#}
                         } else if (data.success) {
-                        history.go(0);
-                        $('#content').prepend(`<div class="alert alert-success alert-dismissible fade show" role="alert"  id="success_application">
+                        {#history.go(0);#}
+                        $('.forms-sample')[0].reset();
+                        $('#content').append(`<div class="alert alert-success alert-dismissible fade show" role="alert"  id="success_application">
   <strong>Заявка оставлена</strong>
   <button type="button" class="btn-close pb-2" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>`);
-                        setInterval(function () {
-                            $(`#success_application`).remove()
-                        }, 5000);
+
 
                     }
                 },
