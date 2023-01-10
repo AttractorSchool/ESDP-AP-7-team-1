@@ -1,4 +1,5 @@
 import datetime
+import tempfile
 
 from django.core.mail import EmailMessage
 from django.http import HttpResponse, JsonResponse
@@ -25,9 +26,8 @@ MONTH = [
 ]
 
 
-def render_pdf(request, pk):
+def render_pdf(request, app):
     """Формирование PDF Файла"""
-    app = Application.objects.get(pk=pk)
     cur_date = datetime.datetime.now()
     month = MONTH[cur_date.month-1]
     html_string = render_to_string('education/contract_template.html',
@@ -44,15 +44,21 @@ def render_pdf(request, pk):
 
 def open_contract_pdf(request, *args, **kwargs):
     app = Application.objects.get(pk=kwargs.get('pk'))
-    contract = render_pdf(request, app.pk)
-    response = HttpResponse(contract, content_type='application/pdf')
-    response['Content-Disposition'] = 'filename=contract.pdf'
+    contract = render_pdf(request, app)
+    response = HttpResponse(content_type='application/pdf')
+    response['Content-Disposition'] = 'attachment; filename=contract.pdf' 
+    response['Content-Transfer-Encoding'] = 'binary'
+    with tempfile.NamedTemporaryFile(delete=True) as output:
+        output.write(contract)
+        output.flush()
+        output = open(output.name, 'rb')
+        response.write(output.read())
     return response
 
 
 def send_contract(request, *args, **kwargs):
     app = Application.objects.get(pk=kwargs.get('pk'))
-    contract = render_pdf(request, app.pk)
+    contract = render_pdf(request, app)
     emails = [app.email, app.parents_email]
     for email in emails:
         email_msg = EmailMessage('Договор', body=contract, from_email='testeruly@yandex.kz', to=[email])
