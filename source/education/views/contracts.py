@@ -1,4 +1,5 @@
 import datetime
+import tempfile
 
 from django.core.mail import EmailMessage
 from django.http import HttpResponse, JsonResponse
@@ -44,9 +45,15 @@ def render_pdf(request, pk):
 
 def open_contract_pdf(request, *args, **kwargs):
     app = Application.objects.get(pk=kwargs.get('pk'))
-    contract = render_pdf(request, app.pk)
-    response = HttpResponse(contract, content_type='application/pdf')
-    response['Content-Disposition'] = 'filename=contract.pdf'
+    contract = render_pdf(request, app)
+    response = HttpResponse(content_type='application/pdf')
+    response['Content-Disposition'] = 'attachment; filename=contract.pdf' 
+    response['Content-Transfer-Encoding'] = 'binary'
+    with tempfile.NamedTemporaryFile(delete=True) as output:
+        output.write(contract)
+        output.flush()
+        output = open(output.name, 'rb')
+        response.write(output.read())
     return response
 
 
